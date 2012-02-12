@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>xmonad : building and installation</title>
+<link rel="stylesheet" href="main.css" type="text/css"/>
+</head>
+
+<body>
+
+<div id="content">
+
+    <table>
+    <tr >
+<td>
+            <a href="http://xmonad.org">
+            <img border="0" src="images/logo.png" alt="xmonad logo" />
+            </a>
+</td>
+        <td>
+        <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmonad</h2> 
+        <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;building and installation</h2> 
+        </td>
+    </tr>
+    </table>
+
+<table width="80%" align="center"> <tr><td>
+
+<div id="intro">
+<h3>Introduction</h3>
+</div>
+
+<p>
+xmonad is a <em>tiling window manager</em> for X11. This document 
+describes how to build and install xmonad.  For its features and use,
+see the <a href="./tour.html">guided tour</a>.
+</p>
+
+<div id="comp">
+<h3>Use a pre-built binary</h3>
+</div>
+
+<p>
+Your operating system distribution may have binary packages for xmonad
+already, or perhaps, many of their dependencies.  If at all possible,
+use one of these pre-built packages. See the <a href="index.html">main
+    page</a> for distributions that distribute xmonad binaries.
+</p>
+
+<p>
+Building xmonad from source is simple. It requires a basic Haskell
+toolchain, only.  We'll now walk through the complete list of toolchain dependencies.
+</p>
+
+<h3>Install GHC</h3>
+
+<p>
+To build xmonad, you need the GHC Haskell compiler installed.
+All common operating systems provide prebuilt binaries of GHC in their
+package systems.  For example, in Debian you would install GHC with:
+</p>
+
+<pre>
+    $ apt-get install ghc6
+</pre>
+
+<p>
+If your operating system's package system doesn't provide a binary
+version of GHC, you can find pre-built binaries at the <a
+    href="http://haskell.org/ghc">GHC home page</a>. 
+It shouldn't be necessary to compile GHC from source -- every common
+system has a pre-build binary version.
+</p>
+
+<p>
+We recommend the latest stable release of GHC.
+</p>
+
+<h3>X11 libraries</h3>
+
+<p>
+Since you're building an X application, you'll need the C X11
+library headers. On many platforms, these come pre-installed. For
+others, such as Debian, you can get them from your package manager:
+</p>
+
+<pre>
+    $ apt-get install libx11-dev
+</pre>
+
+<p>
+Typically you need the C libraries: libXinerama libXext libX11
+</p>
+
+<h3>Cabal</h3>
+
+<p>
+xmonad requires a recent version of Cabal, greater than or equal to
+1.2.0. If you're using GHC 6.8, then it comes bundled with the right
+version of Cabal by default. If you're using GHC 6.6.x, you'll need to
+build and <a
+    href="http://hackage.haskell.org/cgi-bin/hackage-scripts/package/Cabal"
+>install Cabal from Hackage</a> first, or from your package system.
+</p>
+
+<div id="cabal">
+<p>
+All Haskell packages build the same way, and Cabal is no exception.
+Download and unpack the .tar.gz library source, then issue the commands
+to configure, build and install the library:
+</p>
+</div>
+
+<pre>
+    $ runhaskell Setup.lhs configure --user --prefix=$HOME
+    $ runhaskell Setup.lhs build
+    $ runhaskell Setup.lhs install --user
+</pre>
+
+<h3>Haskell libraries</h3>
+
+<p>
+Once you've either installed GHC and Cabal or built them, you've now got
+a basic Haskell toolchain.  So now check you have the required Haskell
+libraries installed:
+</p>
+
+<ul>
+    <li><a href="http://hackage.haskell.org/cgi-bin/hackage-scripts/package/mtl">mtl</a>   </li>
+    <li><a href="http://hackage.haskell.org/cgi-bin/hackage-scripts/package/unix">unix</a>   </li>
+    <li><a href="http://hackage.haskell.org/cgi-bin/hackage-scripts/package/X11">X11</a>   </li>
+</ul>
+
+<p>
+You can check if you have these libraries with the command:
+</p>
+
+<pre>
+    $ ghc-pkg list
+</pre>
+
+<p>
+Which should list mtl, unix and perhaps the X11 library, amongst other
+things. If these libraries aren't available, you'll need to install them
+from <a href="http://hackage.haskell.org/">Hackage</a>, which is very
+simple, using <a href="#cabal">the instructions provided above</a>.
+</p>
+
+<h3>Build xmonad</h3>
+
+<p>
+xmonad is just another cabal package. Grab the latest release of xmonad from hackage.haskell.org, <a href="http://hackage.haskell.org/cgi-bin/hackage-scripts/package/xmonad">here</a>, and then build as for other cabal packages:
+</p>
+
+<pre>
+    $ runhaskell Setup.lhs configure --user --prefix=$HOME
+    $ runhaskell Setup.lhs build
+    $ runhaskell Setup.lhs install --user
+</pre>
+
+<p>
+And that's it. Compiled, and ready to go.
+</p>
+
+<h3>If things go wrong..</h3>
+
+<p>
+From  time to time people have build problems. Almost always this is due
+to missing dependencies. Sometimes it is due to problems with the tool
+chain. The most common problems building xmonad are documented in the
+<a href="http://haskell.org/haskellwiki/Xmonad/Frequently_asked_questions">FAQ</a>:
+</p>
+
+<ul>
+
+    <li> <a
+        href="http://haskell.org/haskellwiki/Xmonad/Frequently_asked_questions#What_build_dependencies_does_xmonad_have.3F">What build dependencies do I need?</a>
+    </li>
+
+    <li> <a
+        href="http://haskell.org/haskellwiki/Xmonad/Frequently_asked_questions#Can_I_install_without_root_permission.3F">Can I install without root permission?</a>
+    </li>
+
+    <li> <a
+        href="http://haskell.org/haskellwiki/Xmonad/Frequently_asked_questions#X11_fails_to_find_libX11_or_libXinerama">X11 fails to find libX11 or libXinerama</a>
+    </li>
+
+    <li> <a
+        href="http://haskell.org/haskellwiki/Xmonad/Frequently_asked_questions#xmonad_does_not_detect_my_multi-head_setup">xmonad does not detect my multi-head setup</a>
+    </li>
+
+    <li> <a 
+        href="http://haskell.org/haskellwiki/Xmonad/Frequently_asked_questions#Cabal:_Executable_stanza_starting_with_field_.27flag_small_base_description.27">Cabal: Executable stanza starting with field ... </a>
+    </li>
+
+</ul>
+
+<p>
+If this doesn't help, try asking on the IRC channel, #xmonad @
+freenode.org, or on the mailing list.
+</p>
+
+<h3>Building the extension library</h3>
+
+<p>
+xmonad 0.5 and later provide a library of extensions as a normal Haskell
+library. Download it from Hackage, using the links from <a
+    href="index.html">the front page</a>, build it as a for other
+Haskell libraries and install. You may then import modules from the
+extension library into your xmonad.hs configuration file.
+</p>
+
+<p>
+<a href="contrib.html">More information about extension and configuration...</a>
+</p>
+
+<h4>Grab dmenu and dzen</h4>
+
+<p>
+Extra programs that make life with xmonad more exciting: dmenu and dzen.
+dmenu provides a simple popup menu for launching programs, dzen provides
+customisable status bars. You can get them here:
+</p>
+
+<ul>
+    <li>
+    <a href="http://gotmor.googlepages.com/dzen">dzen</a>
+    </li>
+
+    <li>
+    <a href="http://www.suckless.org/programs/dmenu.html">dmenu</a>
+    </li>
+</ul>
+
+<div id="launch">
+<h4>Starting xmonad</h4>
+</div>
+
+<p>
+The simplest way to start xmonad is to modify your .xsession or .xinitrc
+and add the line:
+</p>
+<pre>
+    $HOME/bin/xmonad
+</pre>
+
+<p>
+as the last line of your file, commenting out any previous window
+manager. Now, when you log in to X, xmonad will start, (by default in
+tall tiling mode, with no status bar), and you'll be presented with an
+empty screen:
+</p>
+
+    <center><a href="./images/overview/large/empty.png"><img src="./images/overview/empty.png" alt="no windows open" /></a></center>
+
+<p>
+From here, and assuming you can find the <strong>mod1</strong> modifier
+key (usually 'alt'), you can launch clients and access the rest of the
+window manager's features. The <a
+    href="http://xmonad.org/manpage.html">basic key bindings</a> are:
+</p>
+
+<center>
+<table>
+
+    <tr> <td> <strong>mod-shift-return</strong>
+        </td>
+        <td> launch xterm
+        </td> </tr>
+
+    <tr> <td> <strong>mod-p</strong>
+        </td>
+        <td> launch dmenu
+        </td> </tr>
+
+        <tr> <td> <strong>mod-space</strong>
+        </td>
+        <td> cycle through available layout algorithms
+        </td> </tr>
+
+    <tr> <td> <strong>mod-c</strong>
+        </td>
+        <td> kill a client window
+        </td> </tr>
+
+    <tr> <td> <strong>mod-j</strong>
+        </td>
+        <td> move focus to the next window on the screen (also <strong>mod-tab</strong>)
+        </td> </tr>
+
+    <tr> <td> <strong>mod-k</strong>
+        </td>
+        <td> move focus to the previous window
+        </td> </tr>
+
+    <tr> <td> <strong>mod-return</strong>
+        </td>
+        <td> swap current window, with window in master pane
+        </td> </tr>
+
+    <tr> <td> <strong>mod-shift-j</strong>
+        </td>
+        <td> swap current window with its next neighbour
+        </td> </tr>
+
+    <tr> <td> <strong>mod-shift-k</strong>
+        </td>
+        <td> swap current window with its previous neighbour
+        </td> </tr>
+
+    <tr> <td> <strong>mod-h</strong>
+        </td>
+        <td> shrink the size of the master pane
+        </td> </tr>
+
+    <tr> <td> <strong>mod-l</strong>
+        </td>
+        <td> grow the size of the master pane
+        </td> </tr>
+
+    <tr> <td> <strong>mod-comma</strong>
+        </td>
+        <td> move clients into the master pane
+        </td> </tr>
+
+    <tr> <td> <strong>mod-period</strong>
+        </td>
+        <td> move clients out of the master pane
+        </td> </tr>
+
+    <tr> <td> <strong>mod-q</strong>
+        </td>
+        <td> dynamically reload xmonad, with a new configuration
+        </td> </tr>
+
+    <tr> <td> <strong>mod-shift-q</strong>
+        </td>
+        <td> quit xmonad
+        </td> </tr>
+
+    <tr> <td> <strong>mod-1 .. 9</strong>
+        </td>
+        <td> move to workspace ("virtual desktop"/"window group") number 'n'
+        </td> </tr>
+
+    <tr> <td> <strong>mod-shift- 1 .. 9</strong>
+        </td>
+        <td> move current client to workspace number 'n'
+        </td> </tr>
+
+    <tr> <td> <strong>mod- w,e,r</strong>
+        </td>
+        <td> move to Xinerama screens 1, 2 or 3.
+        </td> </tr>
+
+</table>
+</center>
+
+<p>
+To learn more about how to use these bindings to achieve your desired
+workspace configuration, see <a href="./tour.html">The Guided Tour</a>.
+An example of a fully set up workspace, with status bars:
+</p>
+
+    <center><a href="./images/overview/large/configured.png"><img src="./images/overview/configured.png" alt="after tweaking" /></a></center>
+
+<p>
+xmonad natively supports Xinerama, allowing several physical screens to
+show separate workspaces. You may run different status bars, and
+different layouts on each screen, and jump between them dynamically.
+For more on this, see the guided tour <a href="./tour.html#workspace">section on workspaces</a>.
+</p>
+
+
+<div id="cabal-install">
+<h3>Building xmonad with cabal-install</h3>
+</div>
+
+<p>
+Recent versions of <a href="http://haskell.org/cabal">Cabal</a> provide
+a tool, <a
+    href="http://hackage.haskell.org/cgi-bin/hackage-scripts/package/cabal-install-0.4.0">cabal-install</a>,
+which automates the building of Haskell libraries, including gathering
+all dependencies. Here's how to build xmonad automatically, using
+cabal-install:
+</p>
+
+<ul>
+    <li>Upgrade to the latest Cabal (currently 1.3 is only avaliable via darcs):
+    <ul>
+        <li> <code>darcs get --partial http://darcs.haskell.org/cabal</code>
+        </li>
+    </ul>
+    </li>
+
+    <li> Download and build cabal-install's dependencies <a
+        href="http://hackage.haskell.org/cgi-bin/hackage-scripts/package/cabal-install">listed
+        here</a>. Many of these should already be installed. 
+    </li>
+
+    <li> Download and build <a
+            href="http://hackage.haskell.org/cgi-bin/hackage-scripts/package/cabal-install">cabal-install</a>.
+        </li>
+</ul>
+
+<p>
+Once you have a working cabal-install, you can then simply install any
+Haskell package you find on <a
+    href="http://hackage.haskell.org">hackage.haskell.org</a>, such as
+xmonad:
+</p>
+
+<pre>
+    $ cabal install xmonad
+</pre>
+
+
+</td></tr></table>
+
+    </div>
+    <div id="footer">
+    <br />
+Sat Nov 24 17:57:20 PST 2007
+    </div>
+
+    </body>
+    </html>

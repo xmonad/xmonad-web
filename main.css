@@ -1,0 +1,56 @@
+/* Global */
+body { font-family: sans-serif; font-size: 90%; }
+img { border: none; }
+h1, h3, h4 { margin-bottom: 0; }
+h2 { margin-top: 0; }
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul { list-style: square; }
+ul, ol { padding-left: 0; margin-left: 20px; }
+dt em { font-weight: normal; font-style: italic; }
+dd { margin-left: 20px; color: #444; }
+em { font-style: normal; font-weight: bolder; }
+th { text-align: left; }
+blockquote { margin-left: 1em; }
+
+/* Layout */
+#main { margin: 0 5%; width: auto; }
+#logo { float: left; width: 47px; margin-right: 1em; }
+#search { float: right; width: 25em; text-align: right; }
+#col1, #col2 { float: left; width: 50%; }
+#col2 { margin-left: -1px; }
+.left-longer  #col1 { border-right: solid 1px #888; }
+.right-longer #col2 { border-left:  solid 1px #888; }
+.inner { margin: 0 1em; }
+
+/* Design */
+#header h2 { color: #888; font-size: 110%; }
+ul#menu { text-align: right; margin-left: 0; padding-bottom: .2em; border-bottom: solid 1px #888;
+          font-size: 110%; }
+ul#menu li { display: inline; margin: 0; margin-left: .2em; padding: .2em 0;
+             color: #222; }
+ul#menu li a { color: #222; padding: .2em;
+               border-width: 1px 0 0 1px; border-style: solid; border-color: #ccc; }
+ul#menu li a:hover, ul#menu li a.selected { text-decoration: none; background: #888; color: white; }
+
+#col1 h3.first, #col2 h3.first { margin-top: 0; }
+#col1 .first, #col2 .first { margin-top: .5em; }
+
+#thumbs, #videos { overflow: hidden; }
+#thumbs { height: 96px; }
+#thumbs img { vertical-align: middle; }
+#videos { height: 120px; }
+#videos .videobox { height: 120px; /* 96px img + 24px text */ float: left;
+                    text-align: left; font-size: 11px; line-height: 12px; padding-right: 10px; }
+p.more { margin-top: .5em; }
+
+.notify { background: #ddd; border: solid 1px #888; padding: 5px; }
+.notify * { margin-top: 0; margin-bottom: 0; }
+.notify ul { margin-top: .5em; }
+.distros { float: left; width: 25%; }
+.distros ul { margin-top: 0; margin-bottom: 0; }
+
+.committers { float: left; width: 50%; }
+.committers ul { margin-top: 0; }
+
+#badges img { vertical-align: middle; }
