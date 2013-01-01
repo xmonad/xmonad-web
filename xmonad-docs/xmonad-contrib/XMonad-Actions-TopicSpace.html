@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Actions.TopicSpace</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Actions-TopicSpace.html");};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Actions-TopicSpace.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.11: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Portability</th><td>unportable</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Maintainer</th><td>Nicolas Pouillard &lt;nicolas.pouillard@gmail.com&gt;</td></tr><tr><th>Safe Haskell</th><td>None</td></tr></table><p class="caption">XMonad.Actions.TopicSpace</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Overview
+</a></li><li><a href="#g:2">Usage
+</a></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>Turns your workspaces into a more topic oriented system.
+</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><span class="keyword">type</span> <a href="#t:Topic">Topic</a> = WorkspaceId</li><li class="src short"><span class="keyword">type</span> <a href="#t:Dir">Dir</a> = <a href="http://xmonad.org/xmonad-docs/base/System-IO.html#t:FilePath">FilePath</a></li><li class="src short"><span class="keyword">data</span>  <a href="#t:TopicConfig">TopicConfig</a>  = <a href="#v:TopicConfig">TopicConfig</a> {<ul class="subs"><li><a href="#v:topicDirs">topicDirs</a> :: <a href="http://xmonad.org/xmonad-docs/containers/Data-Map-Lazy.html#t:Map">Map</a> <a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a> <a href="XMonad-Actions-TopicSpace.html#t:Dir">Dir</a></li><li><a href="#v:topicActions">topicActions</a> :: <a href="http://xmonad.org/xmonad-docs/containers/Data-Map-Lazy.html#t:Map">Map</a> <a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a> (X ())</li><li><a href="#v:defaultTopicAction">defaultTopicAction</a> :: <a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a> -&gt; X ()</li><li><a href="#v:defaultTopic">defaultTopic</a> :: <a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a></li><li><a href="#v:maxTopicHistory">maxTopicHistory</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-Int.html#t:Int">Int</a></li></ul>}</li><li class="src short"><a href="#v:defaultTopicConfig">defaultTopicConfig</a> :: <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a></li><li class="src short"><a href="#v:getLastFocusedTopics">getLastFocusedTopics</a> :: X [<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>]</li><li class="src short"><a href="#v:setLastFocusedTopic">setLastFocusedTopic</a> :: <a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a> -&gt; (<a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-Bool.html#t:Bool">Bool</a>) -&gt; X ()</li><li class="src short"><a href="#v:reverseLastFocusedTopics">reverseLastFocusedTopics</a> :: X ()</li><li class="src short"><a href="#v:pprWindowSet">pprWindowSet</a> :: <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a> -&gt; <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a> -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li class="src short"><a href="#v:topicActionWithPrompt">topicActionWithPrompt</a> :: <a href="XMonad-Prompt.html#t:XPConfig">XPConfig</a> -&gt; <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a> -&gt; X ()</li><li class="src short"><a href="#v:topicAction">topicAction</a> :: <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a> -&gt; <a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a> -&gt; X ()</li><li class="src short"><a href="#v:currentTopicAction">currentTopicAction</a> :: <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a> -&gt; X ()</li><li class="src short"><a href="#v:switchTopic">switchTopic</a> :: <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a> -&gt; <a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a> -&gt; X ()</li><li class="src short"><a href="#v:switchNthLastFocused">switchNthLastFocused</a> :: <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-Int.html#t:Int">Int</a> -&gt; X ()</li><li class="src short"><a href="#v:shiftNthLastFocused">shiftNthLastFocused</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-Int.html#t:Int">Int</a> -&gt; X ()</li><li class="src short"><a href="#v:currentTopicDir">currentTopicDir</a> :: <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a> -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li class="src short"><a href="#v:checkTopicConfig">checkTopicConfig</a> :: [<a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a>] -&gt; <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/System-IO.html#t:IO">IO</a> ()</li><li class="src short"><a href="#v:-62--42--62-">(&gt;*&gt;)</a> :: <a href="http://xmonad.org/xmonad-docs/base/Control-Monad.html#t:Monad">Monad</a> m =&gt; m a -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-Int.html#t:Int">Int</a> -&gt; m ()</li></ul></div><div id="interface"><h1 id="g:1">Overview
+</h1><div class="doc"><p>This module allows to organize your workspaces on a precise topic basis.  So
+ instead of having a workspace called <code>work</code> you can setup one workspace per
+ task.  Here we call these workspaces, topics. The great thing with
+ topics is that one can attach a directory that makes sense to each
+ particular topic.  One can also attach an action which will be triggered
+ when switching to a topic that does not have any windows in it.  So you can
+ attach your mail client to the mail topic, some terminals in the right
+ directory to the xmonad topic... This package also provides a nice way to
+ display your topics in an historical way using a custom <code><a href="XMonad-Actions-TopicSpace.html#v:pprWindowSet">pprWindowSet</a></code>
+ function. You can also easily switch to recent topics using this history
+ of last focused topics.
+</p></div><h1 id="g:2">Usage
+</h1><div class="doc"><p>Here is an example of configuration using TopicSpace:
+</p><pre> -- The list of all topics/workspaces of your xmonad configuration.
+ -- The order is important, new topics must be inserted
+ -- at the end of the list if you want hot-restarting
+ -- to work.
+ myTopics :: [Topic]
+ myTopics =
+   [ &quot;dashboard&quot; -- the first one
+   , &quot;admin&quot;, &quot;build&quot;, &quot;cleaning&quot;, &quot;conf&quot;, &quot;darcs&quot;, &quot;haskell&quot;, &quot;irc&quot;
+   , &quot;mail&quot;, &quot;movie&quot;, &quot;music&quot;, &quot;talk&quot;, &quot;text&quot;, &quot;tools&quot;, &quot;web&quot;, &quot;xmonad&quot;
+   , &quot;yi&quot;, &quot;documents&quot;, &quot;twitter&quot;, &quot;pdf&quot;
+   ]
+
+ myTopicConfig :: TopicConfig
+ myTopicConfig = defaultTopicConfig
+   { topicDirs = M.fromList $
+       [ (&quot;conf&quot;, &quot;w/conf&quot;)
+       , (&quot;dashboard&quot;, &quot;Desktop&quot;)
+       , (&quot;yi&quot;, &quot;w/dev-haskell/yi&quot;)
+       , (&quot;darcs&quot;, &quot;w/dev-haskell/darcs&quot;)
+       , (&quot;haskell&quot;, &quot;w/dev-haskell&quot;)
+       , (&quot;xmonad&quot;, &quot;w/dev-haskell/xmonad&quot;)
+       , (&quot;tools&quot;, &quot;w/tools&quot;)
+       , (&quot;movie&quot;, &quot;Movies&quot;)
+       , (&quot;talk&quot;, &quot;w/talks&quot;)
+       , (&quot;music&quot;, &quot;Music&quot;)
+       , (&quot;documents&quot;, &quot;w/documents&quot;)
+       , (&quot;pdf&quot;, &quot;w/documents&quot;)
+       ]
+   , defaultTopicAction = const $ spawnShell &gt;*&gt; 3
+   , defaultTopic = &quot;dashboard&quot;
+   , topicActions = M.fromList $
+       [ (&quot;conf&quot;,       spawnShell &gt;&gt; spawnShellIn &quot;wd/ertai/private&quot;)
+       , (&quot;darcs&quot;,      spawnShell &gt;*&gt; 3)
+       , (&quot;yi&quot;,         spawnShell &gt;*&gt; 3)
+       , (&quot;haskell&quot;,    spawnShell &gt;*&gt; 2 &gt;&gt;
+                        spawnShellIn &quot;wd/dev-haskell/ghc&quot;)
+       , (&quot;xmonad&quot;,     spawnShellIn &quot;wd/x11-wm/xmonad&quot; &gt;&gt;
+                        spawnShellIn &quot;wd/x11-wm/xmonad/contrib&quot; &gt;&gt;
+                        spawnShellIn &quot;wd/x11-wm/xmonad/utils&quot; &gt;&gt;
+                        spawnShellIn &quot;.xmonad&quot; &gt;&gt;
+                        spawnShellIn &quot;.xmonad&quot;)
+       , (&quot;mail&quot;,       mailAction)
+       , (&quot;irc&quot;,        ssh somewhere)
+       , (&quot;admin&quot;,      ssh somewhere &gt;&gt;
+                        ssh nowhere)
+       , (&quot;dashboard&quot;,  spawnShell)
+       , (&quot;twitter&quot;,    spawnShell)
+       , (&quot;web&quot;,        spawn browserCmd)
+       , (&quot;movie&quot;,      spawnShell)
+       , (&quot;documents&quot;,  spawnShell &gt;*&gt; 2 &gt;&gt;
+                        spawnShellIn &quot;Documents&quot; &gt;*&gt; 2)
+       , (&quot;pdf&quot;,        spawn pdfViewerCmd)
+       ]
+   }
+
+ -- extend your keybindings
+ myKeys conf@XConfig{modMask=modm} =
+   [ ((modm              , xK_n     ), spawnShell) -- %! Launch terminal
+   , ((modm              , xK_a     ), currentTopicAction myTopicConfig)
+   , ((modm              , xK_g     ), promptedGoto)
+   , ((modm .|. shiftMask, xK_g     ), promptedShift)
+   {- more  keys ... -}
+   ]
+   ++
+   [ ((modm, k), switchNthLastFocused myTopicConfig i)
+   | (i, k) &lt;- zip [1..] workspaceKeys]
+
+ spawnShell :: X ()
+ spawnShell = currentTopicDir myTopicConfig &gt;&gt;= spawnShellIn
+
+ spawnShellIn :: Dir -&gt; X ()
+ spawnShellIn dir = spawn $ &quot;urxvt '(cd ''&quot; ++ dir ++ &quot;'' &amp;&amp; &quot; ++ myShell ++ &quot; )'&quot;
+
+ goto :: Topic -&gt; X ()
+ goto = switchTopic myTopicConfig
+
+ promptedGoto :: X ()
+ promptedGoto = workspacePrompt myXPConfig goto
+
+ promptedShift :: X ()
+ promptedShift = workspacePrompt myXPConfig $ windows . W.shift
+
+ myConfig = do
+     checkTopicConfig myTopics myTopicConfig
+     myLogHook &lt;- makeMyLogHook
+     return $ defaultConfig
+          { borderWidth = 1 -- Width of the window border in pixels.
+          , workspaces = myTopics
+          , layoutHook = myModifiers myLayout
+          , manageHook = myManageHook
+          , logHook = myLogHook
+          , handleEventHook = myHandleEventHook
+          , terminal = myTerminal -- The preferred terminal program.
+          , normalBorderColor = &quot;#3f3c6d&quot;
+          , focusedBorderColor = &quot;#4f66ff&quot;
+          , XMonad.modMask = mod1Mask
+          , keys = myKeys
+          , mouseBindings = myMouseBindings
+          }
+
+ main :: IO ()
+ main = xmonad =&lt;&lt; myConfig
+</pre></div><div class="top"><p class="src"><span class="keyword">type</span> <a name="t:Topic" class="def">Topic</a> = WorkspaceId<a href="src/XMonad-Actions-TopicSpace.html#Topic" class="link">Source</a></p><div class="doc"><p><code><a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a></code> is just an alias for <code>WorkspaceId</code>
+</p></div></div><div class="top"><p class="src"><span class="keyword">type</span> <a name="t:Dir" class="def">Dir</a> = <a href="http://xmonad.org/xmonad-docs/base/System-IO.html#t:FilePath">FilePath</a><a href="src/XMonad-Actions-TopicSpace.html#Dir" class="link">Source</a></p><div class="doc"><p><code><a href="XMonad-Actions-TopicSpace.html#t:Dir">Dir</a></code> is just an alias for <code><a href="http://xmonad.org/xmonad-docs/base/System-IO.html#t:FilePath">FilePath</a></code> but should points to a directory.
+</p></div></div><div class="top"><p class="src"><span class="keyword">data</span>  <a name="t:TopicConfig" class="def">TopicConfig</a>  <a href="src/XMonad-Actions-TopicSpace.html#TopicConfig" class="link">Source</a></p><div class="doc"><p>Here is the topic space configuration area.
+</p></div><div class="subs constructors"><p class="caption">Constructors</p><table><tr><td class="src"><a name="v:TopicConfig" class="def">TopicConfig</a></td><td class="doc empty">&nbsp;</td></tr><tr><td colspan="2"><div class="subs fields"><p class="caption">Fields</p><dl><dt class="src"><a name="v:topicDirs" class="def">topicDirs</a> :: <a href="http://xmonad.org/xmonad-docs/containers/Data-Map-Lazy.html#t:Map">Map</a> <a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a> <a href="XMonad-Actions-TopicSpace.html#t:Dir">Dir</a></dt><dd class="doc"><p>This mapping associate a directory to each topic.
+</p></dd><dt class="src"><a name="v:topicActions" class="def">topicActions</a> :: <a href="http://xmonad.org/xmonad-docs/containers/Data-Map-Lazy.html#t:Map">Map</a> <a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a> (X ())</dt><dd class="doc"><p>This mapping associate an action to trigger when
+ switching to a given topic which workspace is empty.
+</p></dd><dt class="src"><a name="v:defaultTopicAction" class="def">defaultTopicAction</a> :: <a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a> -&gt; X ()</dt><dd class="doc"><p>This is the default topic action.
+</p></dd><dt class="src"><a name="v:defaultTopic" class="def">defaultTopic</a> :: <a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a></dt><dd class="doc"><p>This is the default topic.
+</p></dd><dt class="src"><a name="v:maxTopicHistory" class="def">maxTopicHistory</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-Int.html#t:Int">Int</a></dt><dd class="doc"><p>This setups the maximum depth of topic history, usually
+ 10 is a good default since we can bind all of them using
+ numeric keypad.
+</p></dd></dl><div class="clear"></div></div></td></tr></table></div></div><div class="top"><p class="src"><a name="v:defaultTopicConfig" class="def">defaultTopicConfig</a> :: <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a><a href="src/XMonad-Actions-TopicSpace.html#defaultTopicConfig" class="link">Source</a></p></div><div class="top"><p class="src"><a name="v:getLastFocusedTopics" class="def">getLastFocusedTopics</a> :: X [<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>]<a href="src/XMonad-Actions-TopicSpace.html#getLastFocusedTopics" class="link">Source</a></p><div class="doc"><p>Returns the list of last focused workspaces the empty list otherwise.
+</p></div></div><div class="top"><p class="src"><a name="v:setLastFocusedTopic" class="def">setLastFocusedTopic</a> :: <a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a> -&gt; (<a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-Bool.html#t:Bool">Bool</a>) -&gt; X ()<a href="src/XMonad-Actions-TopicSpace.html#setLastFocusedTopic" class="link">Source</a></p><div class="doc"><p>Given a <code><a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a></code>, the last focused topic, and a predicate that will
+ select topics that one want to keep, this function will set the property
+ of last focused topics.
+</p></div></div><div class="top"><p class="src"><a name="v:reverseLastFocusedTopics" class="def">reverseLastFocusedTopics</a> :: X ()<a href="src/XMonad-Actions-TopicSpace.html#reverseLastFocusedTopics" class="link">Source</a></p><div class="doc"><p>Reverse the list of <a href="last focused topics.html">last focused topics</a>
+</p></div></div><div class="top"><p class="src"><a name="v:pprWindowSet" class="def">pprWindowSet</a> :: <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a> -&gt; <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a> -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a><a href="src/XMonad-Actions-TopicSpace.html#pprWindowSet" class="link">Source</a></p><div class="doc"><p>This function is a variant of <code><a href="XMonad-Hooks-DynamicLog.html#v:pprWindowSet">pprWindowSet</a></code> which takes a topic configuration
+ and a pretty-printing record <code><a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a></code>. It will show the list of topics sorted historically
+ and highlighting topics with urgent windows.
+</p></div></div><div class="top"><p class="src"><a name="v:topicActionWithPrompt" class="def">topicActionWithPrompt</a> :: <a href="XMonad-Prompt.html#t:XPConfig">XPConfig</a> -&gt; <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a> -&gt; X ()<a href="src/XMonad-Actions-TopicSpace.html#topicActionWithPrompt" class="link">Source</a></p><div class="doc"><p>Given a prompt configuration and a topic configuration, triggers the action associated with
+ the topic given in prompt.
+</p></div></div><div class="top"><p class="src"><a name="v:topicAction" class="def">topicAction</a> :: <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a> -&gt; <a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a> -&gt; X ()<a href="src/XMonad-Actions-TopicSpace.html#topicAction" class="link">Source</a></p><div class="doc"><p>Given a configuration and a topic, triggers the action associated with the given topic.
+</p></div></div><div class="top"><p class="src"><a name="v:currentTopicAction" class="def">currentTopicAction</a> :: <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a> -&gt; X ()<a href="src/XMonad-Actions-TopicSpace.html#currentTopicAction" class="link">Source</a></p><div class="doc"><p>Trigger the action associated with the current topic.
+</p></div></div><div class="top"><p class="src"><a name="v:switchTopic" class="def">switchTopic</a> :: <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a> -&gt; <a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a> -&gt; X ()<a href="src/XMonad-Actions-TopicSpace.html#switchTopic" class="link">Source</a></p><div class="doc"><p>Switch to the given topic.
+</p></div></div><div class="top"><p class="src"><a name="v:switchNthLastFocused" class="def">switchNthLastFocused</a> :: <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-Int.html#t:Int">Int</a> -&gt; X ()<a href="src/XMonad-Actions-TopicSpace.html#switchNthLastFocused" class="link">Source</a></p><div class="doc"><p>Switch to the Nth last focused topic or failback to the <code><a href="XMonad-Actions-TopicSpace.html#v:defaultTopic">defaultTopic</a></code>.
+</p></div></div><div class="top"><p class="src"><a name="v:shiftNthLastFocused" class="def">shiftNthLastFocused</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-Int.html#t:Int">Int</a> -&gt; X ()<a href="src/XMonad-Actions-TopicSpace.html#shiftNthLastFocused" class="link">Source</a></p><div class="doc"><p>Shift the focused window to the Nth last focused topic, or fallback to doing nothing.
+</p></div></div><div class="top"><p class="src"><a name="v:currentTopicDir" class="def">currentTopicDir</a> :: <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a> -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a><a href="src/XMonad-Actions-TopicSpace.html#currentTopicDir" class="link">Source</a></p><div class="doc"><p>Returns the directory associated with current topic returns the empty string otherwise.
+</p></div></div><div class="top"><p class="src"><a name="v:checkTopicConfig" class="def">checkTopicConfig</a> :: [<a href="XMonad-Actions-TopicSpace.html#t:Topic">Topic</a>] -&gt; <a href="XMonad-Actions-TopicSpace.html#t:TopicConfig">TopicConfig</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/System-IO.html#t:IO">IO</a> ()<a href="src/XMonad-Actions-TopicSpace.html#checkTopicConfig" class="link">Source</a></p><div class="doc"><p>Check the given topic configuration for duplicates topics or undefined topics.
+</p></div></div><div class="top"><p class="src"><a name="v:-62--42--62-" class="def">(&gt;*&gt;)</a> :: <a href="http://xmonad.org/xmonad-docs/base/Control-Monad.html#t:Monad">Monad</a> m =&gt; m a -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-Int.html#t:Int">Int</a> -&gt; m ()<a href="src/XMonad-Actions-TopicSpace.html#%3E%2A%3E" class="link">Source</a></p><div class="doc"><p>An alias for <code>flip replicateM_</code>
+</p></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.13.1</p></div></body></html>

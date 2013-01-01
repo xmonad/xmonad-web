@@ -22,11 +22,11 @@ gendocs () {
     rsync -a dist/doc/html/ $destdir
 }
 
-gendocs xmonad 0.10
+gendocs xmonad 0.11
 gendocs X11
 gendocs X11-xft
 # gendocs utf8-string
-gendocs xmonad-contrib 0.10 "with_xft"
+gendocs xmonad-contrib 0.11 "with_xft"
 
 rm -r $tmp
 

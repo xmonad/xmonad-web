@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Hooks.DebugKeyEvents</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Hooks-DebugKeyEvents.html");};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Hooks-DebugKeyEvents.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.11: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Portability</th><td>unportable</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Maintainer</th><td>Brandon S Allbery &lt;allbery.b@gmail.com&gt;</td></tr><tr><th>Safe Haskell</th><td>None</td></tr></table><p class="caption">XMonad.Hooks.DebugKeyEvents</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Usage
+</a></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>A debugging module to track key events, useful when you can't tell whether
+ xmonad is processing some or all key events.
+</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:debugKeyEvents">debugKeyEvents</a> :: <a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Xlib-Extras.html#t:Event">Event</a> -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a></li></ul></div><div id="interface"><h1 id="g:1">Usage
+</h1><div class="doc"><p>Add this to your handleEventHook to print received key events to the
+ log (the console if you use <code>startx</code>/<code>xinit</code>, otherwise usually
+ <code>~/.xsession-errors</code>).
+</p><pre>      , handleEventHook = debugKeyEvents
+</pre><p>If you already have a handleEventHook then you should append it:
+</p><pre>      , handleEventHook = ... &lt;+&gt; debugKeyEvents
+</pre><p>Logged key events look like:
+</p><pre>keycode 53 sym 120 (0x78, <a href="x.html">x</a>) mask 0x0 () clean 0x0 ()</pre><p>The <code>mask</code> and <code>clean</code> indicate the modifiers pressed along with
+ the key; <code>mask</code> is raw, and <code>clean</code> is what <code>xmonad</code> sees after
+ sanitizing it (removing <code>numberLockMask</code>, etc.)
+</p><p>For more detailed instructions on editing the logHook see:
+</p><p><a href="XMonad-Doc-Extending.html#The_log_hook_and_external_status_bars">XMonad.Doc.Extending</a>
+</p></div><div class="top"><p class="src"><a name="v:debugKeyEvents" class="def">debugKeyEvents</a> :: <a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Xlib-Extras.html#t:Event">Event</a> -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a><a href="src/XMonad-Hooks-DebugKeyEvents.html#debugKeyEvents" class="link">Source</a></p><div class="doc"><p>Print key events to stderr for debugging
+</p></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.13.1</p></div></body></html>

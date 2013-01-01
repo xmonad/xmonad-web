@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Hooks.DynamicLog</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Hooks-DynamicLog.html");};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Hooks-DynamicLog.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.11: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Portability</th><td>unportable</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Maintainer</th><td>Don Stewart &lt;dons@cse.unsw.edu.au&gt;</td></tr><tr><th>Safe Haskell</th><td>None</td></tr></table><p class="caption">XMonad.Hooks.DynamicLog</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Usage
+</a></li><li><a href="#g:2">Drop-in loggers
+</a></li><li><a href="#g:3">Build your own formatter
+</a></li><li><a href="#g:4">Example formatters
+</a></li><li><a href="#g:5">Formatting utilities
+</a></li><li><a href="#g:6">Internal formatting functions
+</a></li><li><a href="#g:7">To Do
+</a></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>xmonad calls the logHook with every internal state update, which is
+ useful for (among other things) outputting status information to an
+ external status bar program such as xmobar or dzen.  DynamicLog
+ provides several drop-in logHooks for this purpose, as well as
+ flexible tools for specifying your own formatting.
+</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:dzen">dzen</a> :: LayoutClass l <a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:Window">Window</a> =&gt; XConfig l -&gt; <a href="http://xmonad.org/xmonad-docs/base/System-IO.html#t:IO">IO</a> (XConfig (<a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> <a href="XMonad-Hooks-ManageDocks.html#t:AvoidStruts">AvoidStruts</a> l))</li><li class="src short"><a href="#v:xmobar">xmobar</a> :: LayoutClass l <a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:Window">Window</a> =&gt; XConfig l -&gt; <a href="http://xmonad.org/xmonad-docs/base/System-IO.html#t:IO">IO</a> (XConfig (<a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> <a href="XMonad-Hooks-ManageDocks.html#t:AvoidStruts">AvoidStruts</a> l))</li><li class="src short"><a href="#v:statusBar">statusBar</a> :: LayoutClass l <a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:Window">Window</a> =&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a> -&gt; (XConfig Layout -&gt; (<a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:KeyMask">KeyMask</a>, <a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:KeySym">KeySym</a>)) -&gt; XConfig l -&gt; <a href="http://xmonad.org/xmonad-docs/base/System-IO.html#t:IO">IO</a> (XConfig (<a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> <a href="XMonad-Hooks-ManageDocks.html#t:AvoidStruts">AvoidStruts</a> l))</li><li class="src short"><a href="#v:dynamicLog">dynamicLog</a> :: X ()</li><li class="src short"><a href="#v:dynamicLogXinerama">dynamicLogXinerama</a> :: X ()</li><li class="src short"><a href="#v:xmonadPropLog-39-">xmonadPropLog'</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; X ()</li><li class="src short"><a href="#v:xmonadPropLog">xmonadPropLog</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; X ()</li><li class="src short"><a href="#v:dynamicLogWithPP">dynamicLogWithPP</a> :: <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a> -&gt; X ()</li><li class="src short"><a href="#v:dynamicLogString">dynamicLogString</a> :: <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a> -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li class="src short"><span class="keyword">data</span>  <a href="#t:PP">PP</a>  = <a href="#v:PP">PP</a> {<ul class="subs"><li><a href="#v:ppCurrent">ppCurrent</a> :: WorkspaceId -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li><a href="#v:ppVisible">ppVisible</a> :: WorkspaceId -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li><a href="#v:ppHidden">ppHidden</a> :: WorkspaceId -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li><a href="#v:ppHiddenNoWindows">ppHiddenNoWindows</a> :: WorkspaceId -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li><a href="#v:ppUrgent">ppUrgent</a> :: WorkspaceId -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li><a href="#v:ppSep">ppSep</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li><a href="#v:ppWsSep">ppWsSep</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li><a href="#v:ppTitle">ppTitle</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li><a href="#v:ppLayout">ppLayout</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li><a href="#v:ppOrder">ppOrder</a> :: [<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>] -&gt; [<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>]</li><li><a href="#v:ppSort">ppSort</a> :: X ([WindowSpace] -&gt; [WindowSpace])</li><li><a href="#v:ppExtras">ppExtras</a> :: [X (<a href="http://xmonad.org/xmonad-docs/base/Data-Maybe.html#t:Maybe">Maybe</a> <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>)]</li><li><a href="#v:ppOutput">ppOutput</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/System-IO.html#t:IO">IO</a> ()</li></ul>}</li><li class="src short"><a href="#v:defaultPP">defaultPP</a> :: <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a></li><li class="src short"><a href="#v:dzenPP">dzenPP</a> :: <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a></li><li class="src short"><a href="#v:xmobarPP">xmobarPP</a> :: <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a></li><li class="src short"><a href="#v:sjanssenPP">sjanssenPP</a> :: <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a></li><li class="src short"><a href="#v:byorgeyPP">byorgeyPP</a> :: <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a></li><li class="src short"><a href="#v:wrap">wrap</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li class="src short"><a href="#v:pad">pad</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li class="src short"><a href="#v:trim">trim</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li class="src short"><a href="#v:shorten">shorten</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-Int.html#t:Int">Int</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li class="src short"><a href="#v:xmobarColor">xmobarColor</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li class="src short"><a href="#v:xmobarStrip">xmobarStrip</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li class="src short"><a href="#v:dzenColor">dzenColor</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li class="src short"><a href="#v:dzenEscape">dzenEscape</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li class="src short"><a href="#v:dzenStrip">dzenStrip</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li class="src short"><a href="#v:pprWindowSet">pprWindowSet</a> :: <a href="XMonad-Util-WorkspaceCompare.html#t:WorkspaceSort">WorkspaceSort</a> -&gt; [<a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:Window">Window</a>] -&gt; <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a> -&gt; WindowSet -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li><li class="src short"><a href="#v:pprWindowSetXinerama">pprWindowSetXinerama</a> :: WindowSet -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></li></ul></div><div id="interface"><h1 id="g:1">Usage
+</h1><div class="doc"><p>You can use this module with the following in your <code>~/.xmonad/xmonad.hs</code>:
+</p><pre>    import XMonad
+    import XMonad.Hooks.DynamicLog
+</pre><p>If you just want a quick-and-dirty status bar with zero effort, try
+ the <code><a href="XMonad-Hooks-DynamicLog.html#v:xmobar">xmobar</a></code> or <code><a href="XMonad-Hooks-DynamicLog.html#v:dzen">dzen</a></code> functions:
+</p><pre> main = xmonad =&lt;&lt; xmobar myConfig
+
+ myConfig = defaultConfig { ... }
+</pre><p>There is also <code><a href="XMonad-Hooks-DynamicLog.html#v:statusBar">statusBar</a></code> if you'd like to use another status bar, or would
+ like to use different formatting options.  The <code><a href="XMonad-Hooks-DynamicLog.html#v:xmobar">xmobar</a></code>, <code><a href="XMonad-Hooks-DynamicLog.html#v:dzen">dzen</a></code>, and
+ <code><a href="XMonad-Hooks-DynamicLog.html#v:statusBar">statusBar</a></code> functions are preferred over the other options listed below, as
+ they take care of all the necessary plumbing -- no shell scripting required!
+</p><p>Alternatively, you can choose among several default status bar formats
+ (<code><a href="XMonad-Hooks-DynamicLog.html#v:dynamicLog">dynamicLog</a></code> or <code><a href="XMonad-Hooks-DynamicLog.html#v:dynamicLogXinerama">dynamicLogXinerama</a></code>) by simply setting your logHook to the
+ appropriate function, for instance:
+</p><pre> main = xmonad $ defaultConfig {
+    ...
+    logHook = dynamicLog
+    ...
+  }
+</pre><p>For more flexibility, you can also use <code><a href="XMonad-Hooks-DynamicLog.html#v:dynamicLogWithPP">dynamicLogWithPP</a></code> and supply
+ your own pretty-printing format (by either defining one from scratch,
+ or customizing one of the provided examples).
+ For example:
+</p><pre>    -- use sjanssen's pretty-printer format, but with the sections
+    -- in reverse
+    logHook = dynamicLogWithPP $ sjanssenPP { ppOrder = reverse }
+</pre><p>Note that setting the <code>logHook</code> only sets up xmonad's output; you
+ are responsible for starting your own status bar program (e.g. dzen
+ or xmobar) and making sure xmonad's output is piped into it
+ appropriately, either by putting it in your <code>.xsession</code> or similar
+ file, or by using <code>spawnPipe</code> in your <code>main</code> function, for example:
+</p><pre> import XMonad.Util.Run   -- for spawnPipe and hPutStrLn
+
+ main = do
+     h &lt;- spawnPipe &quot;xmobar -options -foo -bar&quot;
+     xmonad $ defaultConfig {
+       ...
+       logHook = dynamicLogWithPP $ defaultPP { ppOutput = hPutStrLn h }
+</pre><p>If you use <code>spawnPipe</code>, be sure to redefine the <code><a href="XMonad-Hooks-DynamicLog.html#v:ppOutput">ppOutput</a></code> field of
+ your pretty-printer as in the example above; by default the status
+ will be printed to stdout rather than the pipe you create.
+</p><p>Even if you don't use a statusbar, you can still use
+ <code><a href="XMonad-Hooks-DynamicLog.html#v:dynamicLogString">dynamicLogString</a></code> to show on-screen notifications in response to
+ some events. For example, to show the current layout when it
+ changes, you could make a keybinding to cycle the layout and
+ display the current status:
+</p><pre>    , ((mod1Mask, xK_a     ), sendMessage NextLayout &gt;&gt; (dynamicLogString myPP &gt;&gt;= \d-&gt;spawn $&quot;xmessage &quot;++d))
+</pre></div><h1 id="g:2">Drop-in loggers
+</h1><div class="top"><p class="src"><a name="v:dzen" class="def">dzen</a> :: LayoutClass l <a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:Window">Window</a> =&gt; XConfig l -&gt; <a href="http://xmonad.org/xmonad-docs/base/System-IO.html#t:IO">IO</a> (XConfig (<a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> <a href="XMonad-Hooks-ManageDocks.html#t:AvoidStruts">AvoidStruts</a> l))<a href="src/XMonad-Hooks-DynamicLog.html#dzen" class="link">Source</a></p><div class="doc"><p>Run xmonad with a dzen status bar set to some nice defaults.
+</p><pre> main = xmonad =&lt;&lt; dzen myConfig
+
+ myConfig = defaultConfig { ... }
+</pre><p>The intent is that the above config file should provide a nice
+ status bar with minimal effort.
+</p><p>If you wish to customize the status bar format at all, you'll have to
+ use the <code><a href="XMonad-Hooks-DynamicLog.html#v:statusBar">statusBar</a></code> function instead.
+</p><p>The binding uses the XMonad.Hooks.ManageDocks module to automatically
+ handle screen placement for dzen, and enables 'mod-b' for toggling
+ the menu bar.
+</p></div></div><div class="top"><p class="src"><a name="v:xmobar" class="def">xmobar</a> :: LayoutClass l <a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:Window">Window</a> =&gt; XConfig l -&gt; <a href="http://xmonad.org/xmonad-docs/base/System-IO.html#t:IO">IO</a> (XConfig (<a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> <a href="XMonad-Hooks-ManageDocks.html#t:AvoidStruts">AvoidStruts</a> l))<a href="src/XMonad-Hooks-DynamicLog.html#xmobar" class="link">Source</a></p><div class="doc"><p>Run xmonad with a xmobar status bar set to some nice defaults.
+</p><pre> main = xmonad =&lt;&lt; xmobar myConfig
+
+ myConfig = defaultConfig { ... }
+</pre><p>This works pretty much the same as <code><a href="XMonad-Hooks-DynamicLog.html#v:dzen">dzen</a></code> function above.
+</p></div></div><div class="top"><p class="src"><a name="v:statusBar" class="def">statusBar</a><a href="src/XMonad-Hooks-DynamicLog.html#statusBar" class="link">Source</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: LayoutClass l <a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:Window">Window</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">=&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></td><td class="doc"><p>the command line to launch the status bar
+</p></td></tr><tr><td class="src">-&gt; <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a></td><td class="doc"><p>the pretty printing options
+</p></td></tr><tr><td class="src">-&gt; (XConfig Layout -&gt; (<a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:KeyMask">KeyMask</a>, <a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:KeySym">KeySym</a>))</td><td class="doc"><p>the desired key binding to toggle bar visibility
+</p></td></tr><tr><td class="src">-&gt; XConfig l</td><td class="doc"><p>the base config
+</p></td></tr><tr><td class="src">-&gt; <a href="http://xmonad.org/xmonad-docs/base/System-IO.html#t:IO">IO</a> (XConfig (<a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> <a href="XMonad-Hooks-ManageDocks.html#t:AvoidStruts">AvoidStruts</a> l))</td><td class="doc empty">&nbsp;</td></tr></table></div><div class="doc"><p>Modifies the given base configuration to launch the given status bar,
+ send status information to that bar, and allocate space on the screen edges
+ for the bar.
+</p></div></div><div class="top"><p class="src"><a name="v:dynamicLog" class="def">dynamicLog</a> :: X ()<a href="src/XMonad-Hooks-DynamicLog.html#dynamicLog" class="link">Source</a></p><div class="doc"><p>An example log hook, which prints status information to stdout in
+ the default format:
+</p><pre> 1 2 [3] 4 7 : full : title
+</pre><p>That is, the currently populated workspaces, the current
+ workspace layout, and the title of the focused window.
+</p><p>To customize the output format, see <code><a href="XMonad-Hooks-DynamicLog.html#v:dynamicLogWithPP">dynamicLogWithPP</a></code>.
+</p></div></div><div class="top"><p class="src"><a name="v:dynamicLogXinerama" class="def">dynamicLogXinerama</a> :: X ()<a href="src/XMonad-Hooks-DynamicLog.html#dynamicLogXinerama" class="link">Source</a></p><div class="doc"><p>Workspace logger with a format designed for Xinerama:
+</p><pre> [1 9 3] 2 7
+</pre><p>where 1, 9, and 3 are the workspaces on screens 1, 2 and 3, respectively,
+ and 2 and 7 are non-visible, non-empty workspaces.
+</p><p>At the present time, the current layout and window title
+ are not shown.  The xinerama workspace format shown above can be (mostly) replicated
+ using <code><a href="XMonad-Hooks-DynamicLog.html#v:dynamicLogWithPP">dynamicLogWithPP</a></code> by setting <code><a href="XMonad-Hooks-DynamicLog.html#v:ppSort">ppSort</a></code> to <em>getSortByXineramaRule</em> from
+ <a href="XMonad-Util-WorkspaceCompare.html">XMonad.Util.WorkspaceCompare</a>.  For example,
+</p><pre> defaultPP { ppCurrent = dzenColor &quot;red&quot; &quot;#efebe7&quot;
+           , ppVisible = wrap &quot;[&quot; &quot;]&quot;
+           , ppSort    = getSortByXineramaRule
+           }
+</pre></div></div><div class="top"><p class="src"><a name="v:xmonadPropLog-39-" class="def">xmonadPropLog'</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; X ()<a href="src/XMonad-Hooks-DynamicLog.html#xmonadPropLog%27" class="link">Source</a></p><div class="doc"><p>Write a string to a property on the root window.  This property is of
+ type UTF8_STRING. The string must have been processed by encodeString
+ (dynamicLogString does this).
+</p></div></div><div class="top"><p class="src"><a name="v:xmonadPropLog" class="def">xmonadPropLog</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; X ()<a href="src/XMonad-Hooks-DynamicLog.html#xmonadPropLog" class="link">Source</a></p><div class="doc"><p>Write a string to the _XMONAD_LOG property on the root window.
+</p></div></div><h1 id="g:3">Build your own formatter
+</h1><div class="top"><p class="src"><a name="v:dynamicLogWithPP" class="def">dynamicLogWithPP</a> :: <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a> -&gt; X ()<a href="src/XMonad-Hooks-DynamicLog.html#dynamicLogWithPP" class="link">Source</a></p><div class="doc"><p>Format the current status using the supplied pretty-printing format,
+   and write it to stdout.
+</p></div></div><div class="top"><p class="src"><a name="v:dynamicLogString" class="def">dynamicLogString</a> :: <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a> -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a><a href="src/XMonad-Hooks-DynamicLog.html#dynamicLogString" class="link">Source</a></p><div class="doc"><p>The same as <code><a href="XMonad-Hooks-DynamicLog.html#v:dynamicLogWithPP">dynamicLogWithPP</a></code>, except it simply returns the status
+   as a formatted string without actually printing it to stdout, to
+   allow for further processing, or use in some application other than
+   a status bar.
+</p></div></div><div class="top"><p class="src"><span class="keyword">data</span>  <a name="t:PP" class="def">PP</a>  <a href="src/XMonad-Hooks-DynamicLog.html#PP" class="link">Source</a></p><div class="doc"><p>The <code><a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a></code> type allows the user to customize the formatting of
+   status information.
+</p></div><div class="subs constructors"><p class="caption">Constructors</p><table><tr><td class="src"><a name="v:PP" class="def">PP</a></td><td class="doc empty">&nbsp;</td></tr><tr><td colspan="2"><div class="subs fields"><p class="caption">Fields</p><dl><dt class="src"><a name="v:ppCurrent" class="def">ppCurrent</a> :: WorkspaceId -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></dt><dd class="doc"><p>how to print the tag of the currently focused
+ workspace
+</p></dd><dt class="src"><a name="v:ppVisible" class="def">ppVisible</a> :: WorkspaceId -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></dt><dd class="doc"><p>how to print tags of visible but not focused
+ workspaces (xinerama only)
+</p></dd><dt class="src"><a name="v:ppHidden" class="def">ppHidden</a> :: WorkspaceId -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></dt><dd class="doc"><p>how to print tags of hidden workspaces which
+ contain windows
+</p></dd><dt class="src"><a name="v:ppHiddenNoWindows" class="def">ppHiddenNoWindows</a> :: WorkspaceId -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></dt><dd class="doc"><p>how to print tags of empty hidden workspaces
+</p></dd><dt class="src"><a name="v:ppUrgent" class="def">ppUrgent</a> :: WorkspaceId -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></dt><dd class="doc"><p>format to be applied to tags of urgent workspaces.
+</p></dd><dt class="src"><a name="v:ppSep" class="def">ppSep</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></dt><dd class="doc"><p>separator to use between different log sections
+ (window name, layout, workspaces)
+</p></dd><dt class="src"><a name="v:ppWsSep" class="def">ppWsSep</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></dt><dd class="doc"><p>separator to use between workspace tags
+</p></dd><dt class="src"><a name="v:ppTitle" class="def">ppTitle</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></dt><dd class="doc"><p>window title format
+</p></dd><dt class="src"><a name="v:ppLayout" class="def">ppLayout</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></dt><dd class="doc"><p>layout name format
+</p></dd><dt class="src"><a name="v:ppOrder" class="def">ppOrder</a> :: [<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>] -&gt; [<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>]</dt><dd class="doc"><p>how to order the different log sections. By
+   default, this function receives a list with three
+   formatted strings, representing the workspaces,
+   the layout, and the current window title,
+   respectively. If you have specified any extra
+   loggers in <code><a href="XMonad-Hooks-DynamicLog.html#v:ppExtras">ppExtras</a></code>, their output will also be
+   appended to the list.  To get them in the reverse
+   order, you can just use <code>ppOrder = reverse</code>.  If
+   you don't want to display the current layout, you
+   could use something like <code>ppOrder = \(ws:_:t:_) -&gt;
+   [ws,t]</code>, and so on.
+</p></dd><dt class="src"><a name="v:ppSort" class="def">ppSort</a> :: X ([WindowSpace] -&gt; [WindowSpace])</dt><dd class="doc"><p>how to sort the workspaces.  See
+ <a href="XMonad-Util-WorkspaceCompare.html">XMonad.Util.WorkspaceCompare</a> for some useful
+ sorts.
+</p></dd><dt class="src"><a name="v:ppExtras" class="def">ppExtras</a> :: [X (<a href="http://xmonad.org/xmonad-docs/base/Data-Maybe.html#t:Maybe">Maybe</a> <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>)]</dt><dd class="doc"><p>loggers for generating extra information such as
+ time and date, system load, battery status, and so
+ on.  See <a href="XMonad-Util-Loggers.html">XMonad.Util.Loggers</a> for examples, or create
+ your own!
+</p></dd><dt class="src"><a name="v:ppOutput" class="def">ppOutput</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/System-IO.html#t:IO">IO</a> ()</dt><dd class="doc"><p>applied to the entire formatted string in order to
+ output it.  Can be used to specify an alternative
+ output method (e.g. write to a pipe instead of
+ stdout), and/or to perform some last-minute
+ formatting.
+</p></dd></dl><div class="clear"></div></div></td></tr></table></div></div><div class="top"><p class="src"><a name="v:defaultPP" class="def">defaultPP</a> :: <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a><a href="src/XMonad-Hooks-DynamicLog.html#defaultPP" class="link">Source</a></p><div class="doc"><p>The default pretty printing options, as seen in <code><a href="XMonad-Hooks-DynamicLog.html#v:dynamicLog">dynamicLog</a></code>.
+</p></div></div><h1 id="g:4">Example formatters
+</h1><div class="top"><p class="src"><a name="v:dzenPP" class="def">dzenPP</a> :: <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a><a href="src/XMonad-Hooks-DynamicLog.html#dzenPP" class="link">Source</a></p><div class="doc"><p>Settings to emulate dwm's statusbar, dzen only.
+</p></div></div><div class="top"><p class="src"><a name="v:xmobarPP" class="def">xmobarPP</a> :: <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a><a href="src/XMonad-Hooks-DynamicLog.html#xmobarPP" class="link">Source</a></p><div class="doc"><p>Some nice xmobar defaults.
+</p></div></div><div class="top"><p class="src"><a name="v:sjanssenPP" class="def">sjanssenPP</a> :: <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a><a href="src/XMonad-Hooks-DynamicLog.html#sjanssenPP" class="link">Source</a></p><div class="doc"><p>The options that sjanssen likes to use with xmobar, as an
+ example.  Note the use of <code><a href="XMonad-Hooks-DynamicLog.html#v:xmobarColor">xmobarColor</a></code> and the record update on
+ <code><a href="XMonad-Hooks-DynamicLog.html#v:defaultPP">defaultPP</a></code>.
+</p></div></div><div class="top"><p class="src"><a name="v:byorgeyPP" class="def">byorgeyPP</a> :: <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a><a href="src/XMonad-Hooks-DynamicLog.html#byorgeyPP" class="link">Source</a></p><div class="doc"><p>The options that byorgey likes to use with dzen, as another example.
+</p></div></div><h1 id="g:5">Formatting utilities
+</h1><div class="top"><p class="src"><a name="v:wrap" class="def">wrap</a><a href="src/XMonad-Hooks-DynamicLog.html#wrap" class="link">Source</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></td><td class="doc"><p>left delimiter
+</p></td></tr><tr><td class="src">-&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></td><td class="doc"><p>right delimiter
+</p></td></tr><tr><td class="src">-&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></td><td class="doc"><p>output string
+</p></td></tr><tr><td class="src">-&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></td><td class="doc empty">&nbsp;</td></tr></table></div><div class="doc"><p>Wrap a string in delimiters, unless it is empty.
+</p></div></div><div class="top"><p class="src"><a name="v:pad" class="def">pad</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a><a href="src/XMonad-Hooks-DynamicLog.html#pad" class="link">Source</a></p><div class="doc"><p>Pad a string with a leading and trailing space.
+</p></div></div><div class="top"><p class="src"><a name="v:trim" class="def">trim</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a><a href="src/XMonad-Hooks-DynamicLog.html#trim" class="link">Source</a></p><div class="doc"><p>Trim leading and trailing whitespace from a string.
+</p></div></div><div class="top"><p class="src"><a name="v:shorten" class="def">shorten</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-Int.html#t:Int">Int</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a><a href="src/XMonad-Hooks-DynamicLog.html#shorten" class="link">Source</a></p><div class="doc"><p>Limit a string to a certain length, adding <a href="---.html">...</a> if truncated.
+</p></div></div><div class="top"><p class="src"><a name="v:xmobarColor" class="def">xmobarColor</a><a href="src/XMonad-Hooks-DynamicLog.html#xmobarColor" class="link">Source</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></td><td class="doc"><p>foreground color: a color name, or #rrggbb format
+</p></td></tr><tr><td class="src">-&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></td><td class="doc"><p>background color
+</p></td></tr><tr><td class="src">-&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></td><td class="doc"><p>output string
+</p></td></tr><tr><td class="src">-&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></td><td class="doc empty">&nbsp;</td></tr></table></div><div class="doc"><p>Use xmobar escape codes to output a string with given foreground
+   and background colors.
+</p></div></div><div class="top"><p class="src"><a name="v:xmobarStrip" class="def">xmobarStrip</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a><a href="src/XMonad-Hooks-DynamicLog.html#xmobarStrip" class="link">Source</a></p><div class="doc"><p>Strip xmobar markup.
+</p></div></div><div class="top"><p class="src"><a name="v:dzenColor" class="def">dzenColor</a><a href="src/XMonad-Hooks-DynamicLog.html#dzenColor" class="link">Source</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></td><td class="doc"><p>foreground color: a color name, or #rrggbb format
+</p></td></tr><tr><td class="src">-&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></td><td class="doc"><p>background color
+</p></td></tr><tr><td class="src">-&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></td><td class="doc"><p>output string
+</p></td></tr><tr><td class="src">-&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></td><td class="doc empty">&nbsp;</td></tr></table></div><div class="doc"><p>Use dzen escape codes to output a string with given foreground
+   and background colors.
+</p></div></div><div class="top"><p class="src"><a name="v:dzenEscape" class="def">dzenEscape</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a><a href="src/XMonad-Hooks-DynamicLog.html#dzenEscape" class="link">Source</a></p><div class="doc"><p>Escape any dzen metacharacters.
+</p></div></div><div class="top"><p class="src"><a name="v:dzenStrip" class="def">dzenStrip</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a><a href="src/XMonad-Hooks-DynamicLog.html#dzenStrip" class="link">Source</a></p><div class="doc"><p>Strip dzen formatting or commands.
+</p></div></div><h1 id="g:6">Internal formatting functions
+</h1><div class="top"><p class="src"><a name="v:pprWindowSet" class="def">pprWindowSet</a> :: <a href="XMonad-Util-WorkspaceCompare.html#t:WorkspaceSort">WorkspaceSort</a> -&gt; [<a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:Window">Window</a>] -&gt; <a href="XMonad-Hooks-DynamicLog.html#t:PP">PP</a> -&gt; WindowSet -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a><a href="src/XMonad-Hooks-DynamicLog.html#pprWindowSet" class="link">Source</a></p><div class="doc"><p>Format the workspace information, given a workspace sorting function,
+   a list of urgent windows, a pretty-printer format, and the current
+   WindowSet.
+</p></div></div><div class="top"><p class="src"><a name="v:pprWindowSetXinerama" class="def">pprWindowSetXinerama</a> :: WindowSet -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a><a href="src/XMonad-Hooks-DynamicLog.html#pprWindowSetXinerama" class="link">Source</a></p></div><h1 id="g:7">To Do
+</h1><div class="doc"><ul><li> incorporate dynamicLogXinerama into the PP framework somehow
+</li><li> add an xmobarEscape function
+</li></ul></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.13.1</p></div></body></html>

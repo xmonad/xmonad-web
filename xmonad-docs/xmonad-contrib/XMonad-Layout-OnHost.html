@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Layout.OnHost</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Layout-OnHost.html");};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Layout-OnHost.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.11: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Portability</th><td>unportable</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Maintainer</th><td>&lt;allbery.b@gmail.com&gt;</td></tr><tr><th>Safe Haskell</th><td>None</td></tr></table><p class="caption">XMonad.Layout.OnHost</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Usage
+</a></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>Configure layouts on a per-host basis: use layouts and apply
+ layout modifiers selectively, depending on the host.  Heavily based on
+ <a href="XMonad-Layout-PerWorkspace.html">XMonad.Layout.PerWorkspace</a> by Brent Yorgey.
+</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><span class="keyword">data</span>  <a href="#t:OnHost">OnHost</a> l1 l2 a</li><li class="src short"><a href="#v:onHost">onHost</a> :: (LayoutClass l1 a, LayoutClass l2 a) =&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; l1 a -&gt; l2 a -&gt; <a href="XMonad-Layout-OnHost.html#t:OnHost">OnHost</a> l1 l2 a</li><li class="src short"><a href="#v:onHosts">onHosts</a> :: (LayoutClass l1 a, LayoutClass l2 a) =&gt; [<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>] -&gt; l1 a -&gt; l2 a -&gt; <a href="XMonad-Layout-OnHost.html#t:OnHost">OnHost</a> l1 l2 a</li><li class="src short"><a href="#v:modHost">modHost</a> :: LayoutClass l a =&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; (l a -&gt; <a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> lm l a) -&gt; l a -&gt; <a href="XMonad-Layout-OnHost.html#t:OnHost">OnHost</a> (<a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> lm l) l a</li><li class="src short"><a href="#v:modHosts">modHosts</a> :: LayoutClass l a =&gt; [<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>] -&gt; (l a -&gt; <a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> lm l a) -&gt; l a -&gt; <a href="XMonad-Layout-OnHost.html#t:OnHost">OnHost</a> (<a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> lm l) l a</li></ul></div><div id="interface"><h1 id="g:1">Usage
+</h1><div class="doc"><p>You can use this module by importing it into your ~/.xmonad/xmonad.hs file:
+</p><pre> import XMonad.Layout.OnHost
+</pre><p>and modifying your <code>layoutHook</code> as follows (for example):
+</p><pre> layoutHook = modHost &quot;baz&quot; m1 $            -- apply layout modifier m1 to all layouts on host &quot;baz&quot;
+              onHost &quot;foo&quot; l1 $             -- layout l1 will be used on host &quot;foo&quot;.
+              onHosts [&quot;bar&quot;,&quot;quux&quot;] l2 $   -- layout l2 will be used on hosts &quot;bar&quot; and &quot;quux&quot;.
+              l3                            -- layout l3 will be used on all other hosts.
+</pre><p>Note that <code>l1</code>, <code>l2</code>, and <code>l3</code> can be arbitrarily complicated
+ layouts, e.g. <code>(Full ||| smartBorders $ tabbed shrinkText
+ defaultTConf ||| ...)</code>, and <code>m1</code> can be any layout modifier, i.e. a
+ function of type <code>(l a -&gt; ModifiedLayout lm l a)</code>.
+</p><p>In another scenario, suppose you wanted to have layouts A, B, and C
+ available on all hosts, except that on host foo you want
+ layout D instead of C.  You could do that as follows:
+</p><pre> layoutHook = A ||| B ||| onHost &quot;foo&quot; D C
+</pre><p>Note that we rely on '$HOST' being set in the environment, as is true on most
+ modern systems; if it's not, you may want to use a wrapper around xmonad or
+ perhaps use <code><a href="http://xmonad.org/xmonad-docs/unix/System-Posix-Env.html#t:setEnv">setEnv</a></code> (or <code>putEnv</code>) to set it in <code>main</code>.
+ This is to avoid dragging in the network package as an xmonad dependency.
+ If '$HOST' is not defined, it will behave as if the host name never matches.
+</p><p>Also note that '$HOST' is usually a fully qualified domain name, not a short name.
+ If you use a short name, this code will try to truncate $HOST to match; this may
+ prove too magical, though, and may change in the future.
+</p></div><div class="top"><p class="src"><span class="keyword">data</span>  <a name="t:OnHost" class="def">OnHost</a> l1 l2 a <a href="src/XMonad-Layout-OnHost.html#OnHost" class="link">Source</a></p><div class="doc"><p>Structure for representing a host-specific layout along with
+   a layout for all other hosts. We store the names of hosts
+   to be matched, and the two layouts. We save the layout choice in
+   the Bool, to be used to implement description.
+</p></div><div class="subs instances"><p id="control.i:OnHost" class="caption collapser" onclick="toggleSection('i:OnHost')">Instances</p><div id="section.i:OnHost" class="show"><table><tr><td class="src">(LayoutClass l1 a, LayoutClass l2 a, <a href="http://xmonad.org/xmonad-docs/base/Text-Show.html#t:Show">Show</a> a) =&gt; LayoutClass (<a href="XMonad-Layout-OnHost.html#t:OnHost">OnHost</a> l1 l2) a</td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">(<a href="http://xmonad.org/xmonad-docs/base/Text-Read.html#t:Read">Read</a> (l1 a), <a href="http://xmonad.org/xmonad-docs/base/Text-Read.html#t:Read">Read</a> (l2 a)) =&gt; <a href="http://xmonad.org/xmonad-docs/base/Text-Read.html#t:Read">Read</a> (<a href="XMonad-Layout-OnHost.html#t:OnHost">OnHost</a> l1 l2 a)</td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">(<a href="http://xmonad.org/xmonad-docs/base/Text-Show.html#t:Show">Show</a> (l1 a), <a href="http://xmonad.org/xmonad-docs/base/Text-Show.html#t:Show">Show</a> (l2 a)) =&gt; <a href="http://xmonad.org/xmonad-docs/base/Text-Show.html#t:Show">Show</a> (<a href="XMonad-Layout-OnHost.html#t:OnHost">OnHost</a> l1 l2 a)</td><td class="doc empty">&nbsp;</td></tr></table></div></div></div><div class="top"><p class="src"><a name="v:onHost" class="def">onHost</a><a href="src/XMonad-Layout-OnHost.html#onHost" class="link">Source</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: (LayoutClass l1 a, LayoutClass l2 a)</td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">=&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></td><td class="doc"><p>the name of the host to match
+</p></td></tr><tr><td class="src">-&gt; l1 a</td><td class="doc"><p>layout to use on the matched host
+</p></td></tr><tr><td class="src">-&gt; l2 a</td><td class="doc"><p>layout to use everywhere else
+</p></td></tr><tr><td class="src">-&gt; <a href="XMonad-Layout-OnHost.html#t:OnHost">OnHost</a> l1 l2 a</td><td class="doc empty">&nbsp;</td></tr></table></div><div class="doc"><p>Specify one layout to use on a particular host, and another
+   to use on all others.  The second layout can be another call to
+   <code><a href="XMonad-Layout-OnHost.html#v:onHost">onHost</a></code>, and so on.
+</p></div></div><div class="top"><p class="src"><a name="v:onHosts" class="def">onHosts</a><a href="src/XMonad-Layout-OnHost.html#onHosts" class="link">Source</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: (LayoutClass l1 a, LayoutClass l2 a)</td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">=&gt; [<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>]</td><td class="doc"><p>names of hosts to match
+</p></td></tr><tr><td class="src">-&gt; l1 a</td><td class="doc"><p>layout to use on matched hosts
+</p></td></tr><tr><td class="src">-&gt; l2 a</td><td class="doc"><p>layout to use everywhere else
+</p></td></tr><tr><td class="src">-&gt; <a href="XMonad-Layout-OnHost.html#t:OnHost">OnHost</a> l1 l2 a</td><td class="doc empty">&nbsp;</td></tr></table></div><div class="doc"><p>Specify one layout to use on a particular set of hosts, and
+   another to use on all other hosts.
+</p></div></div><div class="top"><p class="src"><a name="v:modHost" class="def">modHost</a><a href="src/XMonad-Layout-OnHost.html#modHost" class="link">Source</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: LayoutClass l a</td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">=&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></td><td class="doc"><p>name of the host to match
+</p></td></tr><tr><td class="src">-&gt; (l a -&gt; <a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> lm l a)</td><td class="doc"><p>the modifier to apply on the matching host
+</p></td></tr><tr><td class="src">-&gt; l a</td><td class="doc"><p>the base layout
+</p></td></tr><tr><td class="src">-&gt; <a href="XMonad-Layout-OnHost.html#t:OnHost">OnHost</a> (<a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> lm l) l a</td><td class="doc empty">&nbsp;</td></tr></table></div><div class="doc"><p>Specify a layout modifier to apply on a particular host; layouts
+   on all other hosts will remain unmodified.
+</p></div></div><div class="top"><p class="src"><a name="v:modHosts" class="def">modHosts</a><a href="src/XMonad-Layout-OnHost.html#modHosts" class="link">Source</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: LayoutClass l a</td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">=&gt; [<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>]</td><td class="doc"><p>names of the hosts to match
+</p></td></tr><tr><td class="src">-&gt; (l a -&gt; <a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> lm l a)</td><td class="doc"><p>the modifier to apply on the matching hosts
+</p></td></tr><tr><td class="src">-&gt; l a</td><td class="doc"><p>the base layout
+</p></td></tr><tr><td class="src">-&gt; <a href="XMonad-Layout-OnHost.html#t:OnHost">OnHost</a> (<a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> lm l) l a</td><td class="doc empty">&nbsp;</td></tr></table></div><div class="doc"><p>Specify a layout modifier to apply on a particular set of
+   hosts; layouts on all other hosts will remain
+   unmodified.
+</p></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.13.1</p></div></body></html>

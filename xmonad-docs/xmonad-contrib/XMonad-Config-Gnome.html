@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Config.Gnome</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Config-Gnome.html");};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Config-Gnome.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.11: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Portability</th><td>unportable</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Maintainer</th><td>Spencer Janssen &lt;spencerjanssen@gmail.com&gt;</td></tr><tr><th>Safe Haskell</th><td>None</td></tr></table><p class="caption">XMonad.Config.Gnome</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Usage
+</a></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>This module provides a config suitable for use with the GNOME desktop
+ environment.
+</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:gnomeConfig">gnomeConfig</a> :: XConfig (<a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> <a href="XMonad-Hooks-ManageDocks.html#t:AvoidStruts">AvoidStruts</a> (Choose Tall (Choose (Mirror Tall) Full)))</li><li class="src short"><a href="#v:gnomeRun">gnomeRun</a> :: X ()</li><li class="src short"><a href="#v:gnomeRegister">gnomeRegister</a> :: <a href="http://xmonad.org/xmonad-docs/transformers/Control-Monad-IO-Class.html#t:MonadIO">MonadIO</a> m =&gt; m ()</li></ul></div><div id="interface"><h1 id="g:1">Usage
+</h1><div class="doc"><p>To use this module, start with the following <code>~/.xmonad/xmonad.hs</code>:
+</p><pre> import XMonad
+ import XMonad.Config.Gnome
+
+ main = xmonad gnomeConfig
+</pre><p>For examples of how to further customize <code>gnomeConfig</code> see <a href="XMonad-Config-Desktop.html">XMonad.Config.Desktop</a>.
+</p></div><div class="top"><p class="src"><a name="v:gnomeConfig" class="def">gnomeConfig</a> :: XConfig (<a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> <a href="XMonad-Hooks-ManageDocks.html#t:AvoidStruts">AvoidStruts</a> (Choose Tall (Choose (Mirror Tall) Full)))<a href="src/XMonad-Config-Gnome.html#gnomeConfig" class="link">Source</a></p></div><div class="top"><p class="src"><a name="v:gnomeRun" class="def">gnomeRun</a> :: X ()<a href="src/XMonad-Config-Gnome.html#gnomeRun" class="link">Source</a></p><div class="doc"><p>Launch the <a href="Run Application.html">Run Application</a> dialog.  gnome-panel must be running for this
+ to work.
+</p></div></div><div class="top"><p class="src"><a name="v:gnomeRegister" class="def">gnomeRegister</a> :: <a href="http://xmonad.org/xmonad-docs/transformers/Control-Monad-IO-Class.html#t:MonadIO">MonadIO</a> m =&gt; m ()<a href="src/XMonad-Config-Gnome.html#gnomeRegister" class="link">Source</a></p><div class="doc"><p>Register xmonad with gnome. 'dbus-send' must be in the $PATH with which
+ xmonad is started.
+</p><p>This action reduces a delay on startup only only if you have configured
+ gnome-session&gt;=2.26: to start xmonad with a command as such:
+</p><pre> gconftool-2 -s /desktop/gnome/session/required_components/windowmanager xmonad --type string
+</pre></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.13.1</p></div></body></html>

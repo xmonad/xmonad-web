@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Actions.CycleSelectedLayouts</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Actions-CycleSelectedLayouts.html");};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Actions-CycleSelectedLayouts.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.11: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Portability</th><td>unportable</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Maintainer</th><td>Roman Cheplyaka &lt;roma@ro-che.info&gt;</td></tr><tr><th>Safe Haskell</th><td>None</td></tr></table><p class="caption">XMonad.Actions.CycleSelectedLayouts</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Usage
+</a></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>This module allows to cycle through the given subset of layouts.
+</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:cycleThroughLayouts">cycleThroughLayouts</a> :: [<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>] -&gt; X ()</li></ul></div><div id="interface"><h1 id="g:1">Usage
+</h1><div class="doc"><p>You can use this module with the following in your <code>~/.xmonad/xmonad.hs</code>:
+</p><pre> import XMonad hiding ((|||))
+ import XMonad.Layout.LayoutCombinators ((|||))
+ import XMonad.Actions.CycleSelectedLayouts
+</pre><pre>   , ((modm,  xK_t ),   cycleThroughLayouts [&quot;Tall&quot;, &quot;Mirror Tall&quot;])
+</pre><p>Make sure you are using NewSelect from XMonad.Layout.LayoutCombinators,
+ rather than the Select defined in xmonad core.
+</p></div><div class="top"><p class="src"><a name="v:cycleThroughLayouts" class="def">cycleThroughLayouts</a> :: [<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>] -&gt; X ()<a href="src/XMonad-Actions-CycleSelectedLayouts.html#cycleThroughLayouts" class="link">Source</a></p><div class="doc"><p>If the current layout is in the list, cycle to the next layout. Otherwise,
+   apply the first layout from list.
+</p></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.13.1</p></div></body></html>

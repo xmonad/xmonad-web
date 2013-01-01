@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Actions.DynamicWorkspaceOrder</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Actions-DynamicWorkspaceOrder.html");};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Actions-DynamicWorkspaceOrder.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.11: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Portability</th><td>unportable</td></tr><tr><th>Stability</th><td>experimental</td></tr><tr><th>Maintainer</th><td>&lt;byorgey@gmail.com&gt;</td></tr><tr><th>Safe Haskell</th><td>None</td></tr></table><p class="caption">XMonad.Actions.DynamicWorkspaceOrder</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Usage
+</a></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>Remember a dynamically updateable ordering on workspaces, together
+ with tools for using this ordering with <a href="XMonad-Actions-CycleWS.html">XMonad.Actions.CycleWS</a>
+ and <a href="XMonad-Hooks-DynamicLog.html">XMonad.Hooks.DynamicLog</a>.
+</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:getWsCompareByOrder">getWsCompareByOrder</a> :: X <a href="XMonad-Util-WorkspaceCompare.html#t:WorkspaceCompare">WorkspaceCompare</a></li><li class="src short"><a href="#v:getSortByOrder">getSortByOrder</a> :: X <a href="XMonad-Util-WorkspaceCompare.html#t:WorkspaceSort">WorkspaceSort</a></li><li class="src short"><a href="#v:swapWith">swapWith</a> :: <a href="XMonad-Util-Types.html#t:Direction1D">Direction1D</a> -&gt; <a href="XMonad-Actions-CycleWS.html#t:WSType">WSType</a> -&gt; X ()</li><li class="src short"><a href="#v:moveTo">moveTo</a> :: <a href="XMonad-Util-Types.html#t:Direction1D">Direction1D</a> -&gt; <a href="XMonad-Actions-CycleWS.html#t:WSType">WSType</a> -&gt; X ()</li><li class="src short"><a href="#v:moveToGreedy">moveToGreedy</a> :: <a href="XMonad-Util-Types.html#t:Direction1D">Direction1D</a> -&gt; <a href="XMonad-Actions-CycleWS.html#t:WSType">WSType</a> -&gt; X ()</li><li class="src short"><a href="#v:shiftTo">shiftTo</a> :: <a href="XMonad-Util-Types.html#t:Direction1D">Direction1D</a> -&gt; <a href="XMonad-Actions-CycleWS.html#t:WSType">WSType</a> -&gt; X ()</li><li class="src short"><a href="#v:withNthWorkspace">withNthWorkspace</a> :: (<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; WindowSet -&gt; WindowSet) -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-Int.html#t:Int">Int</a> -&gt; X ()</li></ul></div><div id="interface"><h1 id="g:1">Usage
+</h1><div class="doc"><p>You can use this module by importing it into your ~/.xmonad/xmonad.hs file:
+</p><pre> import qualified XMonad.Actions.DynamicWorkspaceOrder as DO
+</pre><p>Then add keybindings to swap the order of workspaces (these
+ examples use <a href="XMonad-Util-EZConfig.html">XMonad.Util.EZConfig</a> emacs-style keybindings):
+</p><pre>        , (&quot;M-C-&lt;R&gt;&quot;,   DO.swapWith Next NonEmptyWS)
+        , (&quot;M-C-&lt;L&gt;&quot;,   DO.swapWith Prev NonEmptyWS)
+</pre><p>See <a href="XMonad-Actions-CycleWS.html">XMonad.Actions.CycleWS</a> for information on the possible
+ arguments to <code><a href="XMonad-Actions-DynamicWorkspaceOrder.html#v:swapWith">swapWith</a></code>.
+</p><p>However, by itself this will do nothing; <code><a href="XMonad-Actions-DynamicWorkspaceOrder.html#v:swapWith">swapWith</a></code> does not change
+ the actual workspaces in any way.  It simply keeps track of an
+ auxiliary ordering on workspaces.  Anything which cares about the
+ order of workspaces must be updated to use the auxiliary ordering.
+</p><p>To change the order in which workspaces are displayed by
+ <a href="XMonad-Hooks-DynamicLog.html">XMonad.Hooks.DynamicLog</a>, use <code><a href="XMonad-Actions-DynamicWorkspaceOrder.html#v:getSortByOrder">getSortByOrder</a></code> in your
+ <code><a href="XMonad-Hooks-DynamicLog.html#t:ppSort">ppSort</a></code> field, for example:
+</p><pre>   ... dynamicLogWithPP $ byorgeyPP {
+     ...
+     , ppSort = DO.getSortByOrder
+     ...
+   }
+</pre><p>To use workspace cycling commands like those from
+ <a href="XMonad-Actions-CycleWS.html">XMonad.Actions.CycleWS</a>, use the versions of <code><a href="XMonad-Actions-DynamicWorkspaceOrder.html#v:moveTo">moveTo</a></code>,
+ <code><a href="XMonad-Actions-DynamicWorkspaceOrder.html#v:moveToGreedy">moveToGreedy</a></code>, and <code><a href="XMonad-Actions-DynamicWorkspaceOrder.html#v:shiftTo">shiftTo</a></code> exported by this module.  For example:
+</p><pre>     , (&quot;M-S-&lt;R&gt;&quot;,   DO.shiftTo Next HiddenNonEmptyWS)
+     , (&quot;M-S-&lt;L&gt;&quot;,   DO.shiftTo Prev HiddenNonEmptyWS)
+     , (&quot;M-&lt;R&gt;&quot;,     DO.moveTo Next HiddenNonEmptyWS)
+     , (&quot;M-&lt;L&gt;&quot;,     DO.moveTo Prev HiddenNonEmptyWS)
+</pre><p>For slight variations on these, use the source for examples and
+ tweak as desired.
+</p></div><div class="top"><p class="src"><a name="v:getWsCompareByOrder" class="def">getWsCompareByOrder</a> :: X <a href="XMonad-Util-WorkspaceCompare.html#t:WorkspaceCompare">WorkspaceCompare</a><a href="src/XMonad-Actions-DynamicWorkspaceOrder.html#getWsCompareByOrder" class="link">Source</a></p><div class="doc"><p>A comparison function which orders workspaces according to the
+ stored dynamic ordering.
+</p></div></div><div class="top"><p class="src"><a name="v:getSortByOrder" class="def">getSortByOrder</a> :: X <a href="XMonad-Util-WorkspaceCompare.html#t:WorkspaceSort">WorkspaceSort</a><a href="src/XMonad-Actions-DynamicWorkspaceOrder.html#getSortByOrder" class="link">Source</a></p><div class="doc"><p>Sort workspaces according to the stored dynamic ordering.
+</p></div></div><div class="top"><p class="src"><a name="v:swapWith" class="def">swapWith</a> :: <a href="XMonad-Util-Types.html#t:Direction1D">Direction1D</a> -&gt; <a href="XMonad-Actions-CycleWS.html#t:WSType">WSType</a> -&gt; X ()<a href="src/XMonad-Actions-DynamicWorkspaceOrder.html#swapWith" class="link">Source</a></p><div class="doc"><p>Swap the current workspace with another workspace in the stored
+ dynamic order.
+</p></div></div><div class="top"><p class="src"><a name="v:moveTo" class="def">moveTo</a> :: <a href="XMonad-Util-Types.html#t:Direction1D">Direction1D</a> -&gt; <a href="XMonad-Actions-CycleWS.html#t:WSType">WSType</a> -&gt; X ()<a href="src/XMonad-Actions-DynamicWorkspaceOrder.html#moveTo" class="link">Source</a></p><div class="doc"><p>View the next workspace of the given type in the given direction,
+ where &quot;next&quot; is determined using the dynamic workspace order.
+</p></div></div><div class="top"><p class="src"><a name="v:moveToGreedy" class="def">moveToGreedy</a> :: <a href="XMonad-Util-Types.html#t:Direction1D">Direction1D</a> -&gt; <a href="XMonad-Actions-CycleWS.html#t:WSType">WSType</a> -&gt; X ()<a href="src/XMonad-Actions-DynamicWorkspaceOrder.html#moveToGreedy" class="link">Source</a></p><div class="doc"><p>Same as <code><a href="XMonad-Actions-DynamicWorkspaceOrder.html#v:moveTo">moveTo</a></code>, but using <code>greedyView</code> instead of <code>view</code>.
+</p></div></div><div class="top"><p class="src"><a name="v:shiftTo" class="def">shiftTo</a> :: <a href="XMonad-Util-Types.html#t:Direction1D">Direction1D</a> -&gt; <a href="XMonad-Actions-CycleWS.html#t:WSType">WSType</a> -&gt; X ()<a href="src/XMonad-Actions-DynamicWorkspaceOrder.html#shiftTo" class="link">Source</a></p><div class="doc"><p>Shift the currently focused window to the next workspace of the
+ given type in the given direction, using the dynamic workspace order.
+</p></div></div><div class="top"><p class="src"><a name="v:withNthWorkspace" class="def">withNthWorkspace</a> :: (<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; WindowSet -&gt; WindowSet) -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-Int.html#t:Int">Int</a> -&gt; X ()<a href="src/XMonad-Actions-DynamicWorkspaceOrder.html#withNthWorkspace" class="link">Source</a></p><div class="doc"><p>Do something with the nth workspace in the dynamic order.  The
+   callback is given the workspace's tag as well as the <code>WindowSet</code>
+   of the workspace itself.
+</p></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.13.1</p></div></body></html>

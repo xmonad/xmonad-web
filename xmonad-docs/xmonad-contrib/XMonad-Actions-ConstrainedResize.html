@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Actions.ConstrainedResize</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Actions-ConstrainedResize.html");};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Actions-ConstrainedResize.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.11: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Portability</th><td>unportable</td></tr><tr><th>Stability</th><td>stable</td></tr><tr><th>Maintainer</th><td>&lt;dougal@dougalstanton.net&gt;</td></tr><tr><th>Safe Haskell</th><td>None</td></tr></table><p class="caption">XMonad.Actions.ConstrainedResize</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Usage
+</a></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>Lets you constrain the aspect ratio of a floating
+ window (by, say, holding shift while you resize).
+</p><p>Useful for making a nice circular XClock window.
+</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:mouseResizeWindow">mouseResizeWindow</a> :: <a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:Window">Window</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-Bool.html#t:Bool">Bool</a> -&gt; X ()</li></ul></div><div id="interface"><h1 id="g:1">Usage
+</h1><div class="doc"><p>You can use this module with the following in your <code>~/.xmonad/xmonad.hs</code>:
+</p><pre> import qualified XMonad.Actions.ConstrainedResize as Sqr
+</pre><p>Then add something like the following to your mouse bindings:
+</p><pre>     , ((modm, button3),               (\w -&gt; focus w &gt;&gt; Sqr.mouseResizeWindow w False))
+     , ((modm .|. shiftMask, button3), (\w -&gt; focus w &gt;&gt; Sqr.mouseResizeWindow w True ))
+</pre><p>The line without the shiftMask replaces the standard mouse resize
+ function call, so it's not completely necessary but seems neater
+ this way.
+</p><p>For detailed instructions on editing your mouse bindings, see
+ <a href="XMonad-Doc-Extending.html#Editing_mouse_bindings">XMonad.Doc.Extending</a>.
+</p></div><div class="top"><p class="src"><a name="v:mouseResizeWindow" class="def">mouseResizeWindow</a> :: <a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:Window">Window</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-Bool.html#t:Bool">Bool</a> -&gt; X ()<a href="src/XMonad-Actions-ConstrainedResize.html#mouseResizeWindow" class="link">Source</a></p><div class="doc"><p>Resize (floating) window with optional aspect ratio constraints.
+</p></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.13.1</p></div></body></html>

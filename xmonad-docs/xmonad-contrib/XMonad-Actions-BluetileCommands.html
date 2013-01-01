@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Actions.BluetileCommands</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Actions-BluetileCommands.html");};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Actions-BluetileCommands.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.11: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Portability</th><td>not portable</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Maintainer</th><td>jan.vornberger@informatik.uni-oldenburg.de</td></tr><tr><th>Safe Haskell</th><td>None</td></tr></table><p class="caption">XMonad.Actions.BluetileCommands</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Usage
+</a></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>This is a list of selected commands that can be made available using
+ <a href="XMonad-Hooks-ServerMode.html">XMonad.Hooks.ServerMode</a> to allow external programs to control
+ the window manager. Bluetile (<a href="http://projects.haskell.org/bluetile/">http://projects.haskell.org/bluetile/</a>)
+ uses this to enable its dock application to do things like changing
+ workspaces and layouts.
+</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:bluetileCommands">bluetileCommands</a> :: X [(<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>, X ())]</li></ul></div><div id="interface"><h1 id="g:1">Usage
+</h1><div class="doc"><p>You can use this module with the following in your <code>~/.xmonad/xmonad.hs</code>:
+</p><pre>    import XMonad.Hooks.ServerMode
+    import XMonad.Actions.BluetileCommands
+</pre><p>Then edit your <code>handleEventHook</code>:
+</p><pre> main = xmonad defaultConfig { handleEventHook = serverModeEventHook' bluetileCommands }
+</pre><p>See the documentation of <a href="XMonad-Hooks-ServerMode.html">XMonad.Hooks.ServerMode</a> for details on
+ how to actually invoke the commands from external programs.
+</p></div><div class="top"><p class="src"><a name="v:bluetileCommands" class="def">bluetileCommands</a> :: X [(<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>, X ())]<a href="src/XMonad-Actions-BluetileCommands.html#bluetileCommands" class="link">Source</a></p></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.13.1</p></div></body></html>
