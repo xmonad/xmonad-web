@@ -88,7 +88,7 @@
 <a name="line-79"></a>
 <a name="line-80"></a><a name="InputPrompt"></a><span class='hs-keyword'>data</span> <span class='hs-conid'>InputPrompt</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>InputPrompt</span> <span class='hs-conid'>String</span>
 <a name="line-81"></a>
-<a name="line-82"></a><a name="instance%20XPrompt%20InputPrompt"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>XPrompt</span> <span class='hs-conid'>InputPrompt</span>  <span class='hs-keyword'>where</span>
+<a name="line-82"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>XPrompt</span> <span class='hs-conid'>InputPrompt</span>  <span class='hs-keyword'>where</span>
 <a name="line-83"></a>    <span class='hs-varid'>showXPrompt</span> <span class='hs-layout'>(</span><span class='hs-conid'>InputPrompt</span> <span class='hs-varid'>s</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>s</span> <span class='hs-varop'>++</span> <span class='hs-str'>": "</span>
 <a name="line-84"></a>
 <a name="line-85"></a><a name="inputPrompt"></a><span class='hs-comment'>-- | Given a prompt configuration and some prompt text, create an X</span>

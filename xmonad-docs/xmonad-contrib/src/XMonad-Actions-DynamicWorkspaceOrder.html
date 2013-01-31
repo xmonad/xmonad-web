@@ -98,7 +98,7 @@
 <a name="line-89"></a><a name="WSOrderStorage"></a><span class='hs-keyword'>data</span> <span class='hs-conid'>WSOrderStorage</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>WSO</span> <span class='hs-layout'>{</span> <span class='hs-varid'>unWSO</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Maybe</span> <span class='hs-layout'>(</span><span class='hs-conid'>M</span><span class='hs-varop'>.</span><span class='hs-conid'>Map</span> <span class='hs-conid'>WorkspaceId</span> <span class='hs-conid'>Int</span><span class='hs-layout'>)</span> <span class='hs-layout'>}</span>
 <a name="line-90"></a>  <span class='hs-keyword'>deriving</span> <span class='hs-layout'>(</span><span class='hs-conid'>Typeable</span><span class='hs-layout'>,</span> <span class='hs-conid'>Read</span><span class='hs-layout'>,</span> <span class='hs-conid'>Show</span><span class='hs-layout'>)</span>
 <a name="line-91"></a>
-<a name="line-92"></a><a name="instance%20ExtensionClass%20WSOrderStorage"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>WSOrderStorage</span> <span class='hs-keyword'>where</span>
+<a name="line-92"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>WSOrderStorage</span> <span class='hs-keyword'>where</span>
 <a name="line-93"></a>  <span class='hs-varid'>initialValue</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>WSO</span> <span class='hs-conid'>Nothing</span>
 <a name="line-94"></a>  <span class='hs-varid'>extensionType</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>PersistentExtension</span>
 <a name="line-95"></a>

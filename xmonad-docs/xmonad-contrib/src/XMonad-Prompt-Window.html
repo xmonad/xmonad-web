@@ -69,7 +69,7 @@
 <a name="line-60"></a><span class='hs-comment'>-- "XMonad.Doc.Extending#Editing_key_bindings".</span>
 <a name="line-61"></a>
 <a name="line-62"></a><a name="WindowPrompt"></a><span class='hs-keyword'>data</span> <span class='hs-conid'>WindowPrompt</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Goto</span> <span class='hs-keyglyph'>|</span> <span class='hs-conid'>Bring</span> <span class='hs-keyglyph'>|</span> <span class='hs-conid'>BringCopy</span>
-<a name="line-63"></a><a name="instance%20XPrompt%20WindowPrompt"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>XPrompt</span> <span class='hs-conid'>WindowPrompt</span> <span class='hs-keyword'>where</span>
+<a name="line-63"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>XPrompt</span> <span class='hs-conid'>WindowPrompt</span> <span class='hs-keyword'>where</span>
 <a name="line-64"></a>    <span class='hs-varid'>showXPrompt</span> <span class='hs-conid'>Goto</span>      <span class='hs-keyglyph'>=</span> <span class='hs-str'>"Go to window: "</span>
 <a name="line-65"></a>    <span class='hs-varid'>showXPrompt</span> <span class='hs-conid'>Bring</span>     <span class='hs-keyglyph'>=</span> <span class='hs-str'>"Bring window: "</span>
 <a name="line-66"></a>    <span class='hs-varid'>showXPrompt</span> <span class='hs-conid'>BringCopy</span> <span class='hs-keyglyph'>=</span> <span class='hs-str'>"Bring a copy: "</span>

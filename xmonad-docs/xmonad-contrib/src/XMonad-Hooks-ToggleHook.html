@@ -74,7 +74,7 @@
 <a name="line-65"></a>
 <a name="line-66"></a><a name="HookState"></a><span class='hs-keyword'>data</span> <span class='hs-conid'>HookState</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>HookState</span> <span class='hs-layout'>{</span> <span class='hs-varid'>hooks</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Map</span> <span class='hs-conid'>String</span> <span class='hs-layout'>(</span><span class='hs-conid'>Bool</span><span class='hs-layout'>,</span> <span class='hs-conid'>Bool</span><span class='hs-layout'>)</span> <span class='hs-layout'>}</span> <span class='hs-keyword'>deriving</span> <span class='hs-layout'>(</span><span class='hs-conid'>Typeable</span><span class='hs-layout'>,</span> <span class='hs-conid'>Read</span><span class='hs-layout'>,</span> <span class='hs-conid'>Show</span><span class='hs-layout'>)</span>
 <a name="line-67"></a>
-<a name="line-68"></a><a name="instance%20ExtensionClass%20HookState"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>HookState</span> <span class='hs-keyword'>where</span>
+<a name="line-68"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>HookState</span> <span class='hs-keyword'>where</span>
 <a name="line-69"></a>    <span class='hs-varid'>initialValue</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>HookState</span> <span class='hs-varid'>empty</span>
 <a name="line-70"></a>    <span class='hs-varid'>extensionType</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>PersistentExtension</span>
 <a name="line-71"></a>

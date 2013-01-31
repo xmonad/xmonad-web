@@ -138,7 +138,7 @@
 <a name="line-129"></a><a name="Opacity"></a><span class='hs-comment'>-- to make it obay the monoid laws</span>
 <a name="line-130"></a><a name="Opacity"></a><span class='hs-keyword'>data</span> <span class='hs-conid'>Opacity</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Opacity</span> <span class='hs-conid'>Rational</span> <span class='hs-keyglyph'>|</span> <span class='hs-conid'>OEmpty</span>
 <a name="line-131"></a>
-<a name="line-132"></a><a name="instance%20Monoid%20Opacity"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Monoid</span> <span class='hs-conid'>Opacity</span> <span class='hs-keyword'>where</span>
+<a name="line-132"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Monoid</span> <span class='hs-conid'>Opacity</span> <span class='hs-keyword'>where</span>
 <a name="line-133"></a>  <span class='hs-varid'>mempty</span>                  <span class='hs-keyglyph'>=</span> <span class='hs-conid'>OEmpty</span>
 <a name="line-134"></a>  <span class='hs-varid'>r</span>      <span class='hs-varop'>`mappend`</span> <span class='hs-conid'>OEmpty</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>r</span>
 <a name="line-135"></a>  <span class='hs-keyword'>_</span>      <span class='hs-varop'>`mappend`</span> <span class='hs-varid'>r</span>      <span class='hs-keyglyph'>=</span> <span class='hs-varid'>r</span>

@@ -231,7 +231,7 @@
 <a name="line-222"></a><a name="onUrgents"></a><span class='hs-definition'>onUrgents</span> <span class='hs-keyglyph'>::</span> <span class='hs-layout'>(</span><span class='hs-keyglyph'>[</span><span class='hs-conid'>Window</span><span class='hs-keyglyph'>]</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-keyglyph'>[</span><span class='hs-conid'>Window</span><span class='hs-keyglyph'>]</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>Urgents</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>Urgents</span>
 <a name="line-223"></a><span class='hs-definition'>onUrgents</span> <span class='hs-varid'>f</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Urgents</span> <span class='hs-varop'>.</span> <span class='hs-varid'>f</span> <span class='hs-varop'>.</span> <span class='hs-varid'>fromUrgents</span>
 <a name="line-224"></a>
-<a name="line-225"></a><a name="instance%20ExtensionClass%20Urgents"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>Urgents</span> <span class='hs-keyword'>where</span>
+<a name="line-225"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>Urgents</span> <span class='hs-keyword'>where</span>
 <a name="line-226"></a>    <span class='hs-varid'>initialValue</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Urgents</span> <span class='hs-conid'>[]</span>
 <a name="line-227"></a>    <span class='hs-varid'>extensionType</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>PersistentExtension</span>
 <a name="line-228"></a>
@@ -307,7 +307,7 @@
 <a name="line-298"></a>                         <span class='hs-layout'>,</span> <span class='hs-varid'>remaining</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Maybe</span> <span class='hs-conid'>Int</span>
 <a name="line-299"></a>                         <span class='hs-layout'>}</span> <span class='hs-keyword'>deriving</span> <span class='hs-layout'>(</span><span class='hs-conid'>Show</span><span class='hs-layout'>,</span><span class='hs-conid'>Read</span><span class='hs-layout'>,</span><span class='hs-conid'>Eq</span><span class='hs-layout'>,</span><span class='hs-conid'>Typeable</span><span class='hs-layout'>)</span>
 <a name="line-300"></a>
-<a name="line-301"></a><a name="instance%20ExtensionClass%20%5bReminder%5d"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-keyglyph'>[</span><span class='hs-conid'>Reminder</span><span class='hs-keyglyph'>]</span> <span class='hs-keyword'>where</span>
+<a name="line-301"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-keyglyph'>[</span><span class='hs-conid'>Reminder</span><span class='hs-keyglyph'>]</span> <span class='hs-keyword'>where</span>
 <a name="line-302"></a>    <span class='hs-varid'>initialValue</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>[]</span>
 <a name="line-303"></a>    <span class='hs-varid'>extensionType</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>PersistentExtension</span>
 <a name="line-304"></a>
@@ -403,12 +403,12 @@
 <a name="line-394"></a><a name="UrgencyHook"></a><span class='hs-keyword'>class</span> <span class='hs-conid'>UrgencyHook</span> <span class='hs-varid'>h</span> <span class='hs-keyword'>where</span>
 <a name="line-395"></a>    <span class='hs-varid'>urgencyHook</span> <span class='hs-keyglyph'>::</span> <span class='hs-varid'>h</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>Window</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>X</span> <span class='hs-conid'>()</span>
 <a name="line-396"></a>
-<a name="line-397"></a><a name="instance%20UrgencyHook%20(Window%20-%3e%20X%20())"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>UrgencyHook</span> <span class='hs-layout'>(</span><span class='hs-conid'>Window</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>X</span> <span class='hs-conid'>()</span><span class='hs-layout'>)</span> <span class='hs-keyword'>where</span>
+<a name="line-397"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>UrgencyHook</span> <span class='hs-layout'>(</span><span class='hs-conid'>Window</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>X</span> <span class='hs-conid'>()</span><span class='hs-layout'>)</span> <span class='hs-keyword'>where</span>
 <a name="line-398"></a>    <span class='hs-varid'>urgencyHook</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>id</span>
 <a name="line-399"></a>
 <a name="line-400"></a><a name="NoUrgencyHook"></a><span class='hs-keyword'>data</span> <span class='hs-conid'>NoUrgencyHook</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>NoUrgencyHook</span> <span class='hs-keyword'>deriving</span> <span class='hs-layout'>(</span><span class='hs-conid'>Read</span><span class='hs-layout'>,</span> <span class='hs-conid'>Show</span><span class='hs-layout'>)</span>
 <a name="line-401"></a>
-<a name="line-402"></a><a name="instance%20UrgencyHook%20NoUrgencyHook"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>UrgencyHook</span> <span class='hs-conid'>NoUrgencyHook</span> <span class='hs-keyword'>where</span>
+<a name="line-402"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>UrgencyHook</span> <span class='hs-conid'>NoUrgencyHook</span> <span class='hs-keyword'>where</span>
 <a name="line-403"></a>    <span class='hs-varid'>urgencyHook</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>return</span> <span class='hs-conid'>()</span>
 <a name="line-404"></a>
 <a name="line-405"></a><a name="DzenUrgencyHook"></a><span class='hs-comment'>-- | Your set of options for configuring a dzenUrgencyHook.</span>
@@ -419,7 +419,7 @@
 <a name="line-410"></a>                       <span class='hs-layout'>}</span>
 <a name="line-411"></a>    <span class='hs-keyword'>deriving</span> <span class='hs-layout'>(</span><span class='hs-conid'>Read</span><span class='hs-layout'>,</span> <span class='hs-conid'>Show</span><span class='hs-layout'>)</span>
 <a name="line-412"></a>
-<a name="line-413"></a><a name="instance%20UrgencyHook%20DzenUrgencyHook"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>UrgencyHook</span> <span class='hs-conid'>DzenUrgencyHook</span> <span class='hs-keyword'>where</span>
+<a name="line-413"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>UrgencyHook</span> <span class='hs-conid'>DzenUrgencyHook</span> <span class='hs-keyword'>where</span>
 <a name="line-414"></a>    <span class='hs-varid'>urgencyHook</span> <span class='hs-conid'>DzenUrgencyHook</span> <span class='hs-layout'>{</span> <span class='hs-varid'>duration</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>d</span><span class='hs-layout'>,</span> <span class='hs-varid'>args</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>a</span> <span class='hs-layout'>}</span> <span class='hs-varid'>w</span> <span class='hs-keyglyph'>=</span> <span class='hs-keyword'>do</span>
 <a name="line-415"></a>        <span class='hs-varid'>name</span> <span class='hs-keyglyph'>&lt;-</span> <span class='hs-varid'>getName</span> <span class='hs-varid'>w</span>
 <a name="line-416"></a>        <span class='hs-varid'>ws</span> <span class='hs-keyglyph'>&lt;-</span> <span class='hs-varid'>gets</span> <span class='hs-varid'>windowset</span>
@@ -437,7 +437,7 @@
 <a name="line-428"></a><span class='hs-definition'>focusHook</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>urgencyHook</span> <span class='hs-conid'>FocusHook</span>
 <a name="line-429"></a><a name="FocusHook"></a><span class='hs-keyword'>data</span> <span class='hs-conid'>FocusHook</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>FocusHook</span> <span class='hs-keyword'>deriving</span> <span class='hs-layout'>(</span><span class='hs-conid'>Read</span><span class='hs-layout'>,</span> <span class='hs-conid'>Show</span><span class='hs-layout'>)</span>
 <a name="line-430"></a>
-<a name="line-431"></a><a name="instance%20UrgencyHook%20FocusHook"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>UrgencyHook</span> <span class='hs-conid'>FocusHook</span> <span class='hs-keyword'>where</span>
+<a name="line-431"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>UrgencyHook</span> <span class='hs-conid'>FocusHook</span> <span class='hs-keyword'>where</span>
 <a name="line-432"></a>    <span class='hs-varid'>urgencyHook</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>focusUrgent</span>
 <a name="line-433"></a>
 <a name="line-434"></a><span class='hs-comment'>-- | A hook that sets the border color of an urgent window.  The color</span>
@@ -456,7 +456,7 @@
 <a name="line-447"></a><a name="BorderUrgencyHook"></a><span class='hs-keyword'>data</span> <span class='hs-conid'>BorderUrgencyHook</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>BorderUrgencyHook</span> <span class='hs-layout'>{</span> <span class='hs-varid'>urgencyBorderColor</span> <span class='hs-keyglyph'>::</span> <span class='hs-varop'>!</span><span class='hs-conid'>String</span> <span class='hs-layout'>}</span>
 <a name="line-448"></a>                       <span class='hs-keyword'>deriving</span> <span class='hs-layout'>(</span><span class='hs-conid'>Read</span><span class='hs-layout'>,</span> <span class='hs-conid'>Show</span><span class='hs-layout'>)</span>
 <a name="line-449"></a>
-<a name="line-450"></a><a name="instance%20UrgencyHook%20BorderUrgencyHook"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>UrgencyHook</span> <span class='hs-conid'>BorderUrgencyHook</span> <span class='hs-keyword'>where</span>
+<a name="line-450"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>UrgencyHook</span> <span class='hs-conid'>BorderUrgencyHook</span> <span class='hs-keyword'>where</span>
 <a name="line-451"></a>  <span class='hs-varid'>urgencyHook</span> <span class='hs-conid'>BorderUrgencyHook</span> <span class='hs-layout'>{</span> <span class='hs-varid'>urgencyBorderColor</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>cs</span> <span class='hs-layout'>}</span> <span class='hs-varid'>w</span> <span class='hs-keyglyph'>=</span>
 <a name="line-452"></a>    <span class='hs-varid'>withDisplay</span> <span class='hs-varop'>$</span> <span class='hs-keyglyph'>\</span><span class='hs-varid'>dpy</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>io</span> <span class='hs-varop'>$</span> <span class='hs-keyword'>do</span>
 <a name="line-453"></a>      <span class='hs-varid'>c'</span> <span class='hs-keyglyph'>&lt;-</span> <span class='hs-varid'>initColor</span> <span class='hs-varid'>dpy</span> <span class='hs-varid'>cs</span>
@@ -480,7 +480,7 @@
 <a name="line-471"></a><span class='hs-definition'>spawnUrgencyHook</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>urgencyHook</span> <span class='hs-varop'>.</span> <span class='hs-conid'>SpawnUrgencyHook</span>
 <a name="line-472"></a><a name="SpawnUrgencyHook"></a><span class='hs-keyword'>newtype</span> <span class='hs-conid'>SpawnUrgencyHook</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>SpawnUrgencyHook</span> <span class='hs-conid'>String</span> <span class='hs-keyword'>deriving</span> <span class='hs-layout'>(</span><span class='hs-conid'>Read</span><span class='hs-layout'>,</span> <span class='hs-conid'>Show</span><span class='hs-layout'>)</span>
 <a name="line-473"></a>
-<a name="line-474"></a><a name="instance%20UrgencyHook%20SpawnUrgencyHook"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>UrgencyHook</span> <span class='hs-conid'>SpawnUrgencyHook</span> <span class='hs-keyword'>where</span>
+<a name="line-474"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>UrgencyHook</span> <span class='hs-conid'>SpawnUrgencyHook</span> <span class='hs-keyword'>where</span>
 <a name="line-475"></a>    <span class='hs-varid'>urgencyHook</span> <span class='hs-layout'>(</span><span class='hs-conid'>SpawnUrgencyHook</span> <span class='hs-varid'>prefix</span><span class='hs-layout'>)</span> <span class='hs-varid'>w</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>spawn</span> <span class='hs-varop'>$</span> <span class='hs-varid'>prefix</span> <span class='hs-varop'>++</span> <span class='hs-varid'>show</span> <span class='hs-varid'>w</span>
 <a name="line-476"></a>
 <a name="line-477"></a><a name="stdoutUrgencyHook"></a><span class='hs-comment'>-- | For debugging purposes, really.</span>
@@ -488,7 +488,7 @@
 <a name="line-479"></a><span class='hs-definition'>stdoutUrgencyHook</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>urgencyHook</span> <span class='hs-conid'>StdoutUrgencyHook</span>
 <a name="line-480"></a><a name="StdoutUrgencyHook"></a><span class='hs-keyword'>data</span> <span class='hs-conid'>StdoutUrgencyHook</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>StdoutUrgencyHook</span> <span class='hs-keyword'>deriving</span> <span class='hs-layout'>(</span><span class='hs-conid'>Read</span><span class='hs-layout'>,</span> <span class='hs-conid'>Show</span><span class='hs-layout'>)</span>
 <a name="line-481"></a>
-<a name="line-482"></a><a name="instance%20UrgencyHook%20StdoutUrgencyHook"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>UrgencyHook</span> <span class='hs-conid'>StdoutUrgencyHook</span> <span class='hs-keyword'>where</span>
+<a name="line-482"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>UrgencyHook</span> <span class='hs-conid'>StdoutUrgencyHook</span> <span class='hs-keyword'>where</span>
 <a name="line-483"></a>    <span class='hs-varid'>urgencyHook</span>    <span class='hs-keyword'>_</span> <span class='hs-varid'>w</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>io</span> <span class='hs-varop'>$</span> <span class='hs-varid'>putStrLn</span> <span class='hs-varop'>$</span> <span class='hs-str'>"Urgent: "</span> <span class='hs-varop'>++</span> <span class='hs-varid'>show</span> <span class='hs-varid'>w</span>
 </pre></body>
 </html>

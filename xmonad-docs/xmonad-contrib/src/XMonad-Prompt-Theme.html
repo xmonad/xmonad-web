@@ -51,7 +51,7 @@
 <a name="line-42"></a>
 <a name="line-43"></a><a name="ThemePrompt"></a><span class='hs-keyword'>data</span> <span class='hs-conid'>ThemePrompt</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>ThemePrompt</span>
 <a name="line-44"></a>
-<a name="line-45"></a><a name="instance%20XPrompt%20ThemePrompt"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>XPrompt</span> <span class='hs-conid'>ThemePrompt</span> <span class='hs-keyword'>where</span>
+<a name="line-45"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>XPrompt</span> <span class='hs-conid'>ThemePrompt</span> <span class='hs-keyword'>where</span>
 <a name="line-46"></a>    <span class='hs-varid'>showXPrompt</span> <span class='hs-conid'>ThemePrompt</span> <span class='hs-keyglyph'>=</span> <span class='hs-str'>"Select a theme: "</span>
 <a name="line-47"></a>    <span class='hs-varid'>commandToComplete</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>c</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>c</span>
 <a name="line-48"></a>    <span class='hs-varid'>nextCompletion</span>      <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>getNextCompletion</span>

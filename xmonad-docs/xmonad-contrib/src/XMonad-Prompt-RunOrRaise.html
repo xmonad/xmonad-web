@@ -56,7 +56,7 @@
 <a name="line-47"></a>"XMonad.Doc.Extending#Editing_key_bindings". -}</span>
 <a name="line-48"></a>
 <a name="line-49"></a><a name="RunOrRaisePrompt"></a><span class='hs-keyword'>data</span> <span class='hs-conid'>RunOrRaisePrompt</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>RRP</span>
-<a name="line-50"></a><a name="instance%20XPrompt%20RunOrRaisePrompt"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>XPrompt</span> <span class='hs-conid'>RunOrRaisePrompt</span> <span class='hs-keyword'>where</span>
+<a name="line-50"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>XPrompt</span> <span class='hs-conid'>RunOrRaisePrompt</span> <span class='hs-keyword'>where</span>
 <a name="line-51"></a>    <span class='hs-varid'>showXPrompt</span> <span class='hs-conid'>RRP</span> <span class='hs-keyglyph'>=</span> <span class='hs-str'>"Run or Raise: "</span>
 <a name="line-52"></a>
 <a name="line-53"></a><a name="runOrRaisePrompt"></a><span class='hs-definition'>runOrRaisePrompt</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>XPConfig</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>X</span> <span class='hs-conid'>()</span>

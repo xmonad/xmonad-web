@@ -259,10 +259,10 @@
 <a name="line-250"></a><a name="Generality"></a><span class='hs-comment'>-- | Score that indicates how general a navigation strategy is</span>
 <a name="line-251"></a><a name="Generality"></a><span class='hs-keyword'>type</span> <span class='hs-conid'>Generality</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Int</span>
 <a name="line-252"></a>
-<a name="line-253"></a><a name="instance%20Eq%20Navigation2D"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Eq</span> <span class='hs-conid'>Navigation2D</span> <span class='hs-keyword'>where</span>
+<a name="line-253"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Eq</span> <span class='hs-conid'>Navigation2D</span> <span class='hs-keyword'>where</span>
 <a name="line-254"></a>  <span class='hs-layout'>(</span><span class='hs-conid'>N</span> <span class='hs-varid'>x</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-varop'>==</span> <span class='hs-layout'>(</span><span class='hs-conid'>N</span> <span class='hs-varid'>y</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>x</span> <span class='hs-varop'>==</span> <span class='hs-varid'>y</span>
 <a name="line-255"></a>
-<a name="line-256"></a><a name="instance%20Ord%20Navigation2D"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Ord</span> <span class='hs-conid'>Navigation2D</span> <span class='hs-keyword'>where</span>
+<a name="line-256"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Ord</span> <span class='hs-conid'>Navigation2D</span> <span class='hs-keyword'>where</span>
 <a name="line-257"></a>  <span class='hs-layout'>(</span><span class='hs-conid'>N</span> <span class='hs-varid'>x</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-varop'>&lt;=</span> <span class='hs-layout'>(</span><span class='hs-conid'>N</span> <span class='hs-varid'>y</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>x</span> <span class='hs-varop'>&lt;=</span> <span class='hs-varid'>y</span>
 <a name="line-258"></a>
 <a name="line-259"></a><a name="lineNavigation"></a><span class='hs-comment'>-- | Line navigation.  To illustrate this navigation strategy, consider</span>
@@ -312,8 +312,8 @@
 <a name="line-303"></a><a name="Screen"></a><span class='hs-comment'>-- | Shorthand for the tedious screen type</span>
 <a name="line-304"></a><a name="Screen"></a><span class='hs-keyword'>type</span> <span class='hs-conid'>Screen</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>W</span><span class='hs-varop'>.</span><span class='hs-conid'>Screen</span> <span class='hs-conid'>WorkspaceId</span> <span class='hs-layout'>(</span><span class='hs-conid'>Layout</span> <span class='hs-conid'>Window</span><span class='hs-layout'>)</span> <span class='hs-conid'>Window</span> <span class='hs-conid'>ScreenId</span> <span class='hs-conid'>ScreenDetail</span>
 <a name="line-305"></a>
-<a name="line-306"></a><a name="instance%20ExtensionClass%20Navigation2DConfig"></a><span class='hs-comment'>-- So we can store the configuration in extensible state</span>
-<a name="line-307"></a><a name="instance%20ExtensionClass%20Navigation2DConfig"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>Navigation2DConfig</span> <span class='hs-keyword'>where</span>
+<a name="line-306"></a><span class='hs-comment'>-- So we can store the configuration in extensible state</span>
+<a name="line-307"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>Navigation2DConfig</span> <span class='hs-keyword'>where</span>
 <a name="line-308"></a>  <span class='hs-varid'>initialValue</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>defaultNavigation2DConfig</span>
 <a name="line-309"></a>
 <a name="line-310"></a><a name="withNavigation2DConfig"></a><span class='hs-comment'>-- | Modifies the xmonad configuration to store the Navigation2D configuration</span>

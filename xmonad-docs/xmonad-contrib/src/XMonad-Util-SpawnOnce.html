@@ -34,7 +34,7 @@
 <a name="line-25"></a><a name="SpawnOnce"></a><span class='hs-keyword'>data</span> <span class='hs-conid'>SpawnOnce</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>SpawnOnce</span> <span class='hs-layout'>{</span> <span class='hs-varid'>unspawnOnce</span> <span class='hs-keyglyph'>::</span> <span class='hs-layout'>(</span><span class='hs-conid'>Set</span> <span class='hs-conid'>String</span><span class='hs-layout'>)</span> <span class='hs-layout'>}</span>
 <a name="line-26"></a>    <span class='hs-keyword'>deriving</span> <span class='hs-layout'>(</span><span class='hs-conid'>Read</span><span class='hs-layout'>,</span> <span class='hs-conid'>Show</span><span class='hs-layout'>,</span> <span class='hs-conid'>Typeable</span><span class='hs-layout'>)</span>
 <a name="line-27"></a>
-<a name="line-28"></a><a name="instance%20ExtensionClass%20SpawnOnce"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>SpawnOnce</span> <span class='hs-keyword'>where</span>
+<a name="line-28"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>SpawnOnce</span> <span class='hs-keyword'>where</span>
 <a name="line-29"></a>    <span class='hs-varid'>initialValue</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>SpawnOnce</span> <span class='hs-conid'>Set</span><span class='hs-varop'>.</span><span class='hs-varid'>empty</span>
 <a name="line-30"></a>    <span class='hs-varid'>extensionType</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>PersistentExtension</span>
 <a name="line-31"></a>

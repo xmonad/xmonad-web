@@ -59,7 +59,7 @@
 <a name="line-50"></a><a name="ScreenCornerState"></a><span class='hs-keyword'>newtype</span> <span class='hs-conid'>ScreenCornerState</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>ScreenCornerState</span> <span class='hs-layout'>(</span><span class='hs-conid'>M</span><span class='hs-varop'>.</span><span class='hs-conid'>Map</span> <span class='hs-conid'>Window</span> <span class='hs-layout'>(</span><span class='hs-conid'>ScreenCorner</span><span class='hs-layout'>,</span> <span class='hs-conid'>X</span> <span class='hs-conid'>()</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span>
 <a name="line-51"></a>    <span class='hs-keyword'>deriving</span> <span class='hs-conid'>Typeable</span>
 <a name="line-52"></a>
-<a name="line-53"></a><a name="instance%20ExtensionClass%20ScreenCornerState"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>ScreenCornerState</span> <span class='hs-keyword'>where</span>
+<a name="line-53"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>ScreenCornerState</span> <span class='hs-keyword'>where</span>
 <a name="line-54"></a>    <span class='hs-varid'>initialValue</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>ScreenCornerState</span> <span class='hs-conid'>M</span><span class='hs-varop'>.</span><span class='hs-varid'>empty</span>
 <a name="line-55"></a>
 <a name="line-56"></a><a name="addScreenCorner"></a><span class='hs-comment'>-- | Add one single @X ()@ action to a screen corner</span>

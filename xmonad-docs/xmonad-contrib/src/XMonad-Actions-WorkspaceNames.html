@@ -89,7 +89,7 @@
 <a name="line-80"></a><a name="WorkspaceNames"></a><span class='hs-keyword'>newtype</span> <span class='hs-conid'>WorkspaceNames</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>WorkspaceNames</span> <span class='hs-layout'>(</span><span class='hs-conid'>M</span><span class='hs-varop'>.</span><span class='hs-conid'>Map</span> <span class='hs-conid'>WorkspaceId</span> <span class='hs-conid'>String</span><span class='hs-layout'>)</span>
 <a name="line-81"></a>    <span class='hs-keyword'>deriving</span> <span class='hs-layout'>(</span><span class='hs-conid'>Typeable</span><span class='hs-layout'>,</span> <span class='hs-conid'>Read</span><span class='hs-layout'>,</span> <span class='hs-conid'>Show</span><span class='hs-layout'>)</span>
 <a name="line-82"></a>
-<a name="line-83"></a><a name="instance%20ExtensionClass%20WorkspaceNames"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>WorkspaceNames</span> <span class='hs-keyword'>where</span>
+<a name="line-83"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>WorkspaceNames</span> <span class='hs-keyword'>where</span>
 <a name="line-84"></a>    <span class='hs-varid'>initialValue</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>WorkspaceNames</span> <span class='hs-conid'>M</span><span class='hs-varop'>.</span><span class='hs-varid'>empty</span>
 <a name="line-85"></a>    <span class='hs-varid'>extensionType</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>PersistentExtension</span>
 <a name="line-86"></a>

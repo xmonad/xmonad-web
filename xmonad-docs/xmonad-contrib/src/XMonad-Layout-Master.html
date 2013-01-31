@@ -78,7 +78,7 @@
 <a name="line-69"></a>    <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>ModifiedLayout</span> <span class='hs-conid'>AddMaster</span> <span class='hs-varid'>l</span> <span class='hs-varid'>a</span>
 <a name="line-70"></a><span class='hs-definition'>mastered</span> <span class='hs-varid'>delta</span> <span class='hs-varid'>frac</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>multimastered</span> <span class='hs-num'>1</span> <span class='hs-varid'>delta</span> <span class='hs-varid'>frac</span>
 <a name="line-71"></a>
-<a name="line-72"></a><a name="instance%20LayoutModifier%20AddMaster%20Window"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>LayoutModifier</span> <span class='hs-conid'>AddMaster</span> <span class='hs-conid'>Window</span> <span class='hs-keyword'>where</span>
+<a name="line-72"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>LayoutModifier</span> <span class='hs-conid'>AddMaster</span> <span class='hs-conid'>Window</span> <span class='hs-keyword'>where</span>
 <a name="line-73"></a>    <span class='hs-varid'>modifyLayout</span> <span class='hs-layout'>(</span><span class='hs-conid'>AddMaster</span> <span class='hs-varid'>k</span> <span class='hs-varid'>delta</span> <span class='hs-varid'>frac</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>applyMaster</span> <span class='hs-varid'>k</span> <span class='hs-varid'>delta</span> <span class='hs-varid'>frac</span>
 <a name="line-74"></a>    <span class='hs-varid'>modifierDescription</span> <span class='hs-keyword'>_</span>               <span class='hs-keyglyph'>=</span> <span class='hs-str'>"Mastered"</span>
 <a name="line-75"></a>

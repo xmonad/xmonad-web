@@ -161,7 +161,7 @@
 <a name="line-152"></a>                           <span class='hs-layout'>(</span><span class='hs-conid'>Seq</span> <span class='hs-conid'>Window</span><span class='hs-layout'>)</span>   <span class='hs-comment'>-- previously focused windows</span>
 <a name="line-153"></a>               <span class='hs-keyword'>deriving</span> <span class='hs-layout'>(</span><span class='hs-conid'>Read</span><span class='hs-layout'>,</span> <span class='hs-conid'>Show</span><span class='hs-layout'>,</span> <span class='hs-conid'>Typeable</span><span class='hs-layout'>)</span>
 <a name="line-154"></a>
-<a name="line-155"></a><a name="instance%20ExtensionClass%20HistoryDB"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>HistoryDB</span> <span class='hs-keyword'>where</span>
+<a name="line-155"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>HistoryDB</span> <span class='hs-keyword'>where</span>
 <a name="line-156"></a>
 <a name="line-157"></a>    <span class='hs-varid'>initialValue</span>  <span class='hs-keyglyph'>=</span> <span class='hs-conid'>HistoryDB</span> <span class='hs-conid'>Nothing</span> <span class='hs-conid'>Seq</span><span class='hs-varop'>.</span><span class='hs-varid'>empty</span>
 <a name="line-158"></a>    <span class='hs-varid'>extensionType</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>PersistentExtension</span>

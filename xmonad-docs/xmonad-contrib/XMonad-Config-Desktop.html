@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Config.Desktop</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
 window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Config-Desktop.html");};
 //]]>
-</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Config-Desktop.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.11: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Portability</th><td>unportable</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Maintainer</th><td>Spencer Janssen &lt;spencerjanssen@gmail.com&gt;</td></tr><tr><th>Safe Haskell</th><td>None</td></tr></table><p class="caption">XMonad.Config.Desktop</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Usage
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Config-Desktop.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.11: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Portability</th><td>unportable</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Maintainer</th><td>Spencer Janssen &lt;spencerjanssen@gmail.com&gt;</td></tr><tr><th>Safe Haskell</th><td>Safe-Infered</td></tr></table><p class="caption">XMonad.Config.Desktop</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Usage
 </a></li><li><a href="#g:2">Customizing a desktop config
 </a><ul><li><a href="#g:3">Modifying layouts, manageHook, or key bindings
 </a></li><li><a href="#g:4">Modifying the logHook
@@ -9,7 +9,7 @@ window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Config-Desktop.
 </a></li><li><a href="#g:6">Modifying the startupHook
 </a></li></ul></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>This module provides a config suitable for use with a desktop
  environment such as KDE or GNOME.
-</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:desktopConfig">desktopConfig</a> :: XConfig (<a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> <a href="XMonad-Hooks-ManageDocks.html#t:AvoidStruts">AvoidStruts</a> (Choose Tall (Choose (Mirror Tall) Full)))</li><li class="src short"><a href="#v:desktopLayoutModifiers">desktopLayoutModifiers</a> :: LayoutClass l a =&gt; l a -&gt; <a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> <a href="XMonad-Hooks-ManageDocks.html#t:AvoidStruts">AvoidStruts</a> l a</li></ul></div><div id="interface"><h1>Documentation</h1><div class="doc"><p>Several basic integration settings are common to all of xmonad's
+</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:desktopConfig">desktopConfig</a> :: <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XConfig">XConfig</a> (<a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> <a href="XMonad-Hooks-ManageDocks.html#t:AvoidStruts">AvoidStruts</a> (<a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Layout.html#t:Choose">Choose</a> <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Layout.html#t:Tall">Tall</a> (<a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Layout.html#t:Choose">Choose</a> (<a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Layout.html#t:Mirror">Mirror</a> <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Layout.html#t:Tall">Tall</a>) <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Layout.html#t:Full">Full</a>)))</li><li class="src short"><a href="#v:desktopLayoutModifiers">desktopLayoutModifiers</a> :: <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:LayoutClass">LayoutClass</a> l a =&gt; l a -&gt; <a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> <a href="XMonad-Hooks-ManageDocks.html#t:AvoidStruts">AvoidStruts</a> l a</li></ul></div><div id="interface"><h1>Documentation</h1><div class="doc"><p>Several basic integration settings are common to all of xmonad's
  desktop integration configurations. The specific desktop environment
  (DE) modules like <a href="XMonad-Config-Gnome.html">XMonad.Config.Gnome</a> use this module's
  <code>desktopConfig</code> to set up basic communication between xmonad and
@@ -38,11 +38,11 @@ window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Config-Desktop.
  import XMonad.Config.Desktop
 
  main = xmonad desktopConfig
-</pre><p><code>desktopConfig</code> is an <code>XConfig</code> that configures xmonad to
+</pre><p><code>desktopConfig</code> is an <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XConfig">XConfig</a></code> that configures xmonad to
  ignore and leave room for dock type windows like panels and trays, adds
  the default key binding to toggle panel visibility, and activates basic
  EWMH support. It also sets a prettier root window mouse pointer.
-</p></div><div class="top"><p class="src"><a name="v:desktopConfig" class="def">desktopConfig</a> :: XConfig (<a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> <a href="XMonad-Hooks-ManageDocks.html#t:AvoidStruts">AvoidStruts</a> (Choose Tall (Choose (Mirror Tall) Full)))<a href="src/XMonad-Config-Desktop.html#desktopConfig" class="link">Source</a></p></div><h1 id="g:2">Customizing a desktop config
+</p></div><div class="top"><p class="src"><a name="v:desktopConfig" class="def">desktopConfig</a> :: <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XConfig">XConfig</a> (<a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> <a href="XMonad-Hooks-ManageDocks.html#t:AvoidStruts">AvoidStruts</a> (<a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Layout.html#t:Choose">Choose</a> <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Layout.html#t:Tall">Tall</a> (<a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Layout.html#t:Choose">Choose</a> (<a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Layout.html#t:Mirror">Mirror</a> <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Layout.html#t:Tall">Tall</a>) <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Layout.html#t:Full">Full</a>)))<a href="src/XMonad-Config-Desktop.html#desktopConfig" class="link">Source</a></p></div><h1 id="g:2">Customizing a desktop config
 </h1><div class="doc"><p>To customize a desktop config, modify its fields as is illustrated with
  <code>defaultConfig</code> in <a href="XMonad-Doc-Extending.html#Extending xmonad">XMonad.Doc.Extending</a>.
 </p></div><h2 id="g:3">Modifying layouts, manageHook, or key bindings
@@ -72,7 +72,7 @@ window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Config-Desktop.
 </pre><p><code>desktopLayoutModifiers</code> modifies a layout to avoid covering docks, panels,
  etc. that set the <code>_NET_WM_STRUT_PARTIAL</code> property.
  See also <a href="XMonad-Hooks-ManageDocks.html">XMonad.Hooks.ManageDocks</a>.
-</p></div><div class="top"><p class="src"><a name="v:desktopLayoutModifiers" class="def">desktopLayoutModifiers</a> :: LayoutClass l a =&gt; l a -&gt; <a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> <a href="XMonad-Hooks-ManageDocks.html#t:AvoidStruts">AvoidStruts</a> l a<a href="src/XMonad-Config-Desktop.html#desktopLayoutModifiers" class="link">Source</a></p></div><h2 id="g:4">Modifying the logHook
+</p></div><div class="top"><p class="src"><a name="v:desktopLayoutModifiers" class="def">desktopLayoutModifiers</a> :: <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:LayoutClass">LayoutClass</a> l a =&gt; l a -&gt; <a href="XMonad-Layout-LayoutModifier.html#t:ModifiedLayout">ModifiedLayout</a> <a href="XMonad-Hooks-ManageDocks.html#t:AvoidStruts">AvoidStruts</a> l a<a href="src/XMonad-Config-Desktop.html#desktopLayoutModifiers" class="link">Source</a></p></div><h2 id="g:4">Modifying the logHook
 </h2><div class="doc"><p>To add to the logHook while still sending workspace and window information
  to DE apps use something like:
 </p><pre>  , logHook = myLogHook &lt;+&gt; logHook desktopConfig
@@ -91,13 +91,13 @@ window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Config-Desktop.
         , myMessageHandler
         , handleEventHook desktopConfig ]
 </pre><p>Note that the event hooks are run left to right (in contrast to
- <code>ManageHook</code>S which are right to left)
+ <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:ManageHook">ManageHook</a></code>S which are right to left)
 </p></div><h2 id="g:6">Modifying the startupHook
 </h2><div class="doc"><p>To run the desktop startupHook, plus add further actions to be run each
- time xmonad starts or restarts, use <code>&lt;+&gt;</code> to combine actions as in the
+ time xmonad starts or restarts, use <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:-60--43--62-">&lt;+&gt;</a></code> to combine actions as in the
  logHook example, or something like:
 </p><pre>  , startupHook = do
         startupHook desktopConfig
         spawn &quot;xmonad-restart.sh&quot;
         adjustEventInput
-</pre></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.13.1</p></div></body></html>
+</pre></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.10.0</p></div></body></html>

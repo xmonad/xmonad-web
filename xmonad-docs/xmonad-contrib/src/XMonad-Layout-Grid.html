@@ -57,7 +57,7 @@
 <a name="line-48"></a><a name="defaultRatio"></a><span class='hs-definition'>defaultRatio</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Double</span>
 <a name="line-49"></a><span class='hs-definition'>defaultRatio</span> <span class='hs-keyglyph'>=</span> <span class='hs-num'>16</span><span class='hs-varop'>/</span><span class='hs-num'>9</span>
 <a name="line-50"></a>
-<a name="line-51"></a><a name="instance%20LayoutClass%20Grid%20a"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>LayoutClass</span> <span class='hs-conid'>Grid</span> <span class='hs-varid'>a</span> <span class='hs-keyword'>where</span>
+<a name="line-51"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>LayoutClass</span> <span class='hs-conid'>Grid</span> <span class='hs-varid'>a</span> <span class='hs-keyword'>where</span>
 <a name="line-52"></a>    <span class='hs-varid'>pureLayout</span> <span class='hs-conid'>Grid</span>          <span class='hs-varid'>r</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>pureLayout</span> <span class='hs-layout'>(</span><span class='hs-conid'>GridRatio</span> <span class='hs-varid'>defaultRatio</span><span class='hs-layout'>)</span> <span class='hs-varid'>r</span>
 <a name="line-53"></a>    <span class='hs-varid'>pureLayout</span> <span class='hs-layout'>(</span><span class='hs-conid'>GridRatio</span> <span class='hs-varid'>d</span><span class='hs-layout'>)</span> <span class='hs-varid'>r</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>arrange</span> <span class='hs-varid'>d</span> <span class='hs-varid'>r</span> <span class='hs-varop'>.</span> <span class='hs-varid'>integrate</span>
 <a name="line-54"></a>

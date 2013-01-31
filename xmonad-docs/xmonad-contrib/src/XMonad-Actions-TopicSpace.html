@@ -224,7 +224,7 @@
 <a name="line-215"></a>                                 <span class='hs-layout'>}</span>
 <a name="line-216"></a>
 <a name="line-217"></a><a name="PrevTopics"></a><span class='hs-keyword'>newtype</span> <span class='hs-conid'>PrevTopics</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>PrevTopics</span> <span class='hs-layout'>{</span> <span class='hs-varid'>getPrevTopics</span> <span class='hs-keyglyph'>::</span> <span class='hs-keyglyph'>[</span><span class='hs-conid'>String</span><span class='hs-keyglyph'>]</span> <span class='hs-layout'>}</span> <span class='hs-keyword'>deriving</span> <span class='hs-layout'>(</span><span class='hs-conid'>Read</span><span class='hs-layout'>,</span><span class='hs-conid'>Show</span><span class='hs-layout'>,</span><span class='hs-conid'>Typeable</span><span class='hs-layout'>)</span>
-<a name="line-218"></a><a name="instance%20ExtensionClass%20PrevTopics"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>PrevTopics</span> <span class='hs-keyword'>where</span>
+<a name="line-218"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>PrevTopics</span> <span class='hs-keyword'>where</span>
 <a name="line-219"></a>    <span class='hs-varid'>initialValue</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>PrevTopics</span> <span class='hs-conid'>[]</span>
 <a name="line-220"></a>    <span class='hs-varid'>extensionType</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>PersistentExtension</span>
 <a name="line-221"></a>

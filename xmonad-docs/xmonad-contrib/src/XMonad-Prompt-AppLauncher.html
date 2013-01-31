@@ -67,7 +67,7 @@
 <a name="line-58"></a>
 <a name="line-59"></a><a name="AppPrompt"></a><span class='hs-comment'>-- A customized prompt</span>
 <a name="line-60"></a><a name="AppPrompt"></a><span class='hs-keyword'>data</span> <span class='hs-conid'>AppPrompt</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>AppPrompt</span> <span class='hs-conid'>String</span>
-<a name="line-61"></a><a name="instance%20XPrompt%20AppPrompt"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>XPrompt</span> <span class='hs-conid'>AppPrompt</span> <span class='hs-keyword'>where</span>
+<a name="line-61"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>XPrompt</span> <span class='hs-conid'>AppPrompt</span> <span class='hs-keyword'>where</span>
 <a name="line-62"></a>    <span class='hs-varid'>showXPrompt</span> <span class='hs-layout'>(</span><span class='hs-conid'>AppPrompt</span> <span class='hs-varid'>n</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>n</span> <span class='hs-varop'>++</span> <span class='hs-str'>" "</span>
 <a name="line-63"></a>
 <a name="line-64"></a><a name="Application"></a><span class='hs-keyword'>type</span> <span class='hs-conid'>Application</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>String</span>

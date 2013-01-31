@@ -69,7 +69,7 @@
 <a name="line-60"></a>
 <a name="line-61"></a><a name="AppendFile"></a><span class='hs-keyword'>data</span> <span class='hs-conid'>AppendFile</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>AppendFile</span> <span class='hs-conid'>FilePath</span>
 <a name="line-62"></a>
-<a name="line-63"></a><a name="instance%20XPrompt%20AppendFile"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>XPrompt</span> <span class='hs-conid'>AppendFile</span> <span class='hs-keyword'>where</span>
+<a name="line-63"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>XPrompt</span> <span class='hs-conid'>AppendFile</span> <span class='hs-keyword'>where</span>
 <a name="line-64"></a>    <span class='hs-varid'>showXPrompt</span> <span class='hs-layout'>(</span><span class='hs-conid'>AppendFile</span> <span class='hs-varid'>fn</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-str'>"Add to "</span> <span class='hs-varop'>++</span> <span class='hs-varid'>fn</span> <span class='hs-varop'>++</span> <span class='hs-str'>": "</span>
 <a name="line-65"></a>
 <a name="line-66"></a><a name="appendFilePrompt"></a><span class='hs-comment'>-- | Given an XPrompt configuration and a file path, prompt the user</span>

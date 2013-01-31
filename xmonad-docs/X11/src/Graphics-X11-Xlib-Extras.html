@@ -965,7 +965,7 @@
 <a name="line-956"></a>                        <span class='hs-layout'>,</span> <span class='hs-varid'>wc_stack_mode</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>CInt</span>
 <a name="line-957"></a>                        <span class='hs-layout'>}</span>
 <a name="line-958"></a>
-<a name="line-959"></a><a name="instance%20Storable%20WindowChanges"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Storable</span> <span class='hs-conid'>WindowChanges</span> <span class='hs-keyword'>where</span>
+<a name="line-959"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Storable</span> <span class='hs-conid'>WindowChanges</span> <span class='hs-keyword'>where</span>
 <a name="line-960"></a>    <span class='hs-varid'>sizeOf</span> <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-num'>40</span><span class='hs-layout'>)</span>
 <a name="line-961"></a><span class='hs-comment'>{-# LINE 831 "Graphics/X11/Xlib/Extras.hsc" #-}</span>
 <a name="line-962"></a>
@@ -1076,7 +1076,7 @@
 <a name="line-1067"></a><span class='hs-definition'>waIsViewable</span>   <span class='hs-keyglyph'>=</span> <span class='hs-varid'>fromIntegral</span> <span class='hs-layout'>(</span> <span class='hs-num'>2</span>   <span class='hs-keyglyph'>::</span> <span class='hs-conid'>CInt</span> <span class='hs-layout'>)</span>  <span class='hs-comment'>-- 2</span>
 <a name="line-1068"></a><span class='hs-comment'>{-# LINE 917 "Graphics/X11/Xlib/Extras.hsc" #-}</span>
 <a name="line-1069"></a>
-<a name="line-1070"></a><a name="instance%20Storable%20WindowAttributes"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Storable</span> <span class='hs-conid'>WindowAttributes</span> <span class='hs-keyword'>where</span>
+<a name="line-1070"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Storable</span> <span class='hs-conid'>WindowAttributes</span> <span class='hs-keyword'>where</span>
 <a name="line-1071"></a>    <span class='hs-comment'>-- this might be incorrect</span>
 <a name="line-1072"></a>    <span class='hs-varid'>alignment</span> <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>alignment</span> <span class='hs-layout'>(</span><span class='hs-varid'>undefined</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>CInt</span><span class='hs-layout'>)</span>
 <a name="line-1073"></a>    <span class='hs-varid'>sizeOf</span> <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-num'>136</span><span class='hs-layout'>)</span>
@@ -1139,7 +1139,7 @@
 <a name="line-1130"></a><span class='hs-comment'>{-# LINE 963 "Graphics/X11/Xlib/Extras.hsc" #-}</span>
 <a name="line-1131"></a>    <span class='hs-layout'>}</span>
 <a name="line-1132"></a>
-<a name="line-1133"></a><a name="instance%20Storable%20TextProperty"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Storable</span> <span class='hs-conid'>TextProperty</span> <span class='hs-keyword'>where</span>
+<a name="line-1133"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Storable</span> <span class='hs-conid'>TextProperty</span> <span class='hs-keyword'>where</span>
 <a name="line-1134"></a>    <span class='hs-varid'>sizeOf</span>    <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-num'>32</span><span class='hs-layout'>)</span>
 <a name="line-1135"></a><span class='hs-comment'>{-# LINE 967 "Graphics/X11/Xlib/Extras.hsc" #-}</span>
 <a name="line-1136"></a>    <span class='hs-varid'>alignment</span> <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>alignment</span> <span class='hs-layout'>(</span><span class='hs-varid'>undefined</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Word64</span><span class='hs-layout'>)</span>
@@ -1582,7 +1582,7 @@
 <a name="line-1573"></a><a name="pBaseSizeBit"></a><span class='hs-definition'>pBaseSizeBit</span>   <span class='hs-keyglyph'>=</span> <span class='hs-num'>8</span>
 <a name="line-1574"></a><a name="pWinGravityBit"></a><span class='hs-definition'>pWinGravityBit</span> <span class='hs-keyglyph'>=</span> <span class='hs-num'>9</span>
 <a name="line-1575"></a>
-<a name="line-1576"></a><a name="instance%20Storable%20SizeHints"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Storable</span> <span class='hs-conid'>SizeHints</span> <span class='hs-keyword'>where</span>
+<a name="line-1576"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Storable</span> <span class='hs-conid'>SizeHints</span> <span class='hs-keyword'>where</span>
 <a name="line-1577"></a>    <span class='hs-varid'>alignment</span> <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>alignment</span> <span class='hs-layout'>(</span><span class='hs-varid'>undefined</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>CInt</span><span class='hs-layout'>)</span>
 <a name="line-1578"></a>    <span class='hs-varid'>sizeOf</span> <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-num'>80</span><span class='hs-layout'>)</span>
 <a name="line-1579"></a><span class='hs-comment'>{-# LINE 1358 "Graphics/X11/Xlib/Extras.hsc" #-}</span>
@@ -1750,7 +1750,7 @@
 <a name="line-1741"></a>                 <span class='hs-layout'>,</span> <span class='hs-varid'>wmh_window_group</span>  <span class='hs-keyglyph'>::</span> <span class='hs-conid'>XID</span>
 <a name="line-1742"></a>                 <span class='hs-layout'>}</span>
 <a name="line-1743"></a>
-<a name="line-1744"></a><a name="instance%20Storable%20WMHints"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Storable</span> <span class='hs-conid'>WMHints</span> <span class='hs-keyword'>where</span>
+<a name="line-1744"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Storable</span> <span class='hs-conid'>WMHints</span> <span class='hs-keyword'>where</span>
 <a name="line-1745"></a>    <span class='hs-comment'>-- should align to the alignment of the largest type</span>
 <a name="line-1746"></a>    <span class='hs-varid'>alignment</span> <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>alignment</span> <span class='hs-layout'>(</span><span class='hs-varid'>undefined</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>CLong</span><span class='hs-layout'>)</span>
 <a name="line-1747"></a>    <span class='hs-varid'>sizeOf</span> <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-num'>56</span><span class='hs-layout'>)</span>

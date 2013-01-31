@@ -77,7 +77,7 @@
 <a name="line-68"></a><a name="withWSG"></a><span class='hs-definition'>withWSG</span> <span class='hs-keyglyph'>::</span> <span class='hs-layout'>(</span><span class='hs-conid'>M</span><span class='hs-varop'>.</span><span class='hs-conid'>Map</span> <span class='hs-conid'>WSGroupId</span> <span class='hs-conid'>WSGroup</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>M</span><span class='hs-varop'>.</span><span class='hs-conid'>Map</span> <span class='hs-conid'>WSGroupId</span> <span class='hs-conid'>WSGroup</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>WSGroupStorage</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>WSGroupStorage</span>
 <a name="line-69"></a><span class='hs-definition'>withWSG</span> <span class='hs-varid'>f</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>WSG</span> <span class='hs-varop'>.</span> <span class='hs-varid'>f</span> <span class='hs-varop'>.</span> <span class='hs-varid'>unWSG</span>
 <a name="line-70"></a>
-<a name="line-71"></a><a name="instance%20ExtensionClass%20WSGroupStorage"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>WSGroupStorage</span> <span class='hs-keyword'>where</span>
+<a name="line-71"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>ExtensionClass</span> <span class='hs-conid'>WSGroupStorage</span> <span class='hs-keyword'>where</span>
 <a name="line-72"></a>  <span class='hs-varid'>initialValue</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>WSG</span> <span class='hs-varop'>$</span> <span class='hs-conid'>M</span><span class='hs-varop'>.</span><span class='hs-varid'>empty</span>
 <a name="line-73"></a>  <span class='hs-varid'>extensionType</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>PersistentExtension</span>
 <a name="line-74"></a>
@@ -127,7 +127,7 @@
 <a name="line-118"></a>
 <a name="line-119"></a><a name="WSGPrompt"></a><span class='hs-keyword'>data</span> <span class='hs-conid'>WSGPrompt</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>WSGPrompt</span> <span class='hs-conid'>String</span>
 <a name="line-120"></a>
-<a name="line-121"></a><a name="instance%20XPrompt%20WSGPrompt"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>XPrompt</span> <span class='hs-conid'>WSGPrompt</span> <span class='hs-keyword'>where</span>
+<a name="line-121"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>XPrompt</span> <span class='hs-conid'>WSGPrompt</span> <span class='hs-keyword'>where</span>
 <a name="line-122"></a>  <span class='hs-varid'>showXPrompt</span> <span class='hs-layout'>(</span><span class='hs-conid'>WSGPrompt</span> <span class='hs-varid'>s</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>s</span>
 <a name="line-123"></a>
 <a name="line-124"></a><a name="promptWSGroupView"></a><span class='hs-comment'>-- | Prompt for a workspace group to view.</span>

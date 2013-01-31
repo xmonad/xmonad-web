@@ -104,9 +104,9 @@
 <a name="line-95"></a>                <span class='hs-keyglyph'>|</span> <span class='hs-conid'>DecGap</span> <span class='hs-varop'>!</span><span class='hs-conid'>Int</span> <span class='hs-varop'>!</span><span class='hs-conid'>Direction2D</span>    <span class='hs-comment'>-- ^ Decrease a gap.</span>
 <a name="line-96"></a>  <span class='hs-keyword'>deriving</span> <span class='hs-layout'>(</span><span class='hs-conid'>Typeable</span><span class='hs-layout'>)</span>
 <a name="line-97"></a>
-<a name="line-98"></a><a name="instance%20Message%20GapMessage%20instance%20LayoutModifier%20Gaps%20a"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Message</span> <span class='hs-conid'>GapMessage</span>
+<a name="line-98"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Message</span> <span class='hs-conid'>GapMessage</span>
 <a name="line-99"></a>
-<a name="line-100"></a><a name="instance%20LayoutModifier%20Gaps%20a"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>LayoutModifier</span> <span class='hs-conid'>Gaps</span> <span class='hs-varid'>a</span> <span class='hs-keyword'>where</span>
+<a name="line-100"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>LayoutModifier</span> <span class='hs-conid'>Gaps</span> <span class='hs-varid'>a</span> <span class='hs-keyword'>where</span>
 <a name="line-101"></a>    <span class='hs-varid'>modifyLayout</span> <span class='hs-varid'>g</span> <span class='hs-varid'>w</span> <span class='hs-varid'>r</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>runLayout</span> <span class='hs-varid'>w</span> <span class='hs-layout'>(</span><span class='hs-varid'>applyGaps</span> <span class='hs-varid'>g</span> <span class='hs-varid'>r</span><span class='hs-layout'>)</span>
 <a name="line-102"></a>
 <a name="line-103"></a>    <span class='hs-varid'>pureMess</span> <span class='hs-layout'>(</span><span class='hs-conid'>Gaps</span> <span class='hs-varid'>conf</span> <span class='hs-varid'>cur</span><span class='hs-layout'>)</span> <span class='hs-varid'>m</span>

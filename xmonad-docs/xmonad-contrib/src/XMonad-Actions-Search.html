@@ -209,7 +209,7 @@
 <a name="line-200"></a>
 <a name="line-201"></a><a name="Search"></a><span class='hs-comment'>-- | A customized prompt indicating we are searching, and the name of the site.</span>
 <a name="line-202"></a><a name="Search"></a><span class='hs-keyword'>data</span> <span class='hs-conid'>Search</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Search</span> <span class='hs-conid'>Name</span>
-<a name="line-203"></a><a name="instance%20XPrompt%20Search"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>XPrompt</span> <span class='hs-conid'>Search</span> <span class='hs-keyword'>where</span>
+<a name="line-203"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>XPrompt</span> <span class='hs-conid'>Search</span> <span class='hs-keyword'>where</span>
 <a name="line-204"></a>    <span class='hs-varid'>showXPrompt</span> <span class='hs-layout'>(</span><span class='hs-conid'>Search</span> <span class='hs-varid'>name</span><span class='hs-layout'>)</span><span class='hs-keyglyph'>=</span> <span class='hs-str'>"Search ["</span> <span class='hs-varop'>++</span> <span class='hs-varid'>name</span> <span class='hs-varop'>++</span> <span class='hs-str'>"]: "</span>
 <a name="line-205"></a>    <span class='hs-varid'>nextCompletion</span> <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>getNextCompletion</span>
 <a name="line-206"></a>    <span class='hs-varid'>commandToComplete</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>c</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>c</span>

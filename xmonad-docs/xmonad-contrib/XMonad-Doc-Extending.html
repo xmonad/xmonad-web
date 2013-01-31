@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Doc.Extending</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
 window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Doc-Extending.html");};
 //]]>
-</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Doc-Extending.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.11: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Portability</th><td>portable</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Maintainer</th><td>andrea.rossato@unibz.it</td></tr><tr><th>Safe Haskell</th><td>Safe-Inferred</td></tr></table><p class="caption">XMonad.Doc.Extending</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">The xmonad-contrib library
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Doc-Extending.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.11: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Portability</th><td>portable</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Maintainer</th><td>andrea.rossato@unibz.it</td></tr><tr><th>Safe Haskell</th><td>Safe-Infered</td></tr></table><p class="caption">XMonad.Doc.Extending</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">The xmonad-contrib library
 </a><ul><li><a href="#g:2">Actions
 </a></li><li><a href="#g:3">Configurations
 </a></li><li><a href="#g:4">Hooks
@@ -107,7 +107,7 @@ edit your key bindings.
     GridSelect displays items(e.g. the opened windows) in a 2D grid and lets
     the user select from it with the cursor/hjkl keys or the mouse.
 </li><li> <a href="XMonad-Actions-MessageFeedback.html">XMonad.Actions.MessageFeedback</a>:
-    Alternative to <code><a href="XMonad-Operations.html#t:sendMessage">sendMessage</a></code> that provides knowledge
+    Alternative to <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Operations.html#v:sendMessage">sendMessage</a></code> that provides knowledge
     of whether the message was handled, and utility functions based on
     this facility.
 </li><li> <a href="XMonad-Actions-MouseGestures.html">XMonad.Actions.MouseGestures</a>:
@@ -201,29 +201,29 @@ own configuration, possibly with some modifications.
 </h2><div class="doc"><p>In the <code>XMonad.Hooks</code> namespace you can find modules exporting
 hooks. Hooks are actions that xmonad performs when certain events
 occur. The two most important hooks are:
-</p><ul><li> <code><a href="XMonad-Core.html#t:manageHook">manageHook</a></code>: this hook is called when a new window
+</p><ul><li> <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:manageHook">manageHook</a></code>: this hook is called when a new window
   xmonad must take care of is created. This is a very powerful hook,
   since it lets us examine the new window's properties and act
   accordingly. For instance, we can configure xmonad to put windows
   belonging to a given application in the float layer, not to manage
   dock applications, or open them in a given workspace. See
   <a href="XMonad-Doc-Extending.html#Editing_the_manage_hook">XMonad.Doc.Extending</a> for more information on
-  customizing <code><a href="XMonad-Core.html#t:manageHook">manageHook</a></code>.
-</li><li> <code><a href="XMonad-Core.html#t:logHook">logHook</a></code>: this hook is called when the stack of windows
+  customizing <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:manageHook">manageHook</a></code>.
+</li><li> <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:logHook">logHook</a></code>: this hook is called when the stack of windows
   managed by xmonad has been changed, by calling the
-  <code><a href="XMonad-Operations.html#t:windows">windows</a></code> function. For instance
+  <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Operations.html#v:windows">windows</a></code> function. For instance
   <a href="XMonad-Hooks-DynamicLog.html">XMonad.Hooks.DynamicLog</a> will produce a string (whose format can be
   configured) to be printed to the standard output. This can be used
   to display some information about the xmonad state in a status bar.
   See <a href="XMonad-Doc-Extending.html#The_log_hook_and_external_status_bars">XMonad.Doc.Extending</a> for more
   information.
-</li><li> <code><a href="XMonad-Core.html#t:handleEventHook">handleEventHook</a></code>: this hook is called on all events handled
+</li><li> <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:handleEventHook">handleEventHook</a></code>: this hook is called on all events handled
   by xmonad, thus it is extremely powerful. See <a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Xlib-Extras.html">Graphics.X11.Xlib.Extras</a>
   and xmonad source and development documentation for more details.
 </li></ul><p>Here is a list of the modules found in <code>XMonad.Hooks</code>:
 </p><ul><li> <a href="XMonad-Hooks-DynamicHooks.html">XMonad.Hooks.DynamicHooks</a>:
     One-shot and permanent ManageHooks that can be updated at runtime.
-</li><li> <a href="XMonad-Hooks-DynamicLog.html">XMonad.Hooks.DynamicLog</a>: for use with <code><a href="XMonad-Core.html#t:logHook">logHook</a></code>; send
+</li><li> <a href="XMonad-Hooks-DynamicLog.html">XMonad.Hooks.DynamicLog</a>: for use with <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:logHook">logHook</a></code>; send
   information about xmonad's state to standard output, suitable for
   putting in a status bar of some sort. See
   <a href="XMonad-Doc-Extending.html#The_log_hook_and_external_status_bars">XMonad.Doc.Extending</a>.
@@ -287,7 +287,7 @@ different layouts, such as <a href="XMonad-Layout-Combo.html">XMonad.Layout.Comb
 interface for writing layout modifiers is implemented in
 <a href="XMonad-Layout-LayoutModifier.html">XMonad.Layout.LayoutModifier</a>.
 </p><p>For more information on using those modules for customizing your
-<code><a href="XMonad-Core.html#t:layoutHook">layoutHook</a></code> see <a href="XMonad-Doc-Extending.html#Editing_the_layout_hook">XMonad.Doc.Extending</a>.
+<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:layoutHook">layoutHook</a></code> see <a href="XMonad-Doc-Extending.html#Editing_the_layout_hook">XMonad.Doc.Extending</a>.
 </p><ul><li> <a href="XMonad-Layout-Accordion.html">XMonad.Layout.Accordion</a>:
     LayoutClass that puts non-focused windows in ribbons at the top and bottom
     of the screen.
@@ -592,7 +592,7 @@ external utilities.
     A data type to store the layout state
 </li><li> <a href="XMonad-Util-Loggers.html">XMonad.Util.Loggers</a>:
     A collection of simple logger functions and formatting utilities
-    which can be used in the <code><a href="XMonad-Hooks-DynamicLog.html#t:ppExtras">ppExtras</a></code> field of
+    which can be used in the <code><a href="XMonad-Hooks-DynamicLog.html#v:ppExtras">ppExtras</a></code> field of
     a pretty-printing status logger format. See <a href="XMonad-Hooks-DynamicLog.html">XMonad.Hooks.DynamicLog</a>
     for more information.
 </li><li> <a href="XMonad-Util-NamedActions.html">XMonad.Util.NamedActions</a>:
@@ -642,8 +642,8 @@ extensions from the xmonad-contrib library, or other code you write
 yourself.
 </p></div><h2 id="g:9">Editing key bindings
 </h2><div class="doc"><p><a name="Editing_key_bindings"></a>
-</p><p>Editing key bindings means changing the <code><a href="XMonad-Core-XConfig.html#t:keys">keys</a></code>
-field of the <code><a href="XMonad-Core.html#t:XConfig">XConfig</a></code> record used by xmonad.  For
+</p><p>Editing key bindings means changing the <code><a href="XMonad-Core-XConfig.html#v:keys">keys</a></code>
+field of the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XConfig">XConfig</a></code> record used by xmonad.  For
 example, you could write:
 </p><pre>    import XMonad
 
@@ -669,13 +669,13 @@ ones.
 </h3><div class="doc"><p><a name="Adding_key_bindings"></a>
 </p><p>Adding key bindings can be done in different ways. See the end of this
 section for the easiest ways. The type signature of
-<code><a href="XMonad-Core-XConfig.html#t:keys">keys</a></code> is:
+<code><a href="XMonad-Core-XConfig.html#v:keys">keys</a></code> is:
 </p><pre>    keys :: XConfig Layout -&gt; M.Map (ButtonMask,KeySym) (X ())
 </pre><p>In order to add new key bindings, you need to first create an
 appropriate <code><a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html#t:Map">Map</a></code> from a list of key bindings using
-<code><a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html#t:fromList">fromList</a></code>.  This <code><a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html#t:Map">Map</a></code> of new key bindings then
+<code><a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html#v:fromList">fromList</a></code>.  This <code><a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html#t:Map">Map</a></code> of new key bindings then
 needs to be joined to a <code><a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html#t:Map">Map</a></code> of existing bindings using
-<code><a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html#t:union">union</a></code>.
+<code><a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html#v:union">union</a></code>.
 </p><p>Since we are going to need some of the functions of the <a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html">Data.Map</a>
 module, before starting we must first import this modules:
 </p><pre>    import qualified Data.Map as M
@@ -688,11 +688,11 @@ these:
 </pre><p>then you can create a new key bindings map by joining the default one
 with yours:
 </p><pre>    newKeys x  = myKeys x `M.union` keys defaultConfig x
-</pre><p>Finally, you can use <code>newKeys</code> in the <code><a href="XMonad-Core-XConfig.html#t:keys">keys</a></code> field
+</pre><p>Finally, you can use <code>newKeys</code> in the <code><a href="XMonad-Core-XConfig.html#v:keys">keys</a></code> field
 of the configuration:
 </p><pre>    main = xmonad $ defaultConfig { keys = newKeys }
 </pre><p>Alternatively, the <code>&lt;+&gt;</code> operator can be used which in this usage does exactly
-the same as the explicit usage of <code><a href="M.html#t:union">union</a></code> and propagation of the config
+the same as the explicit usage of <code><a href="M.html#v:union">union</a></code> and propagation of the config
 argument, thanks to appropriate instances in <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html">Data.Monoid</a>.
 </p><pre>    main = xmonad $ defaultConfig { keys = myKeys &lt;+&gt; keys defaultConfig }
 </pre><p>All together, your <code>~/.xmonad/xmonad.hs</code> would now look like this:
@@ -720,11 +720,11 @@ provide useful functions for editing your key bindings; <a href="XMonad-Util-EZC
 </p></div><h3 id="g:11">Removing key bindings
 </h3><div class="doc"><p><a name="Removing_key_bindings"></a>
 </p><p>Removing key bindings requires modifying the <code><a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html#t:Map">Map</a></code> which
-stores the key bindings.  This can be done with <code><a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html#t:difference">difference</a></code>
-or with <code><a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html#t:delete">delete</a></code>.
+stores the key bindings.  This can be done with <code><a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html#v:difference">difference</a></code>
+or with <code><a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html#v:delete">delete</a></code>.
 </p><p>For example, suppose you want to get rid of <code>mod-q</code> and <code>mod-shift-q</code>
 (you just want to leave xmonad running forever). To do this you need
-to define <code>newKeys</code> as a <code><a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html#t:difference">difference</a></code> between the default
+to define <code>newKeys</code> as a <code><a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html#v:difference">difference</a></code> between the default
 map and the map of the key bindings you want to remove.  Like so:
 </p><pre>    newKeys x = keys defaultConfig x `M.difference` keysToRemove x
 
@@ -737,7 +737,7 @@ map and the map of the key bindings you want to remove.  Like so:
 keys listed in <code>keysToRemove</code>, so we just use <code>return ()</code> (the
 &quot;null&quot; action).
 </p><p>It is also possible to simply define a list of keys we want to unbind
-and then use <code><a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html#t:delete">delete</a></code> to remove them. In that case we would
+and then use <code><a href="http://xmonad.org/xmonad-docs/containers/Data-Map.html#v:delete">delete</a></code> to remove them. In that case we would
 write something like:
 </p><pre>    newKeys x = foldr M.delete (keys defaultConfig x) (keysToRemove x)
 
@@ -748,7 +748,7 @@ write something like:
              ]
 </pre><p>Another even simpler possibility is the use of some of the utilities
 provided by the xmonad-contrib library. Look, for instance, at
-<code><a href="XMonad-Util-EZConfig.html#t:removeKeys">removeKeys</a></code>.
+<code><a href="XMonad-Util-EZConfig.html#v:removeKeys">removeKeys</a></code>.
 </p></div><h3 id="g:12">Adding and removing key bindings
 </h3><div class="doc"><p><a name="Adding_and_removing_key_bindings"></a>
 </p><p>Adding and removing key bindings requires simply combining the steps
@@ -779,7 +779,7 @@ for removing and adding.  Here is an example from
         ,  (f, m) &lt;- [(W.greedyView, 0), (W.shift, shiftMask .|. controlMask)]
         ]
 </pre><p>You can achieve the same result using the <a href="XMonad-Util-CustomKeys.html">XMonad.Util.CustomKeys</a>
-module; take a look at the <code><a href="XMonad-Util-CustomKeys.html#t:customKeys">customKeys</a></code>
+module; take a look at the <code><a href="XMonad-Util-CustomKeys.html#v:customKeys">customKeys</a></code>
 function in particular.
 </p><p>NOTE: modm is defined as the modMask you defined (or left as the default) in
 your config.
@@ -797,14 +797,14 @@ the window you click on like so:
     main = xmonad $ defaultConfig { ..., mouseBindings = newMouse, ... }
 </pre><p>Overriding or deleting mouse bindings works similarly.  You can also
 configure mouse bindings much more easily using the
-<code><a href="XMonad-Util-EZConfig.html#t:additionalMouseBindings">additionalMouseBindings</a></code> and
-<code><a href="XMonad-Util-EZConfig.html#t:removeMouseBindings">removeMouseBindings</a></code> functions from the
+<code><a href="XMonad-Util-EZConfig.html#v:additionalMouseBindings">additionalMouseBindings</a></code> and
+<code><a href="XMonad-Util-EZConfig.html#v:removeMouseBindings">removeMouseBindings</a></code> functions from the
 <a href="XMonad-Util-EZConfig.html">XMonad.Util.EZConfig</a> module.
 </p></div><h2 id="g:14">Editing the layout hook
 </h2><div class="doc"><p><a name="Editing_the_layout_hook"></a>
 </p><p>When you start an application that opens a new window, when you change
 the focused window, or move it to another workspace, or change that
-workspace's layout, xmonad will use the <code><a href="XMonad-Core.html#t:layoutHook">layoutHook</a></code> for
+workspace's layout, xmonad will use the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:layoutHook">layoutHook</a></code> for
 reordering the visible windows on the visible workspace(s).
 </p><p>Since different layouts may be attached to different workspaces, and
 you can change them, xmonad needs to know which one to use. In this
@@ -819,9 +819,9 @@ means that we cannot simply have a list of layouts as we used to have
 before the 0.5 release: a list requires every member to belong to the
 same type!
 </p><p>Instead the combination of layouts to be used by xmonad is created
-with a specific layout combinator: <code><a href="XMonad-Layout.html#t:-124--124--124-">|||</a></code>.
-</p><p>Suppose we want a list with the <code><a href="XMonad-Layout.html#t:Full">Full</a></code>,
-<code><a href="XMonad-Layout-Tabbed.html#t:tabbed">tabbed</a></code> and
+with a specific layout combinator: <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Layout.html#v:-124--124--124-">|||</a></code>.
+</p><p>Suppose we want a list with the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Layout.html#t:Full">Full</a></code>,
+<code><a href="XMonad-Layout-Tabbed.html#v:tabbed">tabbed</a></code> and
 <code><a href="XMonad-Layout-Accordion.html#t:Accordion">Accordion</a></code> layouts. First we import, in our
 <code>~/.xmonad/xmonad.hs</code>, all the needed modules:
 </p><pre>    import XMonad
@@ -830,13 +830,13 @@ with a specific layout combinator: <code><a href="XMonad-Layout.html#t:-124--124
     import XMonad.Layout.Accordion
 </pre><p>Then we create the combination of layouts we need:
 </p><pre>    mylayoutHook = Full ||| tabbed shrinkText defaultTheme ||| Accordion
-</pre><p>Now, all we need to do is change the <code><a href="XMonad-Core.html#t:layoutHook">layoutHook</a></code>
-field of the <code><a href="XMonad-Core.html#t:XConfig">XConfig</a></code> record, like so:
+</pre><p>Now, all we need to do is change the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:layoutHook">layoutHook</a></code>
+field of the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XConfig">XConfig</a></code> record, like so:
 </p><pre>    main = xmonad $ defaultConfig { layoutHook = mylayoutHook }
 </pre><p>Thanks to the new combinator, we can apply a layout modifier to a
 whole combination of layouts, instead of applying it to each one. For
 example, suppose we want to use the
-<code><a href="XMonad-Layout-NoBorders.html#t:noBorders">noBorders</a></code> layout modifier, from the
+<code><a href="XMonad-Layout-NoBorders.html#v:noBorders">noBorders</a></code> layout modifier, from the
 <a href="XMonad-Layout-NoBorders.html">XMonad.Layout.NoBorders</a> module (which must be imported):
 </p><pre>    mylayoutHook = noBorders (Full ||| tabbed shrinkText defaultTheme ||| Accordion)
 </pre><p>If we want only the tabbed layout without borders, then we may write:
@@ -854,57 +854,57 @@ example, suppose we want to use the
 </pre><p>That's it!
 </p></div><h2 id="g:15">Editing the manage hook
 </h2><div class="doc"><p><a name="Editing_the_manage_hook"></a>
-</p><p>The <code><a href="XMonad-Core.html#t:manageHook">manageHook</a></code> is a very powerful tool for customizing
+</p><p>The <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:manageHook">manageHook</a></code> is a very powerful tool for customizing
 the behavior of xmonad with regard to new windows.  Whenever a new
-window is created, xmonad calls the <code><a href="XMonad-Core.html#t:manageHook">manageHook</a></code>, which
+window is created, xmonad calls the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:manageHook">manageHook</a></code>, which
 can thus be used to perform certain actions on the new window, such as
 placing it in a specific workspace, ignoring it, or placing it in the
 float layer.
-</p><p>The default <code><a href="XMonad-Core.html#t:manageHook">manageHook</a></code> causes xmonad to float MPlayer
+</p><p>The default <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:manageHook">manageHook</a></code> causes xmonad to float MPlayer
 and Gimp, and to ignore gnome-panel, desktop_window, kicker, and
 kdesktop.
-</p><p>The <a href="XMonad-ManageHook.html">XMonad.ManageHook</a> module provides some simple combinators that
-can be used to alter the <code><a href="XMonad-Core.html#t:manageHook">manageHook</a></code> by replacing or adding
+</p><p>The <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html">XMonad.ManageHook</a> module provides some simple combinators that
+can be used to alter the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:manageHook">manageHook</a></code> by replacing or adding
 to the default actions.
-</p><p>Let's start by analyzing the default <code><a href="XMonad-Config.html#t:manageHook">manageHook</a></code>, defined
-in <a href="XMonad-Config.html">XMonad.Config</a>:
+</p><p>Let's start by analyzing the default <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Config.html#v:manageHook">manageHook</a></code>, defined
+in <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Config.html">XMonad.Config</a>:
 </p><pre>    manageHook :: ManageHook
     manageHook = composeAll
                     [ className =? &quot;MPlayer&quot;        --&gt; doFloat
                     , className =? &quot;Gimp&quot;           --&gt; doFloat
                     , resource  =? &quot;desktop_window&quot; --&gt; doIgnore
                     , resource  =? &quot;kdesktop&quot;       --&gt; doIgnore ]
-</pre><p><code><a href="XMonad-ManageHook.html#t:composeAll">composeAll</a></code> can be used to compose a list of
-different <code><a href="XMonad-Config.html#t:ManageHook">ManageHook</a></code>s. In this example we have a list
-of <code><a href="XMonad-Config.html#t:ManageHook">ManageHook</a></code>s formed by the following commands: the
-Mplayer's and the Gimp's windows, whose <code><a href="XMonad-ManageHook.html#t:className">className</a></code>
+</pre><p><code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:composeAll">composeAll</a></code> can be used to compose a list of
+different <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Config.html#t:ManageHook">ManageHook</a></code>s. In this example we have a list
+of <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Config.html#t:ManageHook">ManageHook</a></code>s formed by the following commands: the
+Mplayer's and the Gimp's windows, whose <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:className">className</a></code>
 are, respectively &quot;Mplayer&quot; and &quot;Gimp&quot;, are to be placed in the
-float layer with the <code><a href="XMonad-ManageHook.html#t:doFloat">doFloat</a></code> function; the windows
+float layer with the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:doFloat">doFloat</a></code> function; the windows
 whose resource names are respectively &quot;desktop_window&quot; and
-kdesktop&quot; are to be ignored with the <code><a href="XMonad-ManageHook.html#t:doIgnore">doIgnore</a></code>
+kdesktop&quot; are to be ignored with the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:doIgnore">doIgnore</a></code>
 function.
-</p><p>This is another example of <code><a href="XMonad-Config.html#t:manageHook">manageHook</a></code>, taken from
+</p><p>This is another example of <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Config.html#v:manageHook">manageHook</a></code>, taken from
 <a href="XMonad-Config-Arossato.html">XMonad.Config.Arossato</a>:
 </p><pre>    myManageHook  = composeAll [ resource =? &quot;realplay.bin&quot; --&gt; doFloat
                                , resource =? &quot;win&quot;          --&gt; doF (W.shift &quot;doc&quot;) -- xpdf
                                , resource =? &quot;firefox-bin&quot;  --&gt; doF (W.shift &quot;web&quot;)
                                ]
     newManageHook = myManageHook &lt;+&gt; manageHook defaultConfig
-</pre><p>Again we use <code><a href="XMonad-ManageHook.html#t:composeAll">composeAll</a></code> to compose a list of
-different <code><a href="XMonad-Config.html#t:ManageHook">ManageHook</a></code>s. The first one will put
+</pre><p>Again we use <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:composeAll">composeAll</a></code> to compose a list of
+different <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Config.html#t:ManageHook">ManageHook</a></code>s. The first one will put
 RealPlayer on the float layer, the second one will put the xpdf
-windows in the workspace named &quot;doc&quot;, with <code><a href="XMonad-ManageHook.html#t:doF">doF</a></code>
-and <code><a href="XMonad-StackSet.html#t:shift">shift</a></code> functions, and the third one will put all
+windows in the workspace named &quot;doc&quot;, with <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:doF">doF</a></code>
+and <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#v:shift">shift</a></code> functions, and the third one will put all
 firefox windows on the workspace called <a href="web.html">web</a>. Then we use the
-<code><a href="XMonad-ManageHook.html#t:-60--43--62-">&lt;+&gt;</a></code> combinator to compose <code>myManageHook</code> with the
-default <code><a href="XMonad-Config.html#t:manageHook">manageHook</a></code> to form <code>newManageHook</code>.
-</p><p>Each <code><a href="XMonad-Config.html#t:ManageHook">ManageHook</a></code> has the form:
+<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:-60--43--62-">&lt;+&gt;</a></code> combinator to compose <code>myManageHook</code> with the
+default <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Config.html#v:manageHook">manageHook</a></code> to form <code>newManageHook</code>.
+</p><p>Each <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Config.html#t:ManageHook">ManageHook</a></code> has the form:
 </p><pre>    property =? match --&gt; action
 </pre><p>Where <code>property</code> can be:
-</p><ul><li> <code><a href="XMonad-ManageHook.html#t:title">title</a></code>: the window's title
-</li><li> <code><a href="XMonad-ManageHook.html#t:resource">resource</a></code>: the resource name
-</li><li> <code><a href="XMonad-ManageHook.html#t:className">className</a></code>: the resource class name.
-</li><li> <code><a href="XMonad-ManageHook.html#t:stringProperty">stringProperty</a></code> <code>somestring</code>: the contents of the
+</p><ul><li> <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:title">title</a></code>: the window's title
+</li><li> <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:resource">resource</a></code>: the resource name
+</li><li> <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:className">className</a></code>: the resource class name.
+</li><li> <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:stringProperty">stringProperty</a></code> <code>somestring</code>: the contents of the
   property <code>somestring</code>.
 </li></ul><p>(You can retrieve the needed information using the X utility named
 <code>xprop</code>; for example, to find the resource class name, you can type
@@ -914,42 +914,42 @@ know.)
 </p><p><code>match</code> is the string that will match the property value (for instance
 the one you retrieved with <code>xprop</code>).
 </p><p>An  <code>action</code> can be:
-</p><ul><li> <code><a href="XMonad-ManageHook.html#t:doFloat">doFloat</a></code>: to place the window in the float layer;
-</li><li> <code><a href="XMonad-ManageHook.html#t:doIgnore">doIgnore</a></code>: to ignore the window;
-</li><li> <code><a href="XMonad-ManageHook.html#t:doF">doF</a></code>: to execute a function with the window as
+</p><ul><li> <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:doFloat">doFloat</a></code>: to place the window in the float layer;
+</li><li> <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:doIgnore">doIgnore</a></code>: to ignore the window;
+</li><li> <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:doF">doF</a></code>: to execute a function with the window as
   argument.
-</li></ul><p>For example, suppose we want to add a <code><a href="XMonad-Config.html#t:manageHook">manageHook</a></code> to
-float RealPlayer, which usually has a <code><a href="XMonad-ManageHook.html#t:resource">resource</a></code>
+</li></ul><p>For example, suppose we want to add a <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Config.html#v:manageHook">manageHook</a></code> to
+float RealPlayer, which usually has a <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:resource">resource</a></code>
 name of &quot;realplay.bin&quot;.
-</p><p>First we need to import <a href="XMonad-ManageHook.html">XMonad.ManageHook</a>:
+</p><p>First we need to import <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html">XMonad.ManageHook</a>:
 </p><pre>    import XMonad.ManageHook
-</pre><p>Then we create our own <code><a href="XMonad-Config.html#t:manageHook">manageHook</a></code>:
+</pre><p>Then we create our own <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Config.html#v:manageHook">manageHook</a></code>:
 </p><pre>    myManageHook = resource =? &quot;realplay.bin&quot; --&gt; doFloat
-</pre><p>We can now use the <code><a href="XMonad-ManageHook.html#t:-60--43--62-">&lt;+&gt;</a></code> combinator to add our
-<code><a href="XMonad-Config.html#t:manageHook">manageHook</a></code> to the default one:
+</pre><p>We can now use the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:-60--43--62-">&lt;+&gt;</a></code> combinator to add our
+<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Config.html#v:manageHook">manageHook</a></code> to the default one:
 </p><pre>    newManageHook = myManageHook &lt;+&gt; manageHook defaultConfig
 </pre><p>(Of course, if we wanted to completely replace the default
-<code><a href="XMonad-Config.html#t:manageHook">manageHook</a></code>, this step would not be necessary.) Now,
-all we need to do is change the <code><a href="XMonad-Core.html#t:manageHook">manageHook</a></code> field of the
-<code><a href="XMonad-Core.html#t:XConfig">XConfig</a></code> record, like so:
+<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Config.html#v:manageHook">manageHook</a></code>, this step would not be necessary.) Now,
+all we need to do is change the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:manageHook">manageHook</a></code> field of the
+<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XConfig">XConfig</a></code> record, like so:
 </p><pre>    main = xmonad defaultConfig { ..., manageHook = newManageHook, ... }
 </pre><p>And we are done.
 </p><p>Obviously, we may wish to add more then one
-<code><a href="XMonad-Config.html#t:manageHook">manageHook</a></code>. In this case we can use a list of hooks,
-compose them all with <code><a href="XMonad-ManageHook.html#t:composeAll">composeAll</a></code>, and add the
+<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Config.html#v:manageHook">manageHook</a></code>. In this case we can use a list of hooks,
+compose them all with <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-ManageHook.html#v:composeAll">composeAll</a></code>, and add the
 composed to the default one.
 </p><p>For instance, if we want RealPlayer to float and thunderbird always
 opened in the workspace named <a href="mail.html">mail</a>, we can do so like this:
 </p><pre>    myManageHook = composeAll [ resource =? &quot;realplay.bin&quot;    --&gt; doFloat
                               , resource =? &quot;thunderbird-bin&quot; --&gt; doF (W.shift &quot;mail&quot;)
                               ]
-</pre><p>Remember to import the module that defines the <code><a href="XMonad-StackSet.html#t:shift">shift</a></code>
-function, <a href="XMonad-StackSet.html">XMonad.StackSet</a>, like this:
+</pre><p>Remember to import the module that defines the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#v:shift">shift</a></code>
+function, <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html">XMonad.StackSet</a>, like this:
 </p><pre>    import qualified XMonad.StackSet as W
 </pre><p>And then we can add <code>myManageHook</code> to the default one to create
 <code>newManageHook</code> as we did in the previous example.
 </p><p>One more thing to note about this system is that if
-a window matches multiple rules in a <code><a href="XMonad-Config.html#t:manageHook">manageHook</a></code>, <em>all</em>
+a window matches multiple rules in a <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Config.html#v:manageHook">manageHook</a></code>, <em>all</em>
 of the corresponding actions will be run (in the order in which they
 are defined).  This is a change from versions before 0.5, when only
 the first rule that matched was run.
@@ -958,7 +958,7 @@ manageHook, check out the contrib module <a href="XMonad-Hooks-ManageHelpers.htm
 </p></div><h2 id="g:16">The log hook and external status bars
 </h2><div class="doc"><p><a name="The_log_hook_and_external_status_bars"></a>
 </p><p>When the stack of the windows managed by xmonad changes for any
-reason, xmonad will call <code><a href="XMonad-Core.html#t:logHook">logHook</a></code>, which can be used to
+reason, xmonad will call <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:logHook">logHook</a></code>, which can be used to
 output some information about the internal state of xmonad, such as the
 layout that is presently in use, the workspace we are in, the focused
 window's title, and so on.
@@ -970,15 +970,15 @@ about the internal state of xmonad: <a href="XMonad-Hooks-DynamicLog.html">XMona
 module can be used with an external status bar to print the produced
 logs in a convenient way; the most commonly used status bars are dzen
 and xmobar.
-</p><p>By default the <code><a href="XMonad-Core.html#t:logHook">logHook</a></code> doesn't produce anything. To
+</p><p>By default the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:logHook">logHook</a></code> doesn't produce anything. To
 enable it you need first to import <a href="XMonad-Hooks-DynamicLog.html">XMonad.Hooks.DynamicLog</a>:
 </p><pre>    import XMonad.Hooks.DynamicLog
-</pre><p>Then you just need to update the <code><a href="XMonad-Core.html#t:logHook">logHook</a></code> field of the
-<code><a href="XMonad-Core.html#t:XConfig">XConfig</a></code> record with one of the provided functions. For
+</pre><p>Then you just need to update the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:logHook">logHook</a></code> field of the
+<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XConfig">XConfig</a></code> record with one of the provided functions. For
 example:
 </p><pre>    main = xmonad defaultConfig { logHook = dynamicLog }
 </pre><p>More interesting configurations are also possible; see the
 <a href="XMonad-Hooks-DynamicLog.html">XMonad.Hooks.DynamicLog</a> module for more possibilities.
 </p><p>You may now enjoy your extended xmonad experience.
 </p><p>Have fun!
-</p></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.13.1</p></div></body></html>
+</p></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.10.0</p></div></body></html>
