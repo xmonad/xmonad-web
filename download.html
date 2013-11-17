@@ -49,7 +49,7 @@
             <ul>
               <li><a href="http://www.openbsd.org/cgi-bin/cvsweb/ports/x11/xmonad/">OpenBSD</a></li>
               <li><a href="http://pkgsrc.se/wip/xmonad">NetBSD</a></li>
-              <li><a href="http://www.freshports.org/x11-wm/xmonad/">FreeBSD</a></li>
+              <li><a href="https://www.freshports.org/x11-wm/hs-xmonad/">FreeBSD</a></li>
             </ul>
           </div>
           <div class="distros">
@@ -80,8 +80,8 @@
           <p>On debian, xmonad is split into <em>three</em> packages, and it might not be obvious what they do.</p>
           <ul>
             <li><kbd>xmonad</kbd> lets you run xmonad in its <em>default</em> configuration.</li>
-            <li><kbd>libghc6-xmonad-dev</kbd> lets you write a configuration file using <em>core</em> functionality.</li>
-            <li><kbd>libghc6-xmonad-contrib-dev</kbd> includes all of the <em>contrib</em> modules.</li>
+            <li><kbd>libghc-xmonad-dev</kbd> lets you write a configuration file using <em>core</em> functionality.</li>
+            <li><kbd>libghc-xmonad-contrib-dev</kbd> includes all of the <em>contrib</em> modules.</li>
           </ul>
 
           <h3>Notes for Ubuntu users only:</h3>
@@ -91,24 +91,10 @@
       <div id="col2">
         <div class="inner">
           <h3 class="first">From tarball</h3>
-          <p>If you prefer to build on your own, download the latest tarballs here:</p>
-          <table>
-            <tr><th>core</th><th>contrib</th></tr>
-            <tr>
-              <td>
-                <p>Latest: <a
-                    href="http://hackage.haskell.org/packages/archive/xmonad/0.11/xmonad-0.11.tar.gz">xmonad 0.11</a> (Dec 2012)</p>
-                <p>Download <a href="http://hackage.haskell.org/package/xmonad">past versions</a> from Hackage.</p>
-              </td>
-              <td>
-                <p>Latest: <a href="http://hackage.haskell.org/packages/archive/xmonad-contrib/0.11.2/xmonad-contrib-0.11.2.tar.gz">xmonad-contrib 0.11.2</a> (July 2013)</p>
-                <p>Download <a href="http://hackage.haskell.org/package/xmonad-contrib">past versions</a> from Hackage.</p>
-              </td>
-            </tr>
-          </table>
-
+          <p>If you prefer to build on your own, you can get the official releases from hackage:
+          <ul><li><a href="http://hackage.haskell.org/package/xmonad">core</a></li>
+              <li><a href="http://hackage.haskell.org/package/xmonad-contrib">contrib</a></li></ul>
           <p>After you've downloaded, follow the <a href="intro.html">install instructions</a> and read the <a href="documentation.html">documentation</a> on how to configure xmonad.</p>
-
           <h3>From darcs</h3>
           <p>Keep on the bleeding edge by tracking xmonad development:</p>
           <blockquote><p><code>
@@ -116,6 +102,12 @@
             darcs get http://code.haskell.org/XMonadContrib
           </code></p></blockquote>
           <p>You will need <a href="http://darcs.net/">darcs</a> to check out the code. From there, follow the <a href="intro.html">install instructions</a> just as with the tarball.</p>
+          <p>Alternatively, you can install from snapshots</p>
+          <blockquote><p><code>
+                  cabal install http://code.haskell.org/xmonad/xmonad.tar.gz<br>
+                  cabal install http://code.haskell.org/XMonadContrib/XMonadContrib.tar.gz
+          </code></p></blockquote>
+
 
           <h3>Related tools</h3>
           <p>Here are some tools we've found work well with xmonad:</p>
