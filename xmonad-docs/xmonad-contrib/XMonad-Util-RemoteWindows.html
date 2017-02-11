@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Util.RemoteWindows</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Util-RemoteWindows.html");};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Util-RemoteWindows.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.13: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Copyright</th><td>(c) Anton Vorontsov &lt;anton@enomsg.org&gt; 2014</td></tr><tr><th>License</th><td>BSD-style (as xmonad)</td></tr><tr><th>Maintainer</th><td>Anton Vorontsov &lt;anton@enomsg.org&gt;</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Portability</th><td>unportable</td></tr><tr><th>Safe Haskell</th><td>None</td></tr><tr><th>Language</th><td>Haskell98</td></tr></table><p class="caption">XMonad.Util.RemoteWindows</p></div><div id="description"><p class="caption">Description</p><div class="doc"><p>This module implements a proper way of finding out whether the window
+ is remote or local.</p><p>Just checking for a hostname and WM_CLIENT_MACHINE being equal is often
+ not enough because the hostname is a changing subject (without any
+ established notification mechanisms), and thus WM_CLIENT_MACHINE and
+ the hostname can diverge even for a local window.</p><p>This module solves the problem. As soon as there is a new window
+ created, we check the hostname and WM_CLIENT_MACHINE, and then we cache
+ the result into the XMONAD_REMOTE property.</p><p>Notice that XMonad itself does not know anything about hostnames, nor
+ does it have any dependency on Network.* modules. For this module it is
+ not a problem: you can provide a mean to get the hostname through your
+ config file (see usage). Or, if you don't like the hassle of handling
+ dynamic hostnames (suppose your hostname never changes), it is also
+ fine: this module will fallback to using environment variables.</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:isLocalWindow">isLocalWindow</a> :: Window -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Bool.html#t:Bool">Bool</a></li><li class="src short"><a href="#v:manageRemote">manageRemote</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; ManageHook</li><li class="src short"><a href="#v:manageRemoteG">manageRemoteG</a> :: ManageHook</li></ul></div><div id="interface"><h1>Documentation</h1><div class="doc"><p>You can use this module with the following in your <code>~/.xmonad/xmonad.hs</code>:</p><pre>import XMonad
+import XMonad.Util.RemoteWindows
+import Network.BSD
+
+main = xmonad def
+   { manageHook = manageRemote =&lt;&lt; io getHostName }</pre></div><div class="top"><p class="src"><a id="v:isLocalWindow" class="def">isLocalWindow</a> :: Window -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Bool.html#t:Bool">Bool</a> <a href="src/XMonad-Util-RemoteWindows.html#isLocalWindow" class="link">Source</a> <a href="#v:isLocalWindow" class="selflink">#</a></p><div class="doc"><p>Given a window, tell if it is a local or a remote process. Normally,
+ it checks XMONAD_REMOTE property. If it does not exist (i.e. the
+ manageRemote hook was not deployed in user's config), it falls back to
+ checking environment variables and assuming that hostname never
+ changes.</p></div></div><div class="top"><p class="src"><a id="v:manageRemote" class="def">manageRemote</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; ManageHook <a href="src/XMonad-Util-RemoteWindows.html#manageRemote" class="link">Source</a> <a href="#v:manageRemote" class="selflink">#</a></p><div class="doc"><p>Use this hook to let XMonad properly track remote/local windows. For
+ example, <code>manageHook = manageRemote =&lt;&lt; io getHostName</code>.</p></div></div><div class="top"><p class="src"><a id="v:manageRemoteG" class="def">manageRemoteG</a> :: ManageHook <a href="src/XMonad-Util-RemoteWindows.html#manageRemoteG" class="link">Source</a> <a href="#v:manageRemoteG" class="selflink">#</a></p><div class="doc"><p>Use this hook if you want to manage XMONAD_REMOTE properties, but
+ don't want to use an external getHostName in your config. That way you
+ are retreating to environment variables.</p></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.17.2</p></div></body></html>

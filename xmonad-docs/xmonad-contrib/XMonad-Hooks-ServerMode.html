@@ -1,53 +1,69 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Hooks.ServerMode</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Hooks.ServerMode</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
 window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Hooks-ServerMode.html");};
 //]]>
-</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Hooks-ServerMode.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.11: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Portability</th><td>unportable</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Maintainer</th><td>andrea.rossato@unibz.it</td></tr><tr><th>Safe Haskell</th><td>Safe-Infered</td></tr></table><p class="caption">XMonad.Hooks.ServerMode</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Usage
-</a></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>This is an <code>EventHook</code> that will receive commands from an external
- client.
-</p><p>This is the example of a client:
-</p><pre> import Graphics.X11.Xlib
- import Graphics.X11.Xlib.Extras
- import System.Environment
- import Data.Char
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Hooks-ServerMode.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.13: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Copyright</th><td>(c) Peter Olson 2013 and Andrea Rossato and David Roundy 2007</td></tr><tr><th>License</th><td>BSD-style (see xmonad/LICENSE)</td></tr><tr><th>Maintainer</th><td>polson2@hawk.iit.edu</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Portability</th><td>unportable</td></tr><tr><th>Safe Haskell</th><td>None</td></tr><tr><th>Language</th><td>Haskell98</td></tr></table><p class="caption">XMonad.Hooks.ServerMode</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Usage</a></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>This is an <code>EventHook</code> that will receive commands from an external
+ client. Also consider <a href="XMonad-Hooks-EwmhDesktops.html">XMonad.Hooks.EwmhDesktops</a> together with
+ <code>wmctrl</code>.</p><p>This is the example of a client:</p><pre>import Graphics.X11.Xlib
+import Graphics.X11.Xlib.Extras
+import System.Environment
+import System.IO
+import Data.Char
 
- usage :: String -&gt; String
- usage n = &quot;Usage: &quot; ++ n ++ &quot; command number\nSend a command number to a running instance of XMonad&quot;
+main :: IO ()
+main = parse True &quot;XMONAD_COMMAND&quot; =&lt;&lt; getArgs
 
- main :: IO ()
- main = do
-   args &lt;- getArgs
-   pn &lt;- getProgName
-   let com = case args of
-               [] -&gt; error $ usage pn
-               w -&gt; (w !! 0)
-   sendCommand com
+parse :: Bool -&gt; String -&gt; [String] -&gt; IO ()
+parse input addr args = case args of
+        [&quot;--&quot;] | input -&gt; repl addr
+               | otherwise -&gt; return ()
+        (&quot;--&quot;:xs) -&gt; sendAll addr xs
+        (&quot;-a&quot;:a:xs) -&gt; parse input a xs
+        (&quot;-h&quot;:_) -&gt; showHelp
+        (&quot;--help&quot;:_) -&gt; showHelp
+        (&quot;-?&quot;:_) -&gt; showHelp
+        (a@('-':_):_) -&gt; hPutStrLn stderr (&quot;Unknown option &quot; ++ a)
 
- sendCommand :: String -&gt; IO ()
- sendCommand s = do
-   d   &lt;- openDisplay &quot;&quot;
-   rw  &lt;- rootWindow d $ defaultScreen d
-   a &lt;- internAtom d &quot;XMONAD_COMMAND&quot; False
-   allocaXEvent $ \e -&gt; do
-                   setEventType e clientMessage
-                   setClientMessageEvent e rw a 32 (fromIntegral (read s)) currentTime
-                   sendEvent d rw False structureNotifyMask e
-                   sync d False
-</pre><p>compile with: <code>ghc --make sendCommand.hs</code>
-</p><p>run with
-</p><pre> sendCommand command number
-</pre><p>For instance:
-</p><pre> sendCommand 0
-</pre><p>will ask to xmonad to print the list of command numbers in
- stderr (so you can read it in <code>~/.xsession-errors</code>).
-</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><span class="keyword">data</span>  <a href="#t:ServerMode">ServerMode</a>  = <a href="#v:ServerMode">ServerMode</a></li><li class="src short"><a href="#v:serverModeEventHook">serverModeEventHook</a> :: <a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Xlib-Extras.html#t:Event">Event</a> -&gt; <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:X">X</a> <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a></li><li class="src short"><a href="#v:serverModeEventHook-39-">serverModeEventHook'</a> :: <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:X">X</a> [(<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>, <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:X">X</a> <a href="http://xmonad.org/xmonad-docs/ghc-prim/GHC-Tuple.html#t:-40--41-">()</a>)] -&gt; <a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Xlib-Extras.html#t:Event">Event</a> -&gt; <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:X">X</a> <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a></li></ul></div><div id="interface"><h1 id="g:1">Usage
-</h1><div class="doc"><p>You can use this module with the following in your
- <code>~/.xmonad/xmonad.hs</code>:
-</p><pre> import XMonad.Hooks.ServerMode
- import XMonad.Actions.Commands
-</pre><p>Then edit your <code>handleEventHook</code> by adding the <code><a href="XMonad-Hooks-ServerMode.html#v:serverModeEventHook">serverModeEventHook</a></code>:
-</p><pre> main = xmonad defaultConfig { handleEventHook = serverModeEventHook }
-</pre></div><div class="top"><p class="src"><span class="keyword">data</span>  <a name="t:ServerMode" class="def">ServerMode</a>  <a href="src/XMonad-Hooks-ServerMode.html#ServerMode" class="link">Source</a></p><div class="subs constructors"><p class="caption">Constructors</p><table><tr><td class="src"><a name="v:ServerMode" class="def">ServerMode</a></td><td class="doc empty">&nbsp;</td></tr></table></div><div class="subs instances"><p id="control.i:ServerMode" class="caption collapser" onclick="toggleSection('i:ServerMode')">Instances</p><div id="section.i:ServerMode" class="show"><table><tr><td class="src"><a href="http://xmonad.org/xmonad-docs/base/Text-Read.html#t:Read">Read</a> <a href="XMonad-Hooks-ServerMode.html#t:ServerMode">ServerMode</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><a href="http://xmonad.org/xmonad-docs/base/Text-Show.html#t:Show">Show</a> <a href="XMonad-Hooks-ServerMode.html#t:ServerMode">ServerMode</a></td><td class="doc empty">&nbsp;</td></tr></table></div></div></div><div class="top"><p class="src"><a name="v:serverModeEventHook" class="def">serverModeEventHook</a> :: <a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Xlib-Extras.html#t:Event">Event</a> -&gt; <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:X">X</a> <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a><a href="src/XMonad-Hooks-ServerMode.html#serverModeEventHook" class="link">Source</a></p><div class="doc"><p>Executes a command of the list when receiving its index via a special ClientMessageEvent
- (indexing starts at 1)
-</p></div></div><div class="top"><p class="src"><a name="v:serverModeEventHook-39-" class="def">serverModeEventHook'</a> :: <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:X">X</a> [(<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>, <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:X">X</a> <a href="http://xmonad.org/xmonad-docs/ghc-prim/GHC-Tuple.html#t:-40--41-">()</a>)] -&gt; <a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Xlib-Extras.html#t:Event">Event</a> -&gt; <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:X">X</a> <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a><a href="src/XMonad-Hooks-ServerMode.html#serverModeEventHook%27" class="link">Source</a></p><div class="doc"><p>serverModeEventHook' additionally takes an action to generate the list of
- commands.
-</p></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.10.0</p></div></body></html>
+        (x:xs) -&gt; sendCommand addr x &gt;&gt; parse False addr xs
+        [] | input -&gt; repl addr
+           | otherwise -&gt; return ()
+
+
+repl :: String -&gt; IO ()
+repl addr = do e &lt;- isEOF
+               case e of
+                True -&gt; return ()
+                False -&gt; do l &lt;- getLine
+                            sendCommand addr l
+                            repl addr
+
+sendAll :: String -&gt; [String] -&gt; IO ()
+sendAll addr ss = foldr (\a b -&gt; sendCommand addr a &gt;&gt; b) (return ()) ss
+
+sendCommand :: String -&gt; String -&gt; IO ()
+sendCommand addr s = do
+  d   &lt;- openDisplay &quot;&quot;
+  rw  &lt;- rootWindow d $ defaultScreen d
+  a &lt;- internAtom d addr False
+  m &lt;- internAtom d s False
+  allocaXEvent $ \e -&gt; do
+                  setEventType e clientMessage
+                  setClientMessageEvent e rw a 32 m currentTime
+                  sendEvent d rw False structureNotifyMask e
+                  sync d False
+
+showHelp :: IO ()
+showHelp = do pn &lt;- getProgName
+              putStrLn (&quot;Send commands to a running instance of xmonad. xmonad.hs must be configured with XMonad.Hooks.ServerMode to work.\n-a atomname can be used at any point in the command line arguments to change which atom it is sending on.\nIf sent with no arguments or only -a atom arguments, it will read commands from stdin.\nEx:\n&quot; ++ pn ++ &quot; cmd1 cmd2\n&quot; ++ pn ++ &quot; -a XMONAD_COMMAND cmd1 cmd2 cmd3 -a XMONAD_PRINT hello world\n&quot; ++ pn ++ &quot; -a XMONAD_PRINT # will read data from stdin.\nThe atom defaults to XMONAD_COMMAND.&quot;)</pre><p>compile with: <code>ghc --make xmonadctl.hs</code></p><p>run with</p><pre>xmonadctl command</pre><p>or with</p><pre>$ xmonadctl
+command1
+command2
+.
+.
+.
+^D</pre><p>Usage will change depending on which event hook(s) you use. More examples are shown below.</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:serverModeEventHook">serverModeEventHook</a> :: Event -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a></li><li class="src short"><a href="#v:serverModeEventHook-39-">serverModeEventHook'</a> :: X [(<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>, X ())] -&gt; Event -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a></li><li class="src short"><a href="#v:serverModeEventHookCmd">serverModeEventHookCmd</a> :: Event -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a></li><li class="src short"><a href="#v:serverModeEventHookCmd-39-">serverModeEventHookCmd'</a> :: X [(<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>, X ())] -&gt; Event -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a></li><li class="src short"><a href="#v:serverModeEventHookF">serverModeEventHookF</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; (<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; X ()) -&gt; Event -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a></li></ul></div><div id="interface"><h1 id="g:1">Usage</h1><div class="doc"><p>You can use this module with the following in your
+ <code>~/.xmonad/xmonad.hs</code>:</p><pre>import XMonad.Hooks.ServerMode</pre><p>Then edit your <code>handleEventHook</code> by adding the appropriate event hook from below</p></div><div class="top"><p class="src"><a id="v:serverModeEventHook" class="def">serverModeEventHook</a> :: Event -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a> <a href="src/XMonad-Hooks-ServerMode.html#serverModeEventHook" class="link">Source</a> <a href="#v:serverModeEventHook" class="selflink">#</a></p><div class="doc"><p>Executes a command of the list when receiving its index via a special ClientMessageEvent
+ (indexing starts at 1). Sending index 0 will ask xmonad to print the list of command numbers
+ in stderr (so that you can read it in <code>~/.xsession-errors</code>). Uses <a href="XMonad-Actions-Commands.html#defaultCommands">XMonad.Actions.Commands</a> as the default.</p><pre>main = xmonad def { handleEventHook = serverModeEventHook }</pre><pre>xmonadctl 0 # tells xmonad to output command list
+xmonadctl 1 # tells xmonad to switch to workspace 1</pre></div></div><div class="top"><p class="src"><a id="v:serverModeEventHook-39-" class="def">serverModeEventHook'</a> :: X [(<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>, X ())] -&gt; Event -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a> <a href="src/XMonad-Hooks-ServerMode.html#serverModeEventHook%27" class="link">Source</a> <a href="#v:serverModeEventHook-39-" class="selflink">#</a></p><div class="doc"><p>serverModeEventHook' additionally takes an action to generate the list of
+ commands.</p></div></div><div class="top"><p class="src"><a id="v:serverModeEventHookCmd" class="def">serverModeEventHookCmd</a> :: Event -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a> <a href="src/XMonad-Hooks-ServerMode.html#serverModeEventHookCmd" class="link">Source</a> <a href="#v:serverModeEventHookCmd" class="selflink">#</a></p><div class="doc"><p>Executes a command of the list when receiving its name via a special ClientMessageEvent.
+ Uses <a href="XMonad-Actions-Commands.html#defaultCommands">XMonad.Actions.Commands</a> as the default.</p><pre>main = xmonad def { handleEventHook = serverModeEventHookCmd }</pre><pre>xmonadctl run # Tells xmonad to generate a run prompt</pre></div></div><div class="top"><p class="src"><a id="v:serverModeEventHookCmd-39-" class="def">serverModeEventHookCmd'</a> :: X [(<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a>, X ())] -&gt; Event -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a> <a href="src/XMonad-Hooks-ServerMode.html#serverModeEventHookCmd%27" class="link">Source</a> <a href="#v:serverModeEventHookCmd-39-" class="selflink">#</a></p><div class="doc"><p>Additionally takes an action to generate the list of commands</p></div></div><div class="top"><p class="src"><a id="v:serverModeEventHookF" class="def">serverModeEventHookF</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; (<a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; X ()) -&gt; Event -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a> <a href="src/XMonad-Hooks-ServerMode.html#serverModeEventHookF" class="link">Source</a> <a href="#v:serverModeEventHookF" class="selflink">#</a></p><div class="doc"><p>Listens for an atom, then executes a callback function whenever it hears it.
+ A trivial example that prints everything supplied to it on xmonad's standard out:</p><pre>main = xmonad def { handleEventHook = serverModeEventHookF &quot;XMONAD_PRINT&quot; (io . putStrLn) }</pre><pre>xmonadctl -a XMONAD_PRINT &quot;hello world&quot;</pre></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.17.2</p></div></body></html>

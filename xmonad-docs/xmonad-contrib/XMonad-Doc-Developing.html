@@ -1,16 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Doc.Developing</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Doc.Developing</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
 window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Doc-Developing.html");};
 //]]>
-</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Doc-Developing.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.11: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Portability</th><td>portable</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Maintainer</th><td>andrea.rossato@unibz.it</td></tr><tr><th>Safe Haskell</th><td>Safe-Infered</td></tr></table><p class="caption">XMonad.Doc.Developing</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Writing new extensions
-</a></li><li><a href="#g:2">Libraries for writing window managers
-</a></li><li><a href="#g:3">xmonad internals
-</a><ul><li><a href="#g:4">The <code>main</code> entry point
-</a></li><li><a href="#g:5">The X monad and the internal state
-</a></li><li><a href="#g:6">Event handling and messages
-</a></li><li><a href="#g:7">The <code>LayoutClass</code>
-</a></li></ul></li><li><a href="#g:8">Coding style
-</a></li><li><a href="#g:9">Licensing policy
-</a></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>This module gives a brief overview of the xmonad internals. It is
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Doc-Developing.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.13: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Copyright</th><td>(C) 2007 Andrea Rossato</td></tr><tr><th>License</th><td>BSD3</td></tr><tr><th>Maintainer</th><td>andrea.rossato@unibz.it</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Portability</th><td>portable</td></tr><tr><th>Safe Haskell</th><td>Safe</td></tr><tr><th>Language</th><td>Haskell98</td></tr></table><p class="caption">XMonad.Doc.Developing</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Writing new extensions</a></li><li><a href="#g:2">Libraries for writing window managers</a></li><li><a href="#g:3">xmonad internals</a><ul><li><a href="#g:4">The <code>main</code> entry point</a></li><li><a href="#g:5">The X monad and the internal state</a></li><li><a href="#g:6">Event handling and messages</a></li><li><a href="#g:7">The <code>LayoutClass</code></a></li></ul></li><li><a href="#g:8">Coding style</a></li><li><a href="#g:9">Licensing policy</a></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>This module gives a brief overview of the xmonad internals. It is
  intended for advanced users who are curious about the xmonad source
  code and want an brief overview. This document may also be helpful
  for the beginner/intermediate Haskell programmer who is motivated
@@ -19,183 +10,125 @@ window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Doc-Developing.
  here to go into much detail.  For a more comprehensive document
  covering some of the same material in more depth, see the guided
  tour of the xmonad source on the xmonad wiki:
- <a href="http://haskell.org/haskellwiki/Xmonad/Guided_tour_of_the_xmonad_source">http://haskell.org/haskellwiki/Xmonad/Guided_tour_of_the_xmonad_source</a>.
-</p><p>If you write an extension module and think it may be useful for
+ <a href="http://haskell.org/haskellwiki/Xmonad/Guided_tour_of_the_xmonad_source">http://haskell.org/haskellwiki/Xmonad/Guided_tour_of_the_xmonad_source</a>.</p><p>If you write an extension module and think it may be useful for
  others, consider releasing it.  Coding guidelines and licensing
  policies are covered at the end of this document, and must be
  followed if you want your code to be included in the official
  repositories.  For a basic tutorial on the nuts and bolts of
  developing a new extension for xmonad, see the tutorial on the
  wiki:
- <a href="http://haskell.org/haskellwiki/Xmonad/xmonad_development_tutorial">http://haskell.org/haskellwiki/Xmonad/xmonad_development_tutorial</a>.
-</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"></ul></div><div id="interface"><h1 id="g:1">Writing new extensions
-</h1><div class="doc empty">&nbsp;</div><h1 id="g:2">Libraries for writing window managers
-</h1><div class="doc"><p>Starting with version 0.5, xmonad and xmonad-contrib are packaged and
+ <a href="http://haskell.org/haskellwiki/Xmonad/xmonad_development_tutorial">http://haskell.org/haskellwiki/Xmonad/xmonad_development_tutorial</a>.</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"></ul></div><div id="interface"><h1 id="g:1">Writing new extensions</h1><div class="doc empty">&nbsp;</div><h1 id="g:2">Libraries for writing window managers</h1><div class="doc"><p>Starting with version 0.5, xmonad and xmonad-contrib are packaged and
 distributed as libraries, instead of components which must be compiled
 by the user into a binary (as they were prior to version 0.5). This
 way of distributing xmonad has many advantages, since it allows
 packaging by GNU/Linux distributions while still allowing the user to
-customize the window manager to fit her needs.
-</p><p>Basically, xmonad and the xmonad-contrib libraries let users write
+customize the window manager to fit her needs.</p><p>Basically, xmonad and the xmonad-contrib libraries let users write
 their own window manager in just a few lines of code. While
 <code>~/.xmonad/xmonad.hs</code> at first seems to be simply a configuration
 file, it is actually a complete Haskell program which uses the xmonad
-and xmonad-contrib libraries to create a custom window manager.
-</p><p>This makes it possible not only to edit the default xmonad
+and xmonad-contrib libraries to create a custom window manager.</p><p>This makes it possible not only to edit the default xmonad
 configuration, as we have seen in the <a href="XMonad-Doc-Extending.html">XMonad.Doc.Extending</a> document,
 but to use the Haskell programming language to extend the window
-manager you are writing in any way you see fit.
-</p></div><h1 id="g:3">xmonad internals
-</h1><div class="doc empty">&nbsp;</div><h2 id="g:4">The <code>main</code> entry point
-</h2><div class="doc"><p><a name="The_main_entry_point"></a>
-</p><p>xmonad installs a binary, <code>xmonad</code>, which must be executed by the
+manager you are writing in any way you see fit.</p></div><h1 id="g:3">xmonad internals</h1><div class="doc empty">&nbsp;</div><h2 id="g:4">The <code>main</code> entry point</h2><div class="doc"><p><a id="The_main_entry_point"></a></p><p>xmonad installs a binary, <code>xmonad</code>, which must be executed by the
 Xsession starting script. This binary, whose code can be read in
-<code>Main.hs</code> of the xmonad source tree, will use <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:recompile">recompile</a></code>
+<code>Main.hs</code> of the xmonad source tree, will use <code><a href="XMonad-Core.html#v:recompile">recompile</a></code>
 to run <code>ghc</code> in order to build a binary from <code>~/.xmonad/xmonad.hs</code>.
 If this compilation process fails, for any reason, a default <code>main</code>
-entry point will be used, which calls the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Main.html#v:xmonad">xmonad</a></code>
-function with a default configuration.
-</p><p>Thus, the real <code>main</code> entry point, the one that even the users' custom
+entry point will be used, which calls the <code><a href="XMonad-Main.html#v:xmonad">xmonad</a></code>
+function with a default configuration.</p><p>Thus, the real <code>main</code> entry point, the one that even the users' custom
 window manager application in <code>~/.xmonad/xmonad.hs</code> must call, is
-the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Main.html#v:xmonad">xmonad</a></code> function. This function takes a configuration
-as its only argument, whose type (<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XConfig">XConfig</a></code>)
-is defined in <a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html">XMonad.Core</a>.
-</p><p><code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Main.html#v:xmonad">xmonad</a></code> takes care of opening the connection with the X
+the <code><a href="XMonad-Main.html#v:xmonad">xmonad</a></code> function. This function takes a configuration
+as its only argument, whose type (<code><a href="XMonad-Core.html#v:XConfig">XConfig</a></code>)
+is defined in <a href="XMonad-Core.html">XMonad.Core</a>.</p><p><code><a href="XMonad-Main.html#v:xmonad">xmonad</a></code> takes care of opening the connection with the X
 server, initializing the state (or deserializing it when restarted)
 and the configuration, and calling the event handler
-(<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Main.html#v:handle">handle</a></code>) that goes into an infinite loop (using
-<code><a href="http://xmonad.org/xmonad-docs/base/Prelude.html#v:forever">forever</a></code>) waiting for events and acting accordingly.
-</p></div><h2 id="g:5">The X monad and the internal state
-</h2><div class="doc"><p>The event loop which calls <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Main.html#v:handle">handle</a></code> to react to events is
-run within the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:X">X</a></code> monad, which is a
-<code><a href="http://xmonad.org/xmonad-docs/mtl/Control-Monad-State.html#t:StateT">StateT</a></code> transformer over <code><a href="http://xmonad.org/xmonad-docs/base/System-IO.html#t:IO">IO</a></code>, encapsulated
-within a <code><a href="http://xmonad.org/xmonad-docs/mtl/Control-Monad-Reader.html#t:ReaderT">ReaderT</a></code> transformer. The
-<code><a href="http://xmonad.org/xmonad-docs/mtl/Control-Monad-State.html#t:StateT">StateT</a></code> transformer encapsulates the
+(<code><a href="XMonad-Main.html#v:handle">handle</a></code>) that goes into an infinite loop (using
+<code><a href="http://xmonad.org/xmonad-docs/base/Prelude.html#v:forever">forever</a></code>) waiting for events and acting accordingly.</p></div><h2 id="g:5">The X monad and the internal state</h2><div class="doc"><p>The event loop which calls <code><a href="XMonad-Main.html#v:handle">handle</a></code> to react to events is
+run within the <code><a href="XMonad-Core.html#v:X">X</a></code> monad, which is a
+<code><a href="Control-Monad-State.html#v:StateT">StateT</a></code> transformer over <code><a href="http://xmonad.org/xmonad-docs/base/System-IO.html#t:IO">IO</a></code>, encapsulated
+within a <code><a href="Control-Monad-Reader.html#v:ReaderT">ReaderT</a></code> transformer. The
+<code><a href="Control-Monad-State.html#v:StateT">StateT</a></code> transformer encapsulates the
 (read/writable) state of the window manager (of type
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XState">XState</a></code>), whereas the <code><a href="http://xmonad.org/xmonad-docs/mtl/Control-Monad-Reader.html#t:ReaderT">ReaderT</a></code>
+<code><a href="XMonad-Core.html#v:XState">XState</a></code>), whereas the <code><a href="Control-Monad-Reader.html#v:ReaderT">ReaderT</a></code>
 transformer encapsulates the (read-only) configuration (of type
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XConf">XConf</a></code>).
-</p><p>Thanks to GHC's newtype deriving feature, the instance of the
-<code><a href="http://xmonad.org/xmonad-docs/mtl/Control-Monad-State.html#t:MonadState">MonadState</a></code> class parametrized over
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XState">XState</a></code> and the instance of the
-<code><a href="http://xmonad.org/xmonad-docs/mtl/Control-Monad-Reader.html#t:MonadReader">MonadReader</a></code> class parametrized over
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XConf">XConf</a></code> are automatically derived for the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:X">X</a></code>
-monad. This way we can use <code><a href="http://xmonad.org/xmonad-docs/mtl/Control-Monad-State.html#v:get">get</a></code>,
-<code><a href="http://xmonad.org/xmonad-docs/mtl/Control-Monad-State.html#v:gets">gets</a></code> and <code><a href="http://xmonad.org/xmonad-docs/mtl/Control-Monad-State.html#v:modify">modify</a></code> for the
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XState">XState</a></code>, and <code><a href="http://xmonad.org/xmonad-docs/mtl/Control-Monad-Reader.html#v:ask">ask</a></code> and
-<code><a href="http://xmonad.org/xmonad-docs/mtl/Control-Monad-Reader.html#v:asks">asks</a></code> for reading the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XConf">XConf</a></code>.
-</p><p><code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XState">XState</a></code> is where all the sensitive information about
+<code><a href="XMonad-Core.html#v:XConf">XConf</a></code>).</p><p>Thanks to GHC's newtype deriving feature, the instance of the
+<code><a href="Control-Monad-State.html#v:MonadState">MonadState</a></code> class parametrized over
+<code><a href="XMonad-Core.html#v:XState">XState</a></code> and the instance of the
+<code><a href="Control-Monad-Reader.html#v:MonadReader">MonadReader</a></code> class parametrized over
+<code><a href="XMonad-Core.html#v:XConf">XConf</a></code> are automatically derived for the <code><a href="XMonad-Core.html#v:X">X</a></code>
+monad. This way we can use <code><a href="Control-Monad-State.html#v:get">get</a></code>,
+<code><a href="Control-Monad-State.html#v:gets">gets</a></code> and <code><a href="Control-Monad-State.html#v:modify">modify</a></code> for the
+<code><a href="XMonad-Core.html#v:XState">XState</a></code>, and <code><a href="Control-Monad-Reader.html#v:ask">ask</a></code> and
+<code><a href="Control-Monad-Reader.html#v:asks">asks</a></code> for reading the <code><a href="XMonad-Core.html#v:XConf">XConf</a></code>.</p><p><code><a href="XMonad-Core.html#v:XState">XState</a></code> is where all the sensitive information about
 window management is stored. The most important field of the
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XState">XState</a></code> is the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:windowset">windowset</a></code>, whose type
-(<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:WindowSet">WindowSet</a></code>) is a synonym for a
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#t:StackSet">StackSet</a></code> parametrized over a
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:WorkspaceID">WorkspaceID</a></code> (a <code><a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></code>), a layout type wrapped inside
-the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Layout.html#t:Layout">Layout</a></code> existential data type, the
-<code><a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:Window">Window</a></code> type, the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:ScreenID">ScreenID</a></code> and the
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:ScreenDetail">ScreenDetail</a></code>s.
-</p><p>What a <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#t:StackSet">StackSet</a></code> is and how it can be manipulated
+<code><a href="XMonad-Core.html#v:XState">XState</a></code> is the <code><a href="XMonad-Core.html#v:windowset">windowset</a></code>, whose type
+(<code><a href="XMonad-Core.html#v:WindowSet">WindowSet</a></code>) is a synonym for a
+<code><a href="XMonad-StackSet.html#v:StackSet">StackSet</a></code> parametrized over a
+<code><a href="XMonad-Core.html#v:WorkspaceID">WorkspaceID</a></code> (a <code><a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a></code>), a layout type wrapped inside
+the <code><a href="XMonad-Layout.html#v:Layout">Layout</a></code> existential data type, the
+<code><a href="Graphics-X11-Types.html#v:Window">Window</a></code> type, the <code><a href="XMonad-Core.html#v:ScreenID">ScreenID</a></code> and the
+<code><a href="XMonad-Core.html#v:ScreenDetail">ScreenDetail</a></code>s.</p><p>What a <code><a href="XMonad-StackSet.html#v:StackSet">StackSet</a></code> is and how it can be manipulated
 with pure functions is described in the Haddock documentation of the
-<a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html">XMonad.StackSet</a> module.
-</p><p>The <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#t:StackSet">StackSet</a></code> (<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:WindowSet">WindowSet</a></code>) has four
-fields:
-</p><ul><li> <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#v:current">current</a></code>, for the current, focused workspace. This
-  is a <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#t:Screen">Screen</a></code>, which is composed of a
-  <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#t:Workspace">Workspace</a></code> together with the screen information (for
-  Xinerama support).
-</li><li> <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#v:visible">visible</a></code>, a list of <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#t:Screen">Screen</a></code>s for
+<a href="XMonad-StackSet.html">XMonad.StackSet</a> module.</p><p>The <code><a href="XMonad-StackSet.html#v:StackSet">StackSet</a></code> (<code><a href="XMonad-Core.html#v:WindowSet">WindowSet</a></code>) has four
+fields:</p><ul><li><code><a href="XMonad-StackSet.html#v:current">current</a></code>, for the current, focused workspace. This
+  is a <code><a href="XMonad-StackSet.html#v:Screen">Screen</a></code>, which is composed of a
+  <code><a href="XMonad-StackSet.html#v:Workspace">Workspace</a></code> together with the screen information (for
+  Xinerama support).</li><li><code><a href="XMonad-StackSet.html#v:visible">visible</a></code>, a list of <code><a href="XMonad-StackSet.html#v:Screen">Screen</a></code>s for
   the other visible (with Xinerama) workspaces.  For non-Xinerama
-  setups, this list is always empty.
-</li><li> <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#v:hidden">hidden</a></code>, the list of non-visible
-  <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#t:Workspace">Workspace</a></code>s.
-</li><li> <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#v:floating">floating</a></code>, a map from floating
-  <code><a href="http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:Window">Window</a></code>s to <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#t:RationalRect">RationalRect</a></code>s
-  specifying their geometry.
-</li></ul><p>The <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#t:Workspace">Workspace</a></code> type is made of a
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#v:tag">tag</a></code>, a <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#v:layout">layout</a></code> and
-a (possibly empty) <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#v:stack">stack</a></code> of windows.
-</p><p><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html">XMonad.StackSet</a> (which should usually be imported qualified, to
+  setups, this list is always empty.</li><li><code><a href="XMonad-StackSet.html#v:hidden">hidden</a></code>, the list of non-visible
+  <code><a href="XMonad-StackSet.html#v:Workspace">Workspace</a></code>s.</li><li><code><a href="XMonad-StackSet.html#v:floating">floating</a></code>, a map from floating
+  <code><a href="Graphics-X11-Types.html#v:Window">Window</a></code>s to <code><a href="XMonad-StackSet.html#v:RationalRect">RationalRect</a></code>s
+  specifying their geometry.</li></ul><p>The <code><a href="XMonad-StackSet.html#v:Workspace">Workspace</a></code> type is made of a
+<code><a href="XMonad-StackSet.html#v:tag">tag</a></code>, a <code><a href="XMonad-StackSet.html#v:layout">layout</a></code> and
+a (possibly empty) <code><a href="XMonad-StackSet.html#v:stack">stack</a></code> of windows.</p><p><a href="XMonad-StackSet.html">XMonad.StackSet</a> (which should usually be imported qualified, to
 avoid name clashes with Prelude functions such as <code><a href="http://xmonad.org/xmonad-docs/base/Prelude.html#v:delete">delete</a></code> and
-<code><a href="http://xmonad.org/xmonad-docs/base/Data-List.html#v:filter">filter</a></code>) provides many pure functions to manipulate the
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#t:StackSet">StackSet</a></code>. These functions are most commonly used as
-an argument to <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Operations.html#v:windows">windows</a></code>, which takes a pure
-function to manipulate the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:WindowSet">WindowSet</a></code> and does all the
+<code><a href="http://xmonad.org/xmonad-docs/base/GHC-OldList.html#v:filter">filter</a></code>) provides many pure functions to manipulate the
+<code><a href="XMonad-StackSet.html#v:StackSet">StackSet</a></code>. These functions are most commonly used as
+an argument to <code><a href="XMonad-Operations.html#v:windows">windows</a></code>, which takes a pure
+function to manipulate the <code><a href="XMonad-Core.html#v:WindowSet">WindowSet</a></code> and does all the
 needed operations to refresh the screen and save the modified
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XState">XState</a></code>.
-</p><p>During each <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Operations.html#v:windows">windows</a></code> call, the
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#v:layout">layout</a></code> field of the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#v:current">current</a></code> and
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#v:visible">visible</a></code> <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#t:Workspace">Workspace</a></code>s are used to
-physically arrange the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#v:stack">stack</a></code> of windows on each
-workspace.
-</p><p>The possibility of manipulating the <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html#t:StackSet">StackSet</a></code>
-(<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:WindowSet">WindowSet</a></code>) with pure functions makes it possible to
+<code><a href="XMonad-Core.html#v:XState">XState</a></code>.</p><p>During each <code><a href="XMonad-Operations.html#v:windows">windows</a></code> call, the
+<code><a href="XMonad-StackSet.html#v:layout">layout</a></code> field of the <code><a href="XMonad-StackSet.html#v:current">current</a></code> and
+<code><a href="XMonad-StackSet.html#v:visible">visible</a></code> <code><a href="XMonad-StackSet.html#v:Workspace">Workspace</a></code>s are used to
+physically arrange the <code><a href="XMonad-StackSet.html#v:stack">stack</a></code> of windows on each
+workspace.</p><p>The possibility of manipulating the <code><a href="XMonad-StackSet.html#v:StackSet">StackSet</a></code>
+(<code><a href="XMonad-Core.html#v:WindowSet">WindowSet</a></code>) with pure functions makes it possible to
 test all the properties of those functions with QuickCheck, providing
 greater reliability of the core code. Every change to the
-<a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-StackSet.html">XMonad.StackSet</a> module must be accompanied by appropriate QuickCheck
-properties before being applied.
-</p></div><h2 id="g:6">Event handling and messages
-</h2><div class="doc"><p>Event handling is the core activity of xmonad.  Events generated by
+<a href="XMonad-StackSet.html">XMonad.StackSet</a> module must be accompanied by appropriate QuickCheck
+properties before being applied.</p></div><h2 id="g:6">Event handling and messages</h2><div class="doc"><p>Event handling is the core activity of xmonad.  Events generated by
 the X server are most important, but there may also be events
-generated by layouts or the user.
-</p><p><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html">XMonad.Core</a> defines a class that generalizes the concept of events,
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:Message">Message</a></code>, constrained to types with a
-<code><a href="http://xmonad.org/xmonad-docs/base/Data-Typeable.html#t:Typeable">Typeable</a></code> instance definition (which can be
-automatically derived by GHC). <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:Message">Message</a></code>s are wrapped
-within an existential type <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:SomeMessage">SomeMessage</a></code>. The
-<code><a href="http://xmonad.org/xmonad-docs/base/Data-Typeable.html#t:Typeable">Typeable</a></code> constraint allows for the definition of a
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#v:fromMessage">fromMessage</a></code> function that can unwrap the message with
+generated by layouts or the user.</p><p><a href="XMonad-Core.html">XMonad.Core</a> defines a class that generalizes the concept of events,
+<code><a href="XMonad-Core.html#v:Message">Message</a></code>, constrained to types with a
+<code><a href="http://xmonad.org/xmonad-docs/base/Data-Typeable.html#v:Typeable">Typeable</a></code> instance definition (which can be
+automatically derived by GHC). <code><a href="XMonad-Core.html#v:Message">Message</a></code>s are wrapped
+within an existential type <code><a href="XMonad-Core.html#v:SomeMessage">SomeMessage</a></code>. The
+<code><a href="http://xmonad.org/xmonad-docs/base/Data-Typeable.html#v:Typeable">Typeable</a></code> constraint allows for the definition of a
+<code><a href="XMonad-Core.html#v:fromMessage">fromMessage</a></code> function that can unwrap the message with
 <code><a href="http://xmonad.org/xmonad-docs/base/Data-Typeable.html#v:cast">cast</a></code>.  X Events are instances of this class, along
-with any messages used by xmonad itself or by extension modules.
-</p><p>Using the <code><a href="http://xmonad.org/xmonad-docs/base/Data-Typeable.html#t:Typeable">Typeable</a></code> class for any kind of
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:Message">Message</a></code>s and events allows us to define polymorphic functions
-for processing messages or unhandled events.
-</p><p>This is precisely what happens with X events: xmonad passes them to
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Main.html#v:handle">handle</a></code>. If the main event handling function doesn't have
+with any messages used by xmonad itself or by extension modules.</p><p>Using the <code><a href="http://xmonad.org/xmonad-docs/base/Data-Typeable.html#v:Typeable">Typeable</a></code> class for any kind of
+<code><a href="XMonad-Core.html#v:Message">Message</a></code>s and events allows us to define polymorphic functions
+for processing messages or unhandled events.</p><p>This is precisely what happens with X events: xmonad passes them to
+<code><a href="XMonad-Main.html#v:handle">handle</a></code>. If the main event handling function doesn't have
 anything to do with the event, the event is sent to all visible
-layouts by <code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Operations.html#v:broadcastMessage">broadcastMessage</a></code>.
-</p><p>This messaging system allows the user to create new message types,
-simply declare an instance of the <code><a href="http://xmonad.org/xmonad-docs/base/Data-Typeable.html#t:Typeable">Typeable</a></code> and use
-<code><a href="http://xmonad.org/xmonad-docs/xmonad/XMonad-Operations.html#v:sendMessage">sendMessage</a></code> to send commands to layouts.
-</p><p>And, finally, layouts may handle X events and other messages within the
-same function... miracles of polymorphism.
-</p></div><h2 id="g:7">The <code>LayoutClass</code>
-</h2><div class="doc"><p><a name="The_LayoutClass"></a>
-to do
-</p></div><h1 id="g:8">Coding style
-</h1><div class="doc"><p>These are the coding guidelines for contributing to xmonad and the
-xmonad contributed extensions.
-</p><ul><li> Comment every top level function (particularly exported funtions), and
-  provide a type signature.
-</li><li> Use Haddock syntax in the comments (see below).
-</li><li> Follow the coding style of the other modules.
-</li><li> Code should be compilable with <a href="ghc-options: -Wall -Werror.html">ghc-options: -Wall -Werror</a> set in the
-xmonad-contrib.cabal file. There should be no warnings.
-</li><li> Code should be free of any warnings or errors from the Hlint tool; use your
-  best judgement on some warnings like eta-reduction or bracket removal, though.
-</li><li> Partial functions should be avoided: the window manager should not
-  crash, so never call <code><a href="http://xmonad.org/xmonad-docs/base/Prelude.html#v:error">error</a></code> or <code><a href="http://xmonad.org/xmonad-docs/base/Prelude.html#v:undefined">undefined</a></code>.
-</li><li> Tabs are <em>illegal</em>. Use 4 spaces for indenting.
-</li><li> Any pure function added to the core must have QuickCheck properties
-  precisely defining its behaviour. Tests for everything else are encouraged.
-</li></ul><p>For examples of Haddock documentation syntax, have a look at other
-extensions.  Important points are:
-</p><ul><li> Every exported function (or even better, every function) should have
-  a Haddock comment explaining what it does, and providing examples.
-</li><li> Literal chunks of code can be written in comments using
+layouts by <code><a href="XMonad-Operations.html#v:broadcastMessage">broadcastMessage</a></code>.</p><p>This messaging system allows the user to create new message types,
+simply declare an instance of the <code><a href="http://xmonad.org/xmonad-docs/base/Data-Typeable.html#v:Typeable">Typeable</a></code> and use
+<code><a href="XMonad-Operations.html#v:sendMessage">sendMessage</a></code> to send commands to layouts.</p><p>And, finally, layouts may handle X events and other messages within the
+same function... miracles of polymorphism.</p></div><h2 id="g:7">The <code>LayoutClass</code></h2><div class="doc"><p><a id="The_LayoutClass"></a>
+to do</p></div><h1 id="g:8">Coding style</h1><div class="doc"><p>These are the coding guidelines for contributing to xmonad and the
+xmonad contributed extensions.</p><ul><li>Comment every top level function (particularly exported funtions), and
+  provide a type signature.</li><li>Use Haddock syntax in the comments (see below).</li><li>Follow the coding style of the other modules.</li><li>Code should be compilable with &quot;ghc-options: -Wall -Werror&quot; set in the
+xmonad-contrib.cabal file. There should be no warnings.</li><li>Code should be free of any warnings or errors from the Hlint tool; use your
+  best judgement on some warnings like eta-reduction or bracket removal, though.</li><li>Partial functions should be avoided: the window manager should not
+  crash, so never call <code><a href="http://xmonad.org/xmonad-docs/base/Prelude.html#v:error">error</a></code> or <code><a href="http://xmonad.org/xmonad-docs/base/Prelude.html#v:undefined">undefined</a></code>.</li><li>Tabs are <em>illegal</em>. Use 4 spaces for indenting.</li><li>Any pure function added to the core must have QuickCheck properties
+  precisely defining its behaviour. Tests for everything else are encouraged.</li></ul><p>For examples of Haddock documentation syntax, have a look at other
+extensions.  Important points are:</p><ul><li>Every exported function (or even better, every function) should have
+  a Haddock comment explaining what it does, and providing examples.</li><li>Literal chunks of code can be written in comments using
   &quot;birdtrack&quot; notation (a greater-than symbol at the beginning of
   each line).  Be sure to leave a blank line before and after each
-  birdtrack-quoted section.
-</li><li> Link to functions by surrounding the names in single quotes, modules
-  in double quotes.
-</li><li> Literal quote marks and slashes should be escaped with a backslash.
-</li></ul><p>To generate and view the Haddock documentation for your extension, run
-</p><pre> runhaskell Setup haddock
-</pre><p>and then point your browser to <code>/path/to/XMonadContrib/dist/doc/html/xmonad-contrib/index.html</code>.
-</p><p>For more information, see the Haddock documentation:
-<a href="http://www.haskell.org/haddock/doc/html/index.html">http://www.haskell.org/haddock/doc/html/index.html</a>.
-</p><p>For more information on the nuts and bolts of how to develop your own
+  birdtrack-quoted section.</li><li>Link to functions by surrounding the names in single quotes, modules
+  in double quotes.</li><li>Literal quote marks and slashes should be escaped with a backslash.</li></ul><p>To generate and view the Haddock documentation for your extension, run</p><pre>runhaskell Setup haddock</pre><p>and then point your browser to <code>/path/to/XMonadContrib/dist/doc/html/xmonad-contrib/index.html</code>.</p><p>For more information, see the Haddock documentation:
+<a href="http://www.haskell.org/haddock/doc/html/index.html">http://www.haskell.org/haddock/doc/html/index.html</a>.</p><p>For more information on the nuts and bolts of how to develop your own
 extension, see the tutorial on the wiki:
-<a href="http://haskell.org/haskellwiki/Xmonad/xmonad_development_tutorial">http://haskell.org/haskellwiki/Xmonad/xmonad_development_tutorial</a>.
-</p></div><h1 id="g:9">Licensing policy
-</h1><div class="doc"><p>New modules should identify the author, and be submitted under the
-same license as xmonad (BSD3 license or freer).
-</p></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.10.0</p></div></body></html>
+<a href="http://haskell.org/haskellwiki/Xmonad/xmonad_development_tutorial">http://haskell.org/haskellwiki/Xmonad/xmonad_development_tutorial</a>.</p></div><h1 id="g:9">Licensing policy</h1><div class="doc"><p>New modules should identify the author, and be submitted under the
+same license as xmonad (BSD3 license or freer).</p></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.17.2</p></div></body></html>
