@@ -1,26 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Util.Replace</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
-window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Util-Replace.html");};
-//]]>
-</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Util-Replace.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.13: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Copyright</th><td>(c) Jan Vornberger 2009</td></tr><tr><th>License</th><td>BSD3-style (see LICENSE)</td></tr><tr><th>Maintainer</th><td>Adam Vogt &lt;vogt.adam@gmail.com&gt;</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Portability</th><td>unportable</td></tr><tr><th>Safe Haskell</th><td>None</td></tr><tr><th>Language</th><td>Haskell98</td></tr></table><p class="caption">XMonad.Util.Replace</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Usage</a></li><li><a href="#g:2">Notes</a><ul><li><a href="#g:3">Implementing a <code>--replace</code> flag</a></li></ul></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>Implements a <code>--replace</code> behavior outside of core.</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:replace">replace</a> :: <a href="http://xmonad.org/xmonad-docs/base/System-IO.html#t:IO">IO</a> ()</li></ul></div><div id="interface"><h1 id="g:1">Usage</h1><div class="doc"><p>You must run the <code><a href="XMonad-Util-Replace.html#v:replace">replace</a></code> action before starting xmonad proper, this
- results in xmonad replacing the currently running WM regardless of the
- arguments it is run with:</p><pre>import XMonad
-import XMonad.Util.Replace
-main = do
-   replace
-   xmonad $ def { .... }</pre></div><div class="top"><p class="src"><a id="v:replace" class="def">replace</a> :: <a href="http://xmonad.org/xmonad-docs/base/System-IO.html#t:IO">IO</a> () <a href="src/XMonad-Util-Replace.html#replace" class="link">Source</a> <a href="#v:replace" class="selflink">#</a></p><div class="doc"><p><code>replace</code> must be run before xmonad starts to signals to compliant window
- managers that they must exit and let xmonad take over.</p></div></div><h1 id="g:2">Notes</h1><div class="doc"><p>This doesn't seem to work for replacing WMs that have been started
- from within xmonad, such as with <code><code>restart</code> &quot;openbox&quot; False</code>, but no other
- WMs that implements --replace manage this either. <code><a href="XMonad-Util-Replace.html#v:replace">replace</a></code> works for
- replacing metacity when the full gnome-session is started at least.</p></div><h2 id="g:3">Implementing a <code>--replace</code> flag</h2><div class="doc"><p>You can use <code><a href="http://xmonad.org/xmonad-docs/base/System-Environment.html#v:getArgs">getArgs</a></code> to watch for an explicit
- <code>--replace</code> flag:</p><pre>import XMonad
-import XMonad.Util.Replace (replace)
-import Control.Monad (when)
-import System.Environment (getArgs)
-
-main = do
-   args &lt;- getArgs
-   when (&quot;--replace&quot; `elem` args) replace
-   xmonad $ def { .... }</pre><p>Note that your <code>~/.xmonad/xmonad-$arch-$os</code> binary is not run with the same
- flags as the <code>xmonad</code> binary that calls it. You may be able to work around
- this by running your <code>~/.xmonad/xmonad-$arch-$os</code> binary directly, which is
- otherwise not recommended.</p></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.17.2</p></div></body></html>
+<html>
+<head>
+<meta http-equiv="refresh" content="5; url=http://hackage.haskell.org/package/xmonad" />
+</head>
+<body>
+<p><a href="http://hackage.haskell.org/package/xmonad">Documentation moved to Hackage. Click here to go there, or wait five seconds.</a></p>
+</body>
+</html>

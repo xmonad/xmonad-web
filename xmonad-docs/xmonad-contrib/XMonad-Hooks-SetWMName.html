@@ -1,12 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Hooks.SetWMName</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
-window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Hooks-SetWMName.html");};
-//]]>
-</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Hooks-SetWMName.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.13: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Copyright</th><td>&#169; 2007 Ivan Tarasov &lt;Ivan.Tarasov@gmail.com&gt;</td></tr><tr><th>License</th><td>BSD</td></tr><tr><th>Maintainer</th><td>Ivan.Tarasov@gmail.com</td></tr><tr><th>Stability</th><td>experimental</td></tr><tr><th>Portability</th><td>unportable</td></tr><tr><th>Safe Haskell</th><td>None</td></tr><tr><th>Language</th><td>Haskell98</td></tr></table><p class="caption">XMonad.Hooks.SetWMName</p></div><div id="description"><p class="caption">Description</p><div class="doc"><p>Sets the WM name to a given string, so that it could be detected using
- _NET_SUPPORTING_WM_CHECK protocol.</p><p>May be useful for making Java GUI programs work, just set WM name to <a href="LG3D.html">LG3D</a>
- and use Java 1.6u1 (1.6.0_01-ea-b03 works for me) or later.</p><p>To your <code>~/.xmonad/xmonad.hs</code> file, add the following line:</p><pre>import XMonad.Hooks.SetWMName</pre><p>Then edit your <code>startupHook</code>:</p><pre>startupHook = setWMName &quot;LG3D&quot;</pre><p>For details on the problems with running Java GUI programs in non-reparenting
- WMs, see <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6429775">http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6429775</a> and
- related bugs.</p><p>Setting WM name to &quot;compiz&quot; does not solve the problem, because of yet
- another bug in AWT code (related to insets). For LG3D insets are explicitly
- set to 0, while for other WMs the insets are &quot;guessed&quot; and the algorithm
- fails miserably by guessing absolutely bogus values.</p><p>For detailed instructions on editing your hooks, see
- <a href="XMonad-Doc-Extending.html#4">XMonad.Doc.Extending</a>.</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:setWMName">setWMName</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; X ()</li></ul></div><div id="interface"><h1>Documentation</h1><div class="top"><p class="src"><a id="v:setWMName" class="def">setWMName</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; X () <a href="src/XMonad-Hooks-SetWMName.html#setWMName" class="link">Source</a> <a href="#v:setWMName" class="selflink">#</a></p><div class="doc"><p>sets WM name</p></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.17.2</p></div></body></html>
+<html>
+<head>
+<meta http-equiv="refresh" content="5; url=http://hackage.haskell.org/package/xmonad" />
+</head>
+<body>
+<p><a href="http://hackage.haskell.org/package/xmonad">Documentation moved to Hackage. Click here to go there, or wait five seconds.</a></p>
+</body>
+</html>

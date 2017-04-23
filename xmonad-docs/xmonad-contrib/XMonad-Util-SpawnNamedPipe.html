@@ -1,27 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Util.SpawnNamedPipe</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
-window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Util-SpawnNamedPipe.html");};
-//]]>
-</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Util-SpawnNamedPipe.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.13: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Copyright</th><td>(c) Christian Wills 2014 </td></tr><tr><th>License</th><td>BSD3-style (see LICENSE)</td></tr><tr><th>Maintainer</th><td>cwills.dev@gmail.com</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Portability</th><td>not portable</td></tr><tr><th>Safe Haskell</th><td>None</td></tr><tr><th>Language</th><td>Haskell98</td></tr></table><p class="caption">XMonad.Util.SpawnNamedPipe</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Usage</a></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>A module for spawning a pipe whose <a href="Handle.html">Handle</a> lives in the Xmonad state.</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:spawnNamedPipe">spawnNamedPipe</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; X ()</li><li class="src short"><a href="#v:getNamedPipe">getNamedPipe</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; X (<a href="http://xmonad.org/xmonad-docs/base/Data-Maybe.html#t:Maybe">Maybe</a> <a href="http://xmonad.org/xmonad-docs/base/GHC-IO-Handle.html#t:Handle">Handle</a>)</li></ul></div><div id="interface"><h1 id="g:1">Usage</h1><div class="doc"><p>This module makes it possible to spawn a pipe to Dzen2 in the startupHook
- and write to it from inside the logHook without the need for global
- variables.</p><pre>import XMonad.Util.SpawnNamedPipe
-import Data.Maybe
-
--- StartupHook
-startupHook' = spawnNamedPipe &quot;dzen2&quot; &quot;dzenPipe&quot; 
-
--- LogHook
-logHook' = do
-    mh &lt;- getNamedPipeHandle &quot;dzenPipe&quot; 
-        dynamicLogWithPP $ defaultPP {
-            ppOutput = maybe (\s -&gt; return ()) (hPutStrLn) mh}
-
--- Main
-main = xmonad $ defaultConfig {
-                     startupHook = startupHook'
-                   , logHook = logHook'}</pre></div><div class="top"><p class="src"><a id="v:spawnNamedPipe" class="def">spawnNamedPipe</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; X () <a href="src/XMonad-Util-SpawnNamedPipe.html#spawnNamedPipe" class="link">Source</a> <a href="#v:spawnNamedPipe" class="selflink">#</a></p><div class="doc"><p>When <code><a href="XMonad-Util-SpawnNamedPipe.html#v:spawnNamedPipe">spawnNamedPipe</a></code> is executed with a command <a href="String.html">String</a> and a name
- <a href="String.html">String</a> respectively.  The command string is spawned with <code><a href="XMonad-Util-Run.html#v:spawnPipe">spawnPipe</a></code> (as
- long as the name chosen hasn't been used already) and the <a href="Handle.html">Handle</a> returned
- is saved in Xmonad's state associated with the name <a href="String.html">String</a>. </p></div></div><div class="top"><p class="src"><a id="v:getNamedPipe" class="def">getNamedPipe</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; X (<a href="http://xmonad.org/xmonad-docs/base/Data-Maybe.html#t:Maybe">Maybe</a> <a href="http://xmonad.org/xmonad-docs/base/GHC-IO-Handle.html#t:Handle">Handle</a>) <a href="src/XMonad-Util-SpawnNamedPipe.html#getNamedPipe" class="link">Source</a> <a href="#v:getNamedPipe" class="selflink">#</a></p><div class="doc"><p>Attempts to retrieve a <a href="Handle.html">Handle</a> to a pipe previously stored in Xmonad's
- state associated with the given string via a call to <code><a href="XMonad-Util-SpawnNamedPipe.html#v:spawnNamedPipe">spawnNamedPipe</a></code>. If the
- given string doesn't exist in the map stored in Xmonad's state Nothing is
- returned.   </p></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.17.2</p></div></body></html>
+<html>
+<head>
+<meta http-equiv="refresh" content="5; url=http://hackage.haskell.org/package/xmonad" />
+</head>
+<body>
+<p><a href="http://hackage.haskell.org/package/xmonad">Documentation moved to Hackage. Click here to go there, or wait five seconds.</a></p>
+</body>
+</html>

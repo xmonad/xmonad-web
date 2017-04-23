@@ -1,22 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XMonad.Hooks.DynamicProperty</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
-window.onload = function () {pageLoad();setSynopsis("mini_XMonad-Hooks-DynamicProperty.html");};
-//]]>
-</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/XMonad-Hooks-DynamicProperty.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">xmonad-contrib-0.13: Third party extensions for xmonad</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Copyright</th><td>(c) Brandon S Allbery, 2015</td></tr><tr><th>License</th><td>BSD3-style (see LICENSE)</td></tr><tr><th>Maintainer</th><td>allbery.b@gmail.com</td></tr><tr><th>Stability</th><td>unstable</td></tr><tr><th>Portability</th><td>not portable</td></tr><tr><th>Safe Haskell</th><td>None</td></tr><tr><th>Language</th><td>Haskell98</td></tr></table><p class="caption">XMonad.Hooks.DynamicProperty</p></div><div id="description"><p class="caption">Description</p><div class="doc"><p>Module to apply a ManageHook to an already-mapped window when a property
- changes. This would commonly be used to match browser windows by title,
- since the final title will only be set after (a) the window is mapped,
- (b) its document has been loaded, (c) all load-time scripts have run.
- (Don't blame browsers for this; it's inherent in HTML and the DOM. And
- changing title dynamically is explicitly permitted by ICCCM and EWMH;
- you don't really want to have your editor window umapped/remapped to
- show the current document and modified state in the titlebar, do you?)</p><p>This is a handleEventHook that triggers on a PropertyChange event. It
- currently ignores properties being removed, in part because you can't
- do anything useful in a ManageHook involving nonexistence of a property.</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:dynamicPropertyChange">dynamicPropertyChange</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; ManageHook -&gt; Event -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a></li><li class="src short"><a href="#v:dynamicTitle">dynamicTitle</a> :: ManageHook -&gt; Event -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a></li></ul></div><div id="interface"><h1>Documentation</h1><div class="top"><p class="src"><a id="v:dynamicPropertyChange" class="def">dynamicPropertyChange</a> :: <a href="http://xmonad.org/xmonad-docs/base/Data-String.html#t:String">String</a> -&gt; ManageHook -&gt; Event -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a> <a href="src/XMonad-Hooks-DynamicProperty.html#dynamicPropertyChange" class="link">Source</a> <a href="#v:dynamicPropertyChange" class="selflink">#</a></p><div class="doc"><p>Run a <code>ManageHook</code> when a specific property is changed on a window. Note
- that this will run on any window which changes the property, so you should
- be very specific in your <code>MansgeHook</code> matching (lots of windows change
- their titles on the fly!):</p><p>dynamicPropertyChange <a href="WM_NAME.html">WM_NAME</a> (className =? <a href="Iceweasel.html">Iceweasel</a> <a href="&amp;&amp;">&amp;&amp;</a> title =? &quot;whatever&quot; --&gt; doShift &quot;2&quot;)</p><p>Note that the fixity of (--&gt;) won't allow it to be mixed with ($), so you
- can't use the obvious $ shorthand.</p><pre>dynamicPropertyChange &quot;WM_NAME&quot; $ title =? &quot;Foo&quot; --&gt; doFloat -- won't work!</pre><p>Consider instead phrasing it like any
- other <code>ManageHook</code>:</p><pre>     , handleEventHook = dynamicPropertyChange &quot;WM_NAME&quot; myDynHook &lt;+&gt; handleEventHook baseConfig
-
-   {- ... -}
-
-   myDynHook = composeAll [...]</pre></div></div><div class="top"><p class="src"><a id="v:dynamicTitle" class="def">dynamicTitle</a> :: ManageHook -&gt; Event -&gt; X <a href="http://xmonad.org/xmonad-docs/base/Data-Monoid.html#t:All">All</a> <a href="src/XMonad-Hooks-DynamicProperty.html#dynamicTitle" class="link">Source</a> <a href="#v:dynamicTitle" class="selflink">#</a></p><div class="doc"><p>A shorthand for the most common case, dynamic titles</p></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.17.2</p></div></body></html>
+<html>
+<head>
+<meta http-equiv="refresh" content="5; url=http://hackage.haskell.org/package/xmonad" />
+</head>
+<body>
+<p><a href="http://hackage.haskell.org/package/xmonad">Documentation moved to Hackage. Click here to go there, or wait five seconds.</a></p>
+</body>
+</html>
