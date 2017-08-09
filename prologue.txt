@@ -1,9 +1,0 @@
-This is the top of the xmonad and the xmonad-contrib libraries documentation
-tree, where you will find links to all the supplied documentation about xmonad
-and its extensions.
-
-Per-package links:
-
-    [<xmonad>] the core library 
-
-    [<xmonad-contrib>] the extension library contains third party tiling algorithms, configurations and scripts to xmonad.
