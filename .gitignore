@@ -1,1 +1,4 @@
 .stack-work/
+/app/stores/
+/app/tmp/
+
