@@ -78,7 +78,7 @@ xmonadConfiguration = defaultConfiguration
   , deployCommand        = unwords
                          [ "cp -r app/html/ ../xmonad-html/ &&"
                          , "git checkout gh-pages &&"
-                         , "cp -rf ../xmonad-html/ . &&"
+                         , "cp -rf ../xmonad-html/* . &&"
                          , "rm -r ../xmonad-html/ &&"
                          , "git status"
                          ]
