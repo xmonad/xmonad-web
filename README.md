@@ -73,11 +73,14 @@ xmonad-web
 │   ├── stores
 │   └── tmp
 └── src
+    ├── announces
     ├── assets
     │   ├── css
     │   ├── img
     │   └── js
-    ├── posts
+    ├── changelogs
+    ├── documentations
+    ├── partials
     └── templates
 ```
 
