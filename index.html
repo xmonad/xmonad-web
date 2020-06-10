@@ -10,16 +10,13 @@
       <div id="header">
         <a id="logo" href="/"><img src="images/logo.png" alt=""></a>
         <div id="search">
-          <!-- Google CSE Search Box Begins  -->
-          <form action="https://www.google.com/cse" id="searchbox_015832023690232952875:_-jd7fuydxw">
+          <form action="https://duckduckgo.com" method="POST" onsubmit="document.getElementById('searchq').value = document.getElementById('searchfield').value + ' site:xmonad.org'; return true;">
             <div>
-              <input type="hidden" name="cx" value="015832023690232952875:_-jd7fuydxw">
-              <input type="text" name="q" size="25">
+              <input id="searchq" type="hidden" name="q" size="25">
+              <input type="text" id="searchfield" />
               <input type="submit" name="sa" value="Search">
             </div>
           </form>
-          <script type="text/javascript" src="https://www.google.com/coop/cse/brand?form=searchbox_015832023690232952875%3A_-jd7fuydxw&lang=en"></script>
-          <!-- Google CSE Search Box Ends -->
         </div>
         <h1>xmonad</h1>
         <h2>&ldquo;That was easy. xmonad rocks!&rdquo;</h2>
