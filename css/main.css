@@ -1,0 +1,73 @@
+background {
+    background-color: yellow;
+}
+.navbar.my-bg {
+    background-color: white;
+    color: black;
+}
+#navbarText > ul > li > a {
+    color: #900;
+}
+#navbarText > ul > li > a:hover {
+    color: black;
+}
+.quote {
+    color: gray;
+}
+.navbar {
+    padding-bottom: 20px;
+}
+#xmonadLogo {
+    display: block;
+    max-width: 35px;
+    width: auto;
+    height: auto;
+}
+.example-img {
+    width: 70%;
+}
+.logo {
+    float: left;
+}
+.name {
+    color: darkgrey;
+    font-size: 80px;
+}
+.name::first-letter {
+    color: black;
+}
+.btn-bd-purple {
+    background-color: #900;
+    color: white;
+}
+a {
+    color: #900;
+}
+a:hover {
+    color: black;
+}
+h1,h2 {
+    font-family: Raleway, Helvetica, Arial, sans-serif;
+    font-weight: 500;
+}
+
+.list-col-4>ul {
+    column-count: 4;
+}
+
+.list-col-3>ul {
+    column-count: 3;
+}
+
+.container img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* For toggling the menu */
+#navbar-toggle-cbox:checked ~ .collapse {
+    display: block;
+}
+#navbar-toggle-cbox {
+  display:none
+}

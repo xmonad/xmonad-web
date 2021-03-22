@@ -1,0 +1,15 @@
+---
+title: Videos
+layout: default
+---
+<div class="row">
+    {% for video in site.data.videos %}
+    <div class="col-lg-6 p-2">
+        <h4>{{ video.title  }}</h4>
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ video.id }}" allowfullscreen></iframe>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<h4 class="py-4">Check more even <a href="https://www.youtube.com/results?search_query=xmonad">more</a> videos!</h4>
