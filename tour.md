@@ -41,7 +41,7 @@ We'll assume you've been able to build xmonad from hackage (or from your package
 
 Note the use of xpmroot to set a background image.
 
-     
+
 * [How to build xmonad by hand](intro.html#comp)
 * [How to use a display manager with xmonad](http://haskell.org/haskellwiki/Xmonad/Frequently_asked_questions#How_can_I_use_xmonad_with_a_display_manager.3F_.28xdm.2C_kdm.2C_gdm.29)
 
@@ -65,7 +65,7 @@ The window manager has now tiled the screen such that both windows fit, without 
 
 xmonad uses a simple tiling algorithm to tile the windows to fill the screen without gaps, while ensuring space is managed in a reasonable way. xmonad, by default, divides the screen into two panes. All windows are then partitioned into these two panes. The ratio each pane takes up on the screen is configurable, as are the number of clients in each pane. By convention, one pane is denoted as the 'master' pane, and is used to place the largest window. Other tiling algorithms are possible, (for example, fullscreen mode, or floating windows), and in these the concept of a `pane' has no real meaning.
 
-#### Layout modes 
+#### Layout modes
 
 
 We can try out the other layouts now, with **mod-space**, which cycles through the available tiling algorithms:

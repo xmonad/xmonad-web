@@ -1,4 +1,4 @@
-# xmonad-web: the website for the xmonad window manager 
+# xmonad-web: the website for the xmonad window manager
 The website for [xmonad.org](http://xmonad.org).
 
 ## Requirements

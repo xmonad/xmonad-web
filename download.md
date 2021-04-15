@@ -53,8 +53,8 @@ After you've downloaded, follow the [install instructions](install-instructions.
 Keep on the bleeding edge by tracking xmonad development:
 
 ```
-git clone https://github.com/xmonad/xmonad  
-git clone https://github.com/xmonad/xmonad-contrib  
+git clone https://github.com/xmonad/xmonad
+git clone https://github.com/xmonad/xmonad-contrib
 ```
 
 You will need [git](https://git-scm.com/) to check out the code. From there, follow the [install instructions](install-instructions.html) just as with the tarball.
@@ -62,8 +62,8 @@ You will need [git](https://git-scm.com/) to check out the code. From there, fol
 Alternatively, you can install the latest git revision as follows:
 
 ```
-cabal install https://github.com/xmonad/xmonad/archive/master.tar.gz  
-cabal install https://github.com/xmonad/xmonad-contrib/archive/master.tar.gz  
+cabal install https://github.com/xmonad/xmonad/archive/master.tar.gz
+cabal install https://github.com/xmonad/xmonad-contrib/archive/master.tar.gz
 ```
 
 ## Related tools
