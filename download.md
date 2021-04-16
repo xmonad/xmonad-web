@@ -15,10 +15,10 @@ xmonad is included in many distributions' package repositories. See if yours is 
 <div class="list-col-4" markdown="1">
 
 *   [OpenBSD](https://www.openbsd.org/cgi-bin/cvsweb/ports/x11/xmonad/)
-*   [NetBSD](https://pkgsrc.se/wip/xmonad)
+*   [NetBSD](https://pkgsrc.se/wm/xmonad)
 *   [FreeBSD](https://www.freshports.org/x11-wm/hs-xmonad/)
 *   [Gentoo](https://packages.gentoo.org/packages/x11-wm/xmonad)
-*   [Debian](https://packages.debian.org/xmonad) ([etch](https://people.debian.org/~jps/etch))
+*   [Debian](https://packages.debian.org/xmonad)
 *   [Ubuntu](https://packages.ubuntu.com/search?keywords=xmonad)
 *   [Arch](https://www.archlinux.org/packages/community/x86_64/xmonad/)
 *   [Fedora](https://src.fedoraproject.org/rpms/xmonad)
@@ -28,7 +28,7 @@ xmonad is included in many distributions' package repositories. See if yours is 
 *   [Slackware](https://slackbuilds.org/result/?search=xmonad&sv=)
 
 </div>
-If you think a distribution is missing from this list, [let us  know](https://www.haskell.org/mailman/listinfo/xmonad).
+If you think a distribution is missing from this list, [let us know](https://www.haskell.org/mailman/listinfo/xmonad).
 
 ## Notes for Debian/Ubuntu users:
 
