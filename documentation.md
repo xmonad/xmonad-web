@@ -15,24 +15,24 @@ title: Documentation
 
 ## Getting started
 
-[about](about.html) – an overview of xmonad features
-[guided tour](tour.html) – a walkthrough of the basic functionality
-[step-by-step](http://haskell.org/haskellwiki/Xmonad/Config_archive/John_Goerzen's_Configuration) – guide to configuring xmonad
-[cheatsheet](http://haskell.org/haskellwiki/Image:Xmbindings.png) – an overview of the keybindings
+[about](about.html) – an overview of xmonad features  
+[guided tour](tour.html) – a walkthrough of the basic functionality  
+[step-by-step](http://haskell.org/haskellwiki/Xmonad/Config_archive/John_Goerzen's_Configuration) – guide to configuring xmonad  
+[cheatsheet](http://haskell.org/haskellwiki/Image:Xmbindings.png) – an overview of the keybindings  
 
 ## Reference
 
-[manpage](manpage.html) – a reference of the default keybindings
-[configuring](http://hackage.haskell.org/package/xmonad-contrib/docs/XMonad-Doc-Configuring.html) – how to write a config file
-[template xmonad.hs](http://haskell.org/haskellwiki/Xmonad/Config_archive/Template_xmonad.hs) – a complete config file that replicates the defaults
-[xmonad api docs](http://hackage.haskell.org/package/xmonad) – reference documentation for xmonad's core API
+[manpage](manpage.html) – a reference of the default keybindings  
+[configuring](http://hackage.haskell.org/package/xmonad-contrib/docs/XMonad-Doc-Configuring.html) – how to write a config file  
+[template xmonad.hs](http://haskell.org/haskellwiki/Xmonad/Config_archive/Template_xmonad.hs) – a complete config file that replicates the defaults  
+[xmonad api docs](http://hackage.haskell.org/package/xmonad) – reference documentation for xmonad's core API  
 
 ## Extensions
 
-[extending](http://hackage.haskell.org/package/xmonad-contrib/docs/XMonad-Doc-Extending.html) – a roundup of many (but not all) of the modules in the _contrib_ package
-[config archive](http://haskell.org/haskellwiki/Xmonad/Config_archive) – users' contributed config files, showing off many of the extensions
-[xmonad-contrib api docs](http://hackage.haskell.org/package/xmonad-contrib) – reference documentation for all of xmonad's contrib modules
-[development tutorial](http://haskell.org/haskellwiki/Xmonad/xmonad_development_tutorial) – learn to write your own extension
+* [extending](http://hackage.haskell.org/package/xmonad-contrib/docs/XMonad-Doc-Extending.html) – a roundup of many (but not all) of the modules in the _contrib_ package
+* [config archive](http://haskell.org/haskellwiki/Xmonad/Config_archive) – users' contributed config files, showing off many of the extensions
+* [xmonad-contrib api docs](http://hackage.haskell.org/package/xmonad-contrib) – reference documentation for all of xmonad's contrib modules
+* [development tutorial](http://haskell.org/haskellwiki/Xmonad/xmonad_development_tutorial) – learn to write your own extension
 
 ## In your environment
 
