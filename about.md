@@ -8,7 +8,7 @@ Xmonad is a _tiling window manager_ for X. Windows are arranged automatically to
 #### Features
 
 *   Very stable, fast, small and simple.
-*   Tiny code base (~1000 lines of Haskell)
+*   Tiny code base (~2000 lines of Haskell)
 *   Automatic window tiling and management
 *   First class keyboard support: a mouse is unnecessary
 *   Full support for tiling windows on multi-head displays
