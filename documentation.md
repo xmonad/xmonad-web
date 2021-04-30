@@ -15,17 +15,17 @@ title: Documentation
 
 ## Getting started
 
-[about](about.html) – an overview of xmonad features  
-[guided tour](tour.html) – a walkthrough of the basic functionality  
-[step-by-step](http://haskell.org/haskellwiki/Xmonad/Config_archive/John_Goerzen's_Configuration) – guide to configuring xmonad  
-[cheatsheet](http://haskell.org/haskellwiki/Image:Xmbindings.png) – an overview of the keybindings  
+* [about](about.html) – an overview of xmonad features
+* [guided tour](tour.html) – a walkthrough of the basic functionality
+* [step-by-step](http://haskell.org/haskellwiki/Xmonad/Config_archive/John_Goerzen's_Configuration) – guide to configuring xmonad
+* [cheatsheet](http://haskell.org/haskellwiki/Image:Xmbindings.png) – an overview of the keybindings
 
 ## Reference
 
-[manpage](manpage.html) – a reference of the default keybindings  
-[configuring](http://hackage.haskell.org/package/xmonad-contrib/docs/XMonad-Doc-Configuring.html) – how to write a config file  
-[template xmonad.hs](http://haskell.org/haskellwiki/Xmonad/Config_archive/Template_xmonad.hs) – a complete config file that replicates the defaults  
-[xmonad api docs](http://hackage.haskell.org/package/xmonad) – reference documentation for xmonad's core API  
+* [manpage](manpage.html) – a reference of the default keybindings
+* [configuring](http://hackage.haskell.org/package/xmonad-contrib/docs/XMonad-Doc-Configuring.html) – how to write a config file
+* [template xmonad.hs](http://haskell.org/haskellwiki/Xmonad/Config_archive/Template_xmonad.hs) – a complete config file that replicates the defaults
+* [xmonad api docs](http://hackage.haskell.org/package/xmonad) – reference documentation for xmonad's core API
 
 ## Extensions
 
