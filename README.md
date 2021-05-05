@@ -1,8 +1,8 @@
 # xmonad-web: the website for the xmonad window manager
-The website for [xmonad.org](http://xmonad.org).
+The website for [xmonad.org](https://xmonad.org).
 
 ## Requirements
-The website is built with [jekyll](https://jekyllrb.com/). Check their website
+The website is built with [Jekyll](https://jekyllrb.com/). Check their website
 to get started.
 
 ## Application Structures
@@ -16,8 +16,7 @@ Image should go in the `images` directory.
 The videos that are linked in `videos.html` are hardcoded in
 the `_data/videos.yml`
 
-The `_site` directory is a place for the Hakyll output.
-Hakyll *caches* the website in `_cache`.
+The `_site` directory is a place for the Jekyll output.
 
 ## Contributing
 Contributions to the content as well as to the looks of the website are welcome!
