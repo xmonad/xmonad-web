@@ -18,7 +18,7 @@ To build xmonad, you need the GHC Haskell compiler installed. All common operati
 $ apt-get install ghc
 ```
 
-If your operating system's package system doesn't provide a binary version of GHC, you can find pre-built binaries at the [GHC home page](http://haskell.org/ghc). It shouldn't be necessary to compile GHC from source -- every common system has a pre-build binary version.
+If your operating system's package system doesn't provide a binary version of GHC, you can find pre-built binaries at the [GHC home page](https://haskell.org/ghc). It shouldn't be necessary to compile GHC from source -- every common system has a pre-build binary version.
 
 We recommend the latest stable release of GHC.
 
@@ -38,9 +38,9 @@ Typically you need the C libraries: libXinerama libXext libX11
 
 </div>
 
-Recent versions of [Cabal](http://haskell.org/cabal) provide a tool, [cabal-install](http://hackage.haskell.org/package/cabal-install), which automates the building of Haskell libraries, including gathering all dependencies. Your distribution may have a binary package for cabal-install, in which case you should use that. Otherwise the following steps will install it:
+Recent versions of [Cabal](https://haskell.org/cabal) provide a tool, [cabal-install](https://hackage.haskell.org/package/cabal-install), which automates the building of Haskell libraries, including gathering all dependencies. Your distribution may have a binary package for cabal-install, in which case you should use that. Otherwise the following steps will install it:
 
-*   Download [cabal install](http://hackage.haskell.org/package/cabal-install)
+*   Download [cabal install](https://hackage.haskell.org/package/cabal-install)
 *   Run the bootstrap script to install cabal-install with all of it's dependencies into your home directory.
 
     ```
@@ -55,7 +55,7 @@ Recent versions of [Cabal](http://haskell.org/cabal) provide a tool, [cabal-inst
 $ echo "export PATH=$PATH:~/.cabal/bin" >> ~/.profile
 ```
 
-Once you have a working cabal-install, you can then simply install any Haskell package you find on [hackage.haskell.org](http://hackage.haskell.org), such as xmonad, xmonad-contrib or xmobar:
+Once you have a working cabal-install, you can then simply install any Haskell package you find on [hackage.haskell.org](https://hackage.haskell.org), such as xmonad, xmonad-contrib or xmobar:
 
 ```
 $ cabal install xmonad
@@ -71,13 +71,13 @@ $ cabal install xmonad-contrib --flags="-use_xft"
 
 ### If things go wrong..
 
-From time to time people have build problems. Almost always this is due to missing dependencies. Sometimes it is due to problems with the tool chain. The most common problems building xmonad are documented in the [FAQ](http://haskell.org/haskellwiki/Xmonad/Frequently_asked_questions):
+From time to time people have build problems. Almost always this is due to missing dependencies. Sometimes it is due to problems with the tool chain. The most common problems building xmonad are documented in the [FAQ](https://wiki.haskell.org/Xmonad/Frequently_asked_questions):
 
-*   [What build dependencies do I need?](http://haskell.org/haskellwiki/Xmonad/Frequently_asked_questions#What_build_dependencies_does_xmonad_have.3F)
-*   [Can I install without root permission?](http://haskell.org/haskellwiki/Xmonad/Frequently_asked_questions#Can_I_install_without_root_permission.3F)
-*   [X11 fails to find libX11 or libXinerama](http://haskell.org/haskellwiki/Xmonad/Frequently_asked_questions#X11_fails_to_find_libX11_or_libXinerama)
-*   [xmonad does not detect my multi-head setup](http://haskell.org/haskellwiki/Xmonad/Frequently_asked_questions#xmonad_does_not_detect_my_multi-head_setup)
-*   [Cabal: Executable stanza starting with field ...](http://haskell.org/haskellwiki/Xmonad/Frequently_asked_questions#Cabal:_Executable_stanza_starting_with_field_.27flag_small_base_description.27)
+*   [What build dependencies do I need?](https://wiki.haskell.org/Xmonad/Frequently_asked_questions#What_build_dependencies_does_xmonad_have.3F)
+*   [Can I install without root permission?](https://wiki.haskell.org/Xmonad/Frequently_asked_questions#Can_I_install_without_root_permission.3F)
+*   [X11 fails to find libX11 or libXinerama](https://wiki.haskell.org/Xmonad/Frequently_asked_questions#X11_fails_to_find_libX11_or_libXinerama)
+*   [xmonad does not detect my multi-head setup](https://wiki.haskell.org/Xmonad/Frequently_asked_questions#xmonad_does_not_detect_my_multi-head_setup)
+*   [Cabal: Executable stanza starting with field ...](https://wiki.haskell.org/Xmonad/Frequently_asked_questions#Cabal:_Executable_stanza_starting_with_field_.27flag_small_base_description.27)
 
 If this doesn't help, try asking on the IRC channel, #xmonad @ freenode.org, or on the mailing list.
 
@@ -102,4 +102,4 @@ as the last line of your file, commenting out any previous window manager. Now, 
 
 [![no windows open]({{site.url}}/images/overview/empty.png)]({{site.url}}/images/overview/large/empty.png)
 
-From here, and assuming you can find the **mod1** modifier key (usually 'alt'), you can launch clients and access the rest of the window manager's features. Refer to the [manual page](./manpage.html), or the [cheatsheet](http://haskell.org/haskellwiki/Image:Xmbindings.png)
+From here, and assuming you can find the **mod1** modifier key (usually 'alt'), you can launch clients and access the rest of the window manager's features. Refer to the [manual page](./manpage.html), or the [cheatsheet](https://wiki.haskell.org/wikiupload/b/b8/Xmbindings.png)
