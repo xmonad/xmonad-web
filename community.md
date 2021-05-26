@@ -7,8 +7,7 @@ title: Community
 
 ### The xmonad community
 
-*   [the irc channel](https://wiki.haskell.org/IRC_channel): `#xmonad@chat.freenode.org` (join it via [webchat](https://webchat.freenode.net/#xmonad))
-*   [the matrix channel](https://matrix.to/#/#freenode_#xmonad:matrix.org): this is linked to the above IRC channel
+*   [the irc channel](https://www.haskell.org/irc/): `#xmonad@irc.libera.chat` (join it via [kiwiirc](https://kiwiirc.com/nextclient/irc.libera.chat/?#xmonad))
 *   [xmonad on twitter](https://twitter.com/xmonad)
 *   [the subreddit](https://old.reddit.com/r/xmonad/)
 *   [the mailing list](https://mail.haskell.org/cgi-bin/mailman/listinfo/xmonad) (archives: [pipermail](https://mail.haskell.org/pipermail/xmonad/))
