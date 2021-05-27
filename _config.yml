@@ -1,1 +1,9 @@
 url: "https://xmonad.org"
+
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - Makefile
+  - README.md
