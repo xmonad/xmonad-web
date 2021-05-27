@@ -1,4 +1,1 @@
-baseurl: ""
 url: "https://xmonad.org"
-plugins:
-  - jekyll-default-layout
