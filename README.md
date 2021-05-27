@@ -5,6 +5,36 @@ The website for [xmonad.org](https://xmonad.org).
 The website is built with [Jekyll](https://jekyllrb.com/). Check their website
 to get started.
 
+The tl;dr is the following:
+
+1. Install some form of `ruby` (and possibly `ruby-devel`) on your
+   system.
+
+2. Install `bundler` and `jekyll` with
+
+   ``` shell
+     $ gem install --user bundler jekyll
+   ```
+
+   Make sure to add the necessary directories to your `$PATH`!
+
+3. Install the required gems locally; you must be in the `xmonad-web`
+   directory for this:
+
+   ``` shell
+     $ bundle config set --local path '.bundle/xmonad-gems'
+     $ bundle install
+   ```
+
+4. Build the website with
+
+   ``` shell
+     $ bundle exec jekyll serve
+   ```
+
+   This should create a browsable copy of the website—and your changes
+   thereof—on `http://127.0.0.1:4000`.
+
 ## Application Structures
 
 All the `.md` files in the root (except for `README.md`) will
