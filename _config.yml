@@ -1,5 +1,7 @@
 url: "https://xmonad.org"
 
+theme: null
+
 exclude:
   - CNAME
   - Gemfile
