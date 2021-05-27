@@ -18,7 +18,7 @@ title: Documentation
 * [about](about.html) – an overview of xmonad features
 * [guided tour](tour.html) – a walkthrough of the basic functionality
 * [step-by-step](https://wiki.haskell.org/Xmonad/Config_archive/John_Goerzen's_Configuration) – guide to configuring xmonad
-* [cheatsheet](https://wiki.haskell.org/wikiupload/b/b8/Xmbindings.png) – an overview of the keybindings
+* [cheatsheet](./images/cheat/xmbindings.png) – an overview of the keybindings
 
 ## Reference
 
