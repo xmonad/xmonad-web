@@ -79,7 +79,7 @@ From time to time people have build problems. Almost always this is due to missi
 *   [xmonad does not detect my multi-head setup](https://wiki.haskell.org/Xmonad/Frequently_asked_questions#xmonad_does_not_detect_my_multi-head_setup)
 *   [Cabal: Executable stanza starting with field ...](https://wiki.haskell.org/Xmonad/Frequently_asked_questions#Cabal:_Executable_stanza_starting_with_field_.27flag_small_base_description.27)
 
-If this doesn't help, try asking on the IRC channel, `#xmonad@irc.libera.chat`, or on the mailing list.
+If this doesn't help, try asking on the IRC channel, `#xmonad@irc.libera.chat` (join it via [webchat](https://web.libera.chat/#xmonad)), or on the mailing list.
 
 #### Grab dmenu and dzen
 
