@@ -1,38 +1,40 @@
 # xmonad-web: the website for the xmonad window manager
+
 The website for [xmonad.org](https://xmonad.org).
 
 ## Requirements
+
 The website is built with [Jekyll](https://jekyllrb.com/). Check their website
 to get started.
 
 The tl;dr is the following:
 
-1. Install some form of `ruby` (and possibly `ruby-devel`) on your
-   system.
+1. Install `ruby`, `ruby-dev(el)` and `bundler` on your system. Depending on
+   your distribution, `bundler` might not be packaged and may need to be
+   installed manually via `gem`:
 
-2. Install `bundler` and `jekyll` with
-
-   ``` shell
-     $ gem install --user bundler jekyll
+   ```console
+   $ gem install --user bundler
    ```
 
    Make sure to add the necessary directories to your `$PATH`!
 
-3. Install the required gems locally; you must be in the `xmonad-web`
-   directory for this:
+2. Build the website with
 
-   ``` shell
-     $ bundle config set --local path '.bundle/xmonad-gems'
-     $ bundle install
+   ```console
+   $ make
    ```
 
-4. Build the website with
+   This uses `bundler` to get all the necessary Jekyll extensions to
+   replicate a GitHub Pages setup locally. The result will be in `./_site`.
 
-   ``` shell
-     $ bundle exec jekyll serve
+3. For an interactive editing session with live reloads in your browser, use
+
+   ```console
+   $ make serve
    ```
 
-   This should create a browsable copy of the website—and your changes
+   This serves a browsable local copy of the website—and your changes
    thereof—on `http://127.0.0.1:4000`.
 
 ## Application Structures
@@ -49,6 +51,7 @@ the `_data/videos.yml`
 The `_site` directory is a place for the Jekyll output.
 
 ## Contributing
+
 Contributions to the content as well as to the looks of the website are welcome!
 Please don't check the `_site` folder, as *it will be overwritten while
 deploying the website*. Check our [contributing
