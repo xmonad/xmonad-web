@@ -4,25 +4,29 @@ title: Install Instructions
 
 xmonad is a _tiling window manager_ for X11\. This document describes how to build and install xmonad. For its features and use, see the [guided tour](./tour.html).
 
-### Use a pre-built binary
+## Use a pre-built binary
 
 Your operating system distribution may have binary packages for xmonad already, or perhaps, many of their dependencies. If at all possible, use one of these pre-built packages. See the [main page](index.html) for distributions that distribute xmonad binaries.
+
+## Building from source
 
 Building xmonad from source is simple. It requires a basic Haskell toolchain, only. We'll now walk through the complete list of toolchain dependencies.
 
 ### Install GHC
 
+Note that, if you decide to install xmonad with stack (see further down), this step is not strictly necessary; stack will download the appropriate version of GHC by itself.
+
 To build xmonad, you need the GHC Haskell compiler installed. All common operating systems provide prebuilt binaries of GHC in their package systems. For example, in Debian you would install GHC with:
 
 ```
-$ apt-get install ghc
+    $ apt-get install ghc
 ```
 
 If your operating system's package system doesn't provide a binary version of GHC, you can find pre-built binaries at the [GHC home page](https://haskell.org/ghc). It shouldn't be necessary to compile GHC from source -- every common system has a pre-build binary version.
 
 We recommend the latest stable release of GHC.
 
-### X11 libraries
+### Install the Necessary C Libraries
 
 Since you're building an X application, you'll need the C X11 library headers. On many platforms, these come pre-installed. For others, such as Debian, you can get them from your package manager:
 
@@ -30,44 +34,19 @@ Since you're building an X application, you'll need the C X11 library headers. O
     $ apt-get install libx11-dev
 ```
 
-Typically you need the C libraries: libXinerama libXext libX11
+Typically you need the C libraries: `libXinerama` `libXext` `libX11`.
 
-<div id="cabal-install">
-
-### Cabal-install
-
-</div>
-
-Recent versions of [Cabal](https://haskell.org/cabal) provide a tool, [cabal-install](https://hackage.haskell.org/package/cabal-install), which automates the building of Haskell libraries, including gathering all dependencies. Your distribution may have a binary package for cabal-install, in which case you should use that. Otherwise the following steps will install it:
-
-*   Download [cabal install](https://hackage.haskell.org/package/cabal-install)
-*   Run the bootstrap script to install cabal-install with all of it's dependencies into your home directory.
-
-    ```
-    $ tar xzf cabal-install-1.24.0.2.tar.gz
-    $ cd cabal-install-1.24.0.2/
-    $ ./bootstrap.sh
-    ```
-
-*   Add ~/.cabal/bin to your $PATH
+Further, since xmonad is build with XFT support by default, you will also need the `libxft` C headers:
 
 ```
-$ echo "export PATH=$PATH:~/.cabal/bin" >> ~/.profile
+    $ apt-get install libxft-dev
 ```
 
-Once you have a working cabal-install, you can then simply install any Haskell package you find on [hackage.haskell.org](https://hackage.haskell.org), such as xmonad, xmonad-contrib or xmobar:
+### Install XMonad
 
-```
-$ cabal install xmonad
-```
+You are now ready to install xmonad with either stack or cabal. For these tool specific instructions, see the [INSTALL.md] document in the core xmonad repo.
 
-#### Note
-
-xmonad-contrib requires you to install libxft C headers, unless you install it without xft support:
-
-```
-$ cabal install xmonad-contrib --flags="-use_xft"
-```
+[INSTALL.md]: https://github.com/xmonad/xmonad/blob/master/INSTALL.md
 
 ### If things go wrong..
 
