@@ -24,7 +24,6 @@ title: Documentation
 
 * [manpage](manpage.html) – a reference of the default keybindings
 * [configuring](https://hackage.haskell.org/package/xmonad-contrib/docs/XMonad-Doc-Configuring.html) – how to write a config file
-* [template xmonad.hs](https://wiki.haskell.org/Xmonad/Config_archive/Template_xmonad.hs) – a complete config file that replicates the defaults
 * [xmonad api docs](https://hackage.haskell.org/package/xmonad) – reference documentation for xmonad's core API
 
 ## Extensions
