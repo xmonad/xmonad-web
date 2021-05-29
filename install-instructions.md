@@ -102,4 +102,4 @@ as the last line of your file, commenting out any previous window manager. Now, 
 
 [![no windows open]({{site.url}}/images/overview/empty.png)]({{site.url}}/images/overview/large/empty.png)
 
-From here, and assuming you can find the **mod1** modifier key (usually 'alt'), you can launch clients and access the rest of the window manager's features. Refer to the [manual page](./manpage.html), or the [cheatsheet](https://wiki.haskell.org/wikiupload/b/b8/Xmbindings.png)
+From here, and assuming you can find the **mod1** modifier key (usually 'alt'), you can launch clients and access the rest of the window manager's features. Refer to the [manual page](./manpage.html), or the [cheatsheet](./images/cheat/xmbindings.png)
