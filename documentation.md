@@ -17,7 +17,7 @@ title: Documentation
 
 * [about](about.html) – an overview of xmonad features
 * [guided tour](tour.html) – a walkthrough of the basic functionality
-* [step-by-step](https://wiki.haskell.org/Xmonad/Config_archive/John_Goerzen's_Configuration) – guide to configuring xmonad
+* [step-by-step](https://github.com/xmonad/xmonad/blob/master/TUTORIAL.md) – guide to configuring xmonad
 * [cheatsheet](./images/cheat/xmbindings.png) – an overview of the keybindings
 
 ## Reference
@@ -47,7 +47,7 @@ title: Documentation
 2.  Wire xmonad up to your [login manager](https://wiki.haskell.org/Xmonad/Frequently_asked_questions#How_can_I_use_xmonad_with_a_display_manager.3F_.28xdm.2C_kdm.2C_gdm.29).
 3.  Logout and back in.  You're in xmonad.
 4.  alt-shift-enter to open an xterm.
-5.  Write a ~/.xmonad/xmonad.hs to [configure](https://wiki.haskell.org/Xmonad/Config_archive/John_Goerzen's_Configuration) xmonad.
+5.  Write a ~/.xmonad/xmonad.hs to [configure](https://github.com/xmonad/xmonad/blob/master/TUTORIAL.md) xmonad.
 6.  mod-q to reload your config file.
 7.  [Install](download.html) the xmonad-contrib config library.
 8.  Edit your xmonad.hs to include this new [fantasticness](https://wiki.haskell.org/Xmonad/Config_archive).

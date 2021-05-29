@@ -5,6 +5,10 @@ title: Guided Tour
 
 This is a guided tour of the core features of the xmonad window manager, allowing you to gain an understanding of the motivation, and use of a tiling window manager, and learn how to achieve the kind of screen configuration you want, simply and easily.
 
+If you're already familiar with the basics and want to learn how to configure xmonad, head over to the [tutorial]!
+
+[tutorial]: https://github.com/xmonad/xmonad/blob/master/TUTORIAL.md
+
 <div class="row" >
 <div class="col-6" markdown="1" >
 
