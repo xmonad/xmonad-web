@@ -34,7 +34,7 @@ Since you're building an X application, you'll need the C X11 library headers. O
     $ apt-get install libx11-dev
 ```
 
-Typically you need the C libraries: `libXinerama` `libXext` `libX11`.
+Typically you need the C libraries: `libx11` `libxext` `libxinerama` `libxrandr` `libxscreensaver`.
 
 Further, since xmonad is build with XFT support by default, you will also need the `libxft` C headers:
 
