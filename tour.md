@@ -46,7 +46,7 @@ We'll assume you've been able to build xmonad from hackage (or from your package
 Note the use of xpmroot to set a background image.
 
 
-* [How to build xmonad by hand](intro.html#comp)
+* [How to build xmonad by hand](install-instructions.md)
 * [How to use a display manager with xmonad](https://wiki.haskell.org/Xmonad/Frequently_asked_questions#How_can_I_use_xmonad_with_a_display_manager.3F_.28xdm.2C_kdm.2C_gdm.29)
 
 #### Opening clients

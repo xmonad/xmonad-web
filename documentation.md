@@ -35,7 +35,7 @@ title: Documentation
 
 ## In your environment
 
-[Installing from tarball](intro.html) - [Gnome](https://wiki.haskell.org/Xmonad/Using_xmonad_in_Gnome) - [KDE](https://wiki.haskell.org/Xmonad/Using_xmonad_in_KDE) - [XFCE](https://wiki.haskell.org/Xmonad/Using_xmonad_in_XFCE) - [Arch Linux](https://wiki.archlinux.org/index.php/XMonad) - [OS X](https://wiki.haskell.org/Xmonad/Using_xmonad_on_Apple_OSX) - [OLPC](https://wiki.haskell.org/Xmonad/Using_xmonad_on_OLPC_XO)
+[Installing xmonad](install-instructions.md) - [Gnome](https://wiki.haskell.org/Xmonad/Using_xmonad_in_Gnome) - [KDE](https://wiki.haskell.org/Xmonad/Using_xmonad_in_KDE) - [XFCE](https://wiki.haskell.org/Xmonad/Using_xmonad_in_XFCE) - [Arch Linux](https://wiki.archlinux.org/index.php/XMonad) - [OS X](https://wiki.haskell.org/Xmonad/Using_xmonad_on_Apple_OSX) - [OLPC](https://wiki.haskell.org/Xmonad/Using_xmonad_on_OLPC_XO)
 
 </div>
 <div class="col-lg" markdown="1">
