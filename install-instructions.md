@@ -64,7 +64,7 @@ If this doesn't help, try asking on the IRC channel, `#xmonad@irc.libera.chat` (
 
 Extra programs that make life with xmonad more exciting: dmenu and dzen. dmenu provides a simple popup menu for launching programs, dzen provides customisable status bars. You can get them here:
 
-*   [dzen](http://gotmor.googlepages.com/dzen)
+*   [dzen](https://robm.github.io/dzen/)
 *   [dmenu](https://tools.suckless.org/dmenu/)
 
 

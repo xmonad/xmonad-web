@@ -71,6 +71,6 @@ cabal install https://github.com/xmonad/xmonad-contrib/archive/master.tar.gz
 Here are some tools we've found work well with xmonad:
 
 *   [dmenu](https://tools.suckless.org/dmenu/), a program launcher
-*   [dzen](https://gotmor.googlepages.com/dzen), an extensible status bar
+*   [dzen](https://robm.github.io/dzen/), an extensible status bar
 *   [xmobar](https://hackage.haskell.org/package/xmobar), an extensible status bar
-*   [rxvt-unicode](https://software.schmorp.de/pkg/rxvt-unicode.html), a better terminal
+*   [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html), a better terminal
