@@ -1,4 +1,6 @@
-@import "font-raleway.css";
+---
+---
+@import "{{ "/css/font-raleway.css" | relative_url }}";
 
 background {
     background-color: yellow;
