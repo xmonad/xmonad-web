@@ -36,20 +36,20 @@ the xmonad developer team:
 
 <div class="list-col-3" markdown="1">
 
-*   Spencer Janssen
-*   [Don Stewart](http://donsbot.wordpress.com/)
-*   [Adam Vogt](http://www.eng.uwaterloo.ca/~aavogt/)
-*   [Brent Yorgey](http://byorgey.wordpress.com/)
+*   [Spencer Janssen](https://github.com/spencerjanssen)
+*   [Don Stewart](https://donsbot.wordpress.com/)
+*   [Adam Vogt](https://www.eng.uwaterloo.ca/~aavogt/)
+*   [Brent Yorgey](https://byorgey.wordpress.com/)
 *   [Daniel Wagner](http://www.dmwit.com/)
-*   [David Roundy](http://physics.oregonstate.edu/~roundyd/people.php)
-*   Daniel Schoepe
-*   [Eric Mertens](http://github.com/glguy)
-*   [Nicolas Pouillard](http://nicolaspouillard.fr/)
-*   [Roman Cheplyaka](http://ro-che.info/)
-*   Gwern Branwen
-*   Lukas Mai
-*   [Braden Shepherdson](http://braincrater.wordpress.com/)
-*   [Devin Mullins](http://twifkak.com/)
+*   [David Roundy](https://sites.science.oregonstate.edu/~roundyd/people.html)
+*   [Daniel Schoepe](https://github.com/dschoepe)
+*   [Eric Mertens](https://github.com/glguy)
+*   [Nicolas Pouillard](https://nicolaspouillard.fr/)
+*   [Roman Cheplyaka](https://ro-che.info/)
+*   [Gwern Branwen](https://www.gwern.net/)
+*   [Lukas Mai](https://github.com/mauke)
+*   [Braden Shepherdson](https://braincrater.wordpress.com/)
+*   [Devin Mullins](https://twifkak.com/)
 
 </div>
 </div>
