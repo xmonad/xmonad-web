@@ -1,0 +1,103 @@
+name: Check for broken links
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Run every weekend
+    - cron: '0 2 * * 6'
+
+jobs:
+  url:
+    runs-on: ubuntu-latest
+    outputs:
+      url: ${{ steps.get-url.outputs.url }}
+    steps:
+      - name: Get URL
+        id: get-url
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -ex
+          url=$(gh api --jq .html_url repos/${{ github.repository }}/pages)
+          echo "::set-output name=url::$url"
+
+  # internal and external links
+  linkchecker:
+    needs: url
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install linkchecker
+        run: |
+          pip3 install git+https://github.com/linkchecker/linkchecker.git
+
+      - id: attempt1
+        continue-on-error: true
+        name: Run linkchecker
+        run: |
+          linkchecker --check-extern --ignore-url='sony\.com' ${{ needs.url.outputs.url }}
+
+      - name: Sleep
+        if: steps.attempt1.outcome == 'failure'
+        run: sleep 30
+      - id: attempt2
+        if: steps.attempt1.outcome == 'failure'
+        continue-on-error: true
+        name: Run linkchecker
+        run: |
+          linkchecker --check-extern --ignore-url='sony\.com' ${{ needs.url.outputs.url }}
+
+      - name: Sleep
+        if: steps.attempt2.outcome == 'failure'
+        run: sleep 30
+      - id: attempt3
+        if: steps.attempt2.outcome == 'failure'
+        continue-on-error: true
+        name: Run linkchecker
+        run: |
+          linkchecker --check-extern --ignore-url='sony\.com' ${{ needs.url.outputs.url }}
+
+      - name: Fail
+        if: steps.attempt1.outcome == 'failure' && steps.attempt2.outcome == 'failure' && steps.attempt3.outcome == 'failure'
+        run: false
+
+  # internal links and anchors
+  linkcheck:
+    needs: url
+    runs-on: ubuntu-latest
+    steps:
+      - id: attempt1
+        continue-on-error: true
+        name: Run linkcheck
+        uses: filiph/linkcheck@v2.0.15+1
+        with:
+          arguments: ${{ needs.url.outputs.url }}
+
+      - name: Sleep
+        if: steps.attempt1.outcome == 'failure'
+        run: sleep 30
+      - id: attempt2
+        if: steps.attempt1.outcome == 'failure'
+        continue-on-error: true
+        name: Run linkcheck
+        uses: filiph/linkcheck@v2.0.15+1
+        with:
+          arguments: ${{ needs.url.outputs.url }}
+
+      - name: Sleep
+        if: steps.attempt2.outcome == 'failure'
+        run: sleep 30
+      - id: attempt3
+        if: steps.attempt2.outcome == 'failure'
+        continue-on-error: true
+        name: Run linkcheck
+        uses: filiph/linkcheck@v2.0.15+1
+        with:
+          arguments: ${{ needs.url.outputs.url }}
+
+      - name: Fail
+        if: steps.attempt1.outcome == 'failure' && steps.attempt2.outcome == 'failure' && steps.attempt3.outcome == 'failure'
+        run: false
