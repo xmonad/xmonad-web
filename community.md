@@ -36,11 +36,23 @@ the xmonad developer team:
 
 <div class="list-col-3" markdown="1">
 
+*   [Brandon S Allbery](https://github.com/geekosaur)
+*   [Brent Yorgey](https://byorgey.wordpress.com/)
+*   [Daniel Wagner](http://www.dmwit.com/)
+*   [Sibi Prabakaran](https://psibi.in/)
+*   [slotThe](https://github.com/slotThe)
+*   [Tomáš Janoušek](https://work.lisk.in/)
+*   [Yecine Megdiche](https://github.com/TheMC47)
+
+</div>
+
+hall of fame (no longer active in the project):
+
+<div class="list-col-3" markdown="1">
+
 *   [Spencer Janssen](https://github.com/spencerjanssen)
 *   [Don Stewart](https://donsbot.wordpress.com/)
 *   [Adam Vogt](https://www.eng.uwaterloo.ca/~aavogt/)
-*   [Brent Yorgey](https://byorgey.wordpress.com/)
-*   [Daniel Wagner](http://www.dmwit.com/)
 *   [David Roundy](https://sites.science.oregonstate.edu/~roundyd/people.html)
 *   [Daniel Schoepe](https://github.com/dschoepe)
 *   [Eric Mertens](https://github.com/glguy)
@@ -50,7 +62,16 @@ the xmonad developer team:
 *   [Lukas Mai](https://github.com/mauke)
 *   [Braden Shepherdson](https://braincrater.wordpress.com/)
 *   [Devin Mullins](https://twifkak.com/)
+*   [David Lazar](https://davidlazar.org/)
+*   [Peter J. Jones](https://github.com/pjones)
+*   [Peter Simons](http://cryp.to/)
 
 </div>
+
+thanks:
+
+*   [xmonad contributors](https://github.com/xmonad/xmonad/graphs/contributors)
+*   [xmonad-contrib contributors](https://github.com/xmonad/xmonad-contrib/graphs/contributors)
+
 </div>
 </div>
