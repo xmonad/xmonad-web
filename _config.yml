@@ -1,5 +1,8 @@
 url: "https://xmonad.org"
 title: "xmonad - the tiling window manager that rocks"
+twitter:
+  username: xmonad
+logo: images/xmonad-logo.png
 
 theme: null
 
@@ -9,6 +12,7 @@ titles_from_headings:
 
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 exclude:
   - CNAME
