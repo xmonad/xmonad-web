@@ -1,6 +1,6 @@
 ---
 ---
-@import "{{ "/css/font-raleway.css" | relative_url }}";
+@import "{% link css/font-raleway.css %}";
 
 .navbar.my-bg {
     background-color: white;

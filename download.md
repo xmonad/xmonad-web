@@ -47,7 +47,7 @@ If you prefer to build on your own, you can get the official releases from hacka
 *   [core](https://hackage.haskell.org/package/xmonad)
 *   [contrib](https://hackage.haskell.org/package/xmonad-contrib)
 
-After you've downloaded, follow the [install instructions](install-instructions.html) and read the [documentation](documentation.html) on how to configure xmonad.
+After you've downloaded, follow the [install instructions](install-instructions.md) and read the [documentation](documentation.md) on how to configure xmonad.
 
 ## From git
 
@@ -58,7 +58,7 @@ git clone https://github.com/xmonad/xmonad
 git clone https://github.com/xmonad/xmonad-contrib
 ```
 
-You will need [git](https://git-scm.com/) to check out the code. From there, follow the [install instructions](install-instructions.html) just as with the tarball.
+You will need [git](https://git-scm.com/) to check out the code. From there, follow the [install instructions](install-instructions.md) just as with the tarball.
 
 Alternatively, you can install the latest git revision as follows:
 
