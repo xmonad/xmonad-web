@@ -29,7 +29,7 @@ xmonad is included in many distributions' package repositories. See if yours is 
 *   [Slackware](https://slackbuilds.org/result/?search=xmonad&sv=)
 
 </div>
-If you think a distribution is missing from this list, [let us know](https://www.haskell.org/mailman/listinfo/xmonad).
+If you think a distribution is missing from this list, [let us know](https://github.com/xmonad/xmonad-web/issues).
 
 ## Notes for Debian/Ubuntu users:
 
