@@ -4,5 +4,5 @@
     font-family: "Raleway";
     font-style: normal;
     font-weight: 400;
-    src: local("Raleway"), local("Raleway-Regular"), url({% link fonts/Raleway.ttf %}) format("truetype");
+    src: local("Raleway"), local("Raleway-Regular"), url({{ site.baseurl }}{% link fonts/Raleway.ttf %}) format("truetype");
 }

@@ -1,6 +1,6 @@
 ---
 ---
-@import "{% link css/font-raleway.css %}";
+@import "{{ site.baseurl }}{% link css/font-raleway.css %}";
 
 .navbar.my-bg {
     background-color: white;
