@@ -2,9 +2,6 @@
 ---
 @import "{{ "/css/font-raleway.css" | relative_url }}";
 
-background {
-    background-color: yellow;
-}
 .navbar.my-bg {
     background-color: white;
     color: black;
