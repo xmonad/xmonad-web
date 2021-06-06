@@ -1,6 +1,7 @@
 ---
-title: Install Instructions
 ---
+
+# Install Instructions
 
 xmonad is a _tiling window manager_ for X11\. This document describes how to build and install xmonad. For its features and use, see the [guided tour](./tour.html).
 

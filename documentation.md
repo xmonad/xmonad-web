@@ -1,6 +1,7 @@
 ---
-title: Documentation
 ---
+
+# Documentation
 
 <div class="row">
 <div class="col-lg" markdown="1">

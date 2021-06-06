@@ -1,6 +1,8 @@
 ---
-title: Guided Tour
 ---
+
+# Guided Tour
+
 ### Getting started with xmonad
 
 This is a guided tour of the core features of the xmonad window manager, allowing you to gain an understanding of the motivation, and use of a tiling window manager, and learn how to achieve the kind of screen configuration you want, simply and easily.

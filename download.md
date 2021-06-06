@@ -1,6 +1,7 @@
 ---
-title: Download
 ---
+
+# Download
 
 xmonad comes in two parts.
 

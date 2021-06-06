@@ -2,6 +2,9 @@ url: "https://xmonad.org"
 
 theme: null
 
+titles_from_headings:
+  strip_title: true
+
 exclude:
   - CNAME
   - Gemfile
