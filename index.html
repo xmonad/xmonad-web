@@ -72,10 +72,13 @@ layout: header
     <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white">
         <h3 id="whats-new">What’s new?</h3>
         <ul>
+            {% for post in site.categories["news"] limit:3 %}
             <li>
-                xmonad 0.15 is available. Check out our <a href="download.html">download
-                page.</a>
+                <a href="{{ post.url }}">{{ post.title }}.</a>
+                {{ post.excerpt | remove: "<p>" | remove: "</p>" }}
+                <span class="text-muted">({{ post.date | date: "%Y-%m-%d" }})</span>
             </li>
+            {% endfor %}
             <li>
                 <a href="https://github.com/xmonad/xmonad/issues">Report a bug</a> and we’ll squash it for you in the
                 next release.

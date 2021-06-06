@@ -1,0 +1,11 @@
+---
+title: News/Blog
+layout: default
+---
+
+{% for post in site.posts %}
+<article>
+    <h2><a href="{{ post.url }}"><small class="text-muted">{{ post.date | date: "%Y-%m-%d" }}</small><br>{{ post.title }}</a></h2>
+	{{ post.excerpt }}
+</article>
+{% endfor %}
