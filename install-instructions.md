@@ -1,8 +1,9 @@
 ---
-title: Install Instructions
 ---
 
-xmonad is a _tiling window manager_ for X11\. This document describes how to build and install xmonad. For its features and use, see the [guided tour](./tour.html).
+# Install Instructions
+
+xmonad is a _tiling window manager_ for X11\. This document describes how to build and install xmonad. For its features and use, see the [guided tour](tour.md).
 
 ## Use a pre-built binary
 
@@ -79,6 +80,6 @@ exec xmonad
 
 as the last line of your file, commenting out any previous window manager. Now, when you log in to X, xmonad will start, (by default in tall tiling mode, with no status bar), and you'll be presented with an empty screen:
 
-[![no windows open]({{ "/images/overview/empty.png" | relative_url }})]({{ "/images/overview/large/empty.png" | relative_url }})
+[![no windows open](images/overview/empty.png)](images/overview/large/empty.png)
 
-From here, and assuming you can find the **mod1** modifier key (usually 'alt'), you can launch clients and access the rest of the window manager's features. Refer to the [manual page](./manpage.html), or the [cheatsheet](./images/cheat/xmbindings.png)
+From here, and assuming you can find the **mod1** modifier key (usually 'alt'), you can launch clients and access the rest of the window manager's features. Refer to the [manual page](manpage.html), or the [cheatsheet](images/cheat/xmbindings.png)

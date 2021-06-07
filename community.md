@@ -1,6 +1,7 @@
 ---
-title: Community
 ---
+
+# Community
 
 <div class="row">
 <div class="col-lg" markdown="1">

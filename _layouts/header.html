@@ -4,19 +4,18 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>
-            xmonad - {{ page.title }} | The window manager that rocks
-        </title>
-        <meta name="description" content="the tiling window manager that rocks">
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}{% link css/bootstrap.min.css %}">
+        <link rel="stylesheet" href="{{ site.baseurl }}{% link css/main.css %}">
+
+        {% seo %}
+        {% feed_meta %}
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="mfont-weight-normal navbar-brand" href="#">
-                <img src="images/xmonad-logo.png" class="logo" alt="xmonad logo" id="xmonadLogo">
+            <a class="mfont-weight-normal navbar-brand" href="{{ site.baseurl }}{% link index.html %}">
+                <img src="{{ site.baseurl }}{% link images/xmonad-logo.png %}" class="logo" alt="xmonad logo" id="xmonadLogo">
             </a>
             <div class="mr-auto">
                 <h4>xmonad</h4>
@@ -30,20 +29,23 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="./index.html">Home</a>
+                        <a class="nav-link" href="{{ site.baseurl }}{% link index.html %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./documentation.html">Documentation</a>
+                        <a class="nav-link" href="{{ site.baseurl }}{% link documentation.md %}">Documentation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./download.html">Download</a>
+                        <a class="nav-link" href="{{ site.baseurl }}{% link download.md %}">Download</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./community.html">Community</a>
+                        <a class="nav-link" href="{{ site.baseurl }}{% link community.md %}">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ site.baseurl }}{% link posts.html %}">News/Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://github.com/xmonad/xmonad">
-                            <img src="images/GitHub-Mark-32px.png" class="github-logo" alt="github logo">
+                            <img src="{{ site.baseurl }}{% link images/GitHub-Mark-32px.png %}" class="github-logo" alt="github logo">
                         </a>
                     </li>
                 </ul>

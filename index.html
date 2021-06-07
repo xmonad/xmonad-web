@@ -17,10 +17,10 @@ layout: header
                 makes work easier, by automating this.
             </p>
             <div class="d-flex flex-column flex-md-row lead mb-3">
-                <p><a href="./tour.html" class="btn btn-lg btn-bd-purple mb-3 mb-md-0 mr-md-3" role="button">
+                <p><a href="{{ site.baseurl }}{% link tour.md %}" class="btn btn-lg btn-bd-purple mb-3 mb-md-0 mr-md-3" role="button">
                     Getting Started
                 </a></p>
-                <p><a href="./documentation.html" class="btn btn-lg btn-outline-secondary">
+                <p><a href="{{ site.baseurl }}{% link documentation.md %}" class="btn btn-lg btn-outline-secondary">
                     Documentation
                 </a></p>
             </div>
@@ -72,10 +72,13 @@ layout: header
     <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white">
         <h3 id="whats-new">What’s new?</h3>
         <ul>
+            {% for post in site.categories["news"] limit:3 %}
             <li>
-                xmonad 0.15 is available. Check out our <a href="download.html">download
-                page.</a>
+                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}.</a>
+                {{ post.excerpt | remove: "<p>" | remove: "</p>" }}
+                <span class="text-muted">({{ post.date | date: "%Y-%m-%d" }})</span>
             </li>
+            {% endfor %}
             <li>
                 <a href="https://github.com/xmonad/xmonad/issues">Report a bug</a> and we’ll squash it for you in the
                 next release.
