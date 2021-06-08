@@ -8,11 +8,12 @@
 
 ## The essentials
 
-*   [the FAQ](https://wiki.haskell.org/Xmonad/Frequently_asked_questions)
-*   [the wiki](https://wiki.haskell.org/Xmonad)
-*   the documentation:
-    *    [xmonad](https://hackage.haskell.org/package/xmonad)
-    *    [xmonad-contrib](https://hackage.haskell.org/package/xmonad-contrib)
+* [the FAQ](https://wiki.haskell.org/Xmonad/Frequently_asked_questions)
+* [the wiki](https://wiki.haskell.org/Xmonad)
+* the documentation:
+  * [xmonad](https://hackage.haskell.org/package/xmonad) (last release)
+  * [xmonad-contrib](https://hackage.haskell.org/package/xmonad-contrib) (last release)
+  * [xmonad, xmonad-contrib, X11](https://xmonad.github.io/xmonad-docs/) (nightly snapshot)
 
 ## Getting started
 
