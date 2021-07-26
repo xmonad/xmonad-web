@@ -26,7 +26,7 @@
 *   [garden our wiki](https://wiki.haskell.org/Xmonad)
 *   [garden our wikipedia article](https://en.wikipedia.org/wiki/Xmonad)
 *   [write an extension](https://wiki.haskell.org/Xmonad/xmonad_development_tutorial)
-*   [buy a t-shirt](https://www.spreadshirt.com/shop.php?op=article&article_id=2125373)
+*   [buy a t-shirt](https://www.spreadshirt.com/shop/clothing/t-shirts/xmonad/)
 
 </div>
 <div class="col-lg" markdown="1">
