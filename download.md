@@ -69,7 +69,18 @@ cabal install https://github.com/xmonad/xmonad-contrib/archive/master.tar.gz
 
 Here are some tools we've found work well with xmonad:
 
-* [dmenu](https://tools.suckless.org/dmenu/), a program launcher
-* [dzen](https://robm.github.io/dzen/), an extensible status bar
-* [xmobar](https://github.com/jaor/xmobar), an extensible status bar
-* [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html), a better terminal
+* program launchers:
+  * [dmenu](https://tools.suckless.org/dmenu/)
+  * [rofi](https://github.com/davatorium/rofi)
+* status bars:
+  * [dzen](https://robm.github.io/dzen/)
+  * [xmobar](https://github.com/jaor/xmobar)
+  * [taffybar](https://github.com/taffybar/taffybar)
+  * [polybar](https://github.com/polybar/polybar)
+* systrays:
+  * [trayer](https://github.com/sargon/trayer-srg)
+  * [stalonetray](https://kolbusa.github.io/stalonetray/)
+  * [gtk-sni-tray](https://github.com/taffybar/gtk-sni-tray)
+* terminals:
+  * [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html)
+  * [alacritty](https://github.com/alacritty/alacritty)
