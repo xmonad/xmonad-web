@@ -3,7 +3,7 @@
 
 # Guided Tour
 
-### Getting started with xmonad
+## Getting started with xmonad
 
 This is a guided tour of the core features of the xmonad window manager, allowing you to gain an understanding of the motivation, and use of a tiling window manager, and learn how to achieve the kind of screen configuration you want, simply and easily.
 
@@ -14,17 +14,22 @@ If you're already familiar with the basics and want to learn how to configure xm
 <div class="row" >
 <div class="col-6" markdown="1" >
 
+<!-- https://github.com/frnmst/md-toc -->
+<!-- regenerate via: md_toc -s6 -p github tour.md -->
+<!--TOC-->
 
-* [Starting xmonad](#starting-xmonad)
-* [Opening clients](#opening-clients)
-* [Layout modes](#layout-modes)
-* [Moving focus](#moving-focus)
-* [Shuffling window order](#shuffling-window-order)
-* [Resizing clients](#resizing-clients)
-* [Floating clients](#floating-clients)
-* [Deleting windows](#deleting-windows)
-* [Launching clients from dmenu](#launching-clients-from-dmenu)
-* [Using other workspaces](#using-other-workspaces)
+- [Starting xmonad](#starting-xmonad)
+- [Opening clients](#opening-clients)
+- [Layout modes](#layout-modes)
+- [Moving focus](#moving-focus)
+- [Shuffling window order](#shuffling-window-order)
+- [Resizing clients](#resizing-clients)
+- [Floating clients](#floating-clients)
+- [Deleting windows](#deleting-windows)
+- [Launching clients from dmenu](#launching-clients-from-dmenu)
+- [Using other workspaces](#using-other-workspaces)
+
+<!--TOC-->
 
 </div>
 <div class="col-6 align-middle" markdown="1">
@@ -32,7 +37,7 @@ If you're already familiar with the basics and want to learn how to configure xm
 </div>
 </div>
 
-#### Starting xmonad
+## Starting xmonad
 
 We'll assume you've been able to build xmonad from hackage (or from your package system). If not, seeing the [build instructions](install-instructions.md). You can then start xmonad directly from your .xsession or .xinitrc file, by executing it as so:
 
@@ -51,7 +56,7 @@ Note the use of xpmroot to set a background image.
 * [How to build xmonad by hand](install-instructions.md)
 * [How to use a display manager with xmonad](https://wiki.haskell.org/Xmonad/Frequently_asked_questions#How_can_I_use_xmonad_with_a_display_manager.3F_.28xdm.2C_kdm.2C_gdm.29)
 
-#### Opening clients
+## Opening clients
 
 When you start xmonad, without launching clients, you'll be presented with an empty screen:
 
@@ -71,8 +76,7 @@ The window manager has now tiled the screen such that both windows fit, without 
 
 xmonad uses a simple tiling algorithm to tile the windows to fill the screen without gaps, while ensuring space is managed in a reasonable way. xmonad, by default, divides the screen into two panes. All windows are then partitioned into these two panes. The ratio each pane takes up on the screen is configurable, as are the number of clients in each pane. By convention, one pane is denoted as the 'master' pane, and is used to place the largest window. Other tiling algorithms are possible, (for example, fullscreen mode, or floating windows), and in these the concept of a 'pane' has no real meaning.
 
-#### Layout modes
-
+## Layout modes
 
 We can try out the other layouts now, with **mod-space**, which cycles through the available tiling algorithms:
 
@@ -86,7 +90,7 @@ Other tiling algorithms may be written directly in configuration files.
 
 * [A library of alternative tiling algorithms, and much more](https://hackage.haskell.org/package/xmonad-contrib)
 
-#### Moving focus
+## Moving focus
 
 Let's return now to the original 'tall' tiling, **mod-space**. We can move focus around with the mouse, or with mod-j and mod-k (which moves the window focus up or down) (coloured red here for emphasis):
 
@@ -102,7 +106,7 @@ and again **mod-comma**:
 
 Use **mod-period** a few times to decrement the master pane count back to 1, to return to the default tiling.
 
-#### Shuffling window order
+## Shuffling window order
 
 Now, let's open up another client, we'll launch glxgears:
 
@@ -118,7 +122,7 @@ We can shuffle the window ordering in three ways: **mod-return**, **mod-shift-j*
 
 and we're back where we started.
 
-#### Resizing clients
+## Resizing clients
 
 We can resize the ratio between the master and subordinate areas with **mod-h** and **mod-l**. Hitting **mod-h** a few times:
 
@@ -130,11 +134,11 @@ Now, let's cycle to wide mode, and shrink (**mod-space**, then **mod-l**):
 
 We can return to tall mode by cycling through the tiling modes some more.
 
-#### Floating clients
+## Floating clients
 
 xmonad supports <emph>floating windows</emph>. Certain windows (such as transients) will be placed in a floating layer in front of all the tiled windows. Additionally, you can move a window to or from the floating layer on demand. To float a window (or move an already-floating window), click and drag it with the **mod-button1** held down. To flatten the window back down to the tiling layer use **mod-t**. Floating windows can be resized by dragging the window with **mod-button3**, and a floating window can be brought to the top with **mod-button2**.
 
-#### Deleting windows
+## Deleting windows
 
 When a window is closed naturally, or using **mod-shift-c** to kill it, focus is moved to the next window down in the workspace list. Let's kill glxgears. Focus should move to the xterm below it:
 
@@ -142,7 +146,7 @@ When a window is closed naturally, or using **mod-shift-c** to kill it, focus is
 
 To fully quit xmonad, use **mod-shift-q** to exit X (don't do that now!).
 
-#### Launching clients from dmenu
+## Launching clients from dmenu
 
 Assuming you have installed 'dmenu', you can launch programs from the status bar, by typing a few characters of the program's name. Use **mod-p** to launch dmenu, and then type 'fir' to find firefox:
 
@@ -156,7 +160,7 @@ Now, let's close a terminal, use **mod-space** to enter wide mode, and **mod-ret
 
 [![shuffling windows](images/tour/wide.png)](images/tour/large/wide.png)
 
-#### Using other workspaces
+## Using other workspaces
 
 xmonad has by default 9 virtual workspaces. Each physical screen is a portal onto one of these workspaces. The relationship between physical screens and virtual workspaces is described by the following image, which shows a conceptual model of xmonad, with 2 physical screens acting as portals onto 5 virtual workspaces.
 
