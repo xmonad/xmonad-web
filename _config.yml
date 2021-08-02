@@ -11,6 +11,7 @@ titles_from_headings:
 
 plugins:
   - jekyll-feed
+  - jekyll-redirect-from
   - jekyll-seo-tag
 
 exclude:
