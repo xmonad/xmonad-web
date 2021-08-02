@@ -36,13 +36,13 @@ If you're already familiar with the basics and want to learn how to configure xm
 
 We'll assume you've been able to build xmonad from hackage (or from your package system). If not, seeing the [build instructions](install-instructions.md). You can then start xmonad directly from your .xsession or .xinitrc file, by executing it as so:
 
-```
-    # .xsession
+``` sh
+# .xsession
 
-    xrdb -merge .Xresources
-    xpmroot ~/background.xpm &
+xrdb -merge .Xresources
+xpmroot ~/background.xpm &
 
-    HOME/bin/xmonad
+$HOME/bin/xmonad
 ```
 
 Note the use of xpmroot to set a background image.

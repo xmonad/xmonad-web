@@ -19,8 +19,8 @@ Note that, if you decide to install xmonad with stack (see further down), this s
 
 To build xmonad, you need the GHC Haskell compiler installed. All common operating systems provide prebuilt binaries of GHC in their package systems. For example, in Debian you would install GHC with:
 
-```
-    $ apt-get install ghc
+``` console
+$ apt-get install ghc
 ```
 
 If your operating system's package system doesn't provide a binary version of GHC, you can find pre-built binaries at the [GHC home page](https://haskell.org/ghc). It shouldn't be necessary to compile GHC from source -- every common system has a pre-build binary version.
@@ -31,16 +31,16 @@ We recommend the latest stable release of GHC.
 
 Since you're building an X application, you'll need the C X11 library headers. On many platforms, these come pre-installed. For others, such as Debian, you can get them from your package manager:
 
-```
-    $ apt-get install libx11-dev
+``` console
+$ apt-get install libx11-dev
 ```
 
 Typically you need the C libraries: `libx11` `libxext` `libxinerama` `libxrandr` `libxscreensaver`.
 
 Further, since xmonad is build with XFT support by default, you will also need the `libxft` C headers:
 
-```
-    $ apt-get install libxft-dev
+``` console
+$ apt-get install libxft-dev
 ```
 
 ### Install XMonad
@@ -74,7 +74,7 @@ Extra programs that make life with xmonad more exciting: dmenu and dzen. dmenu p
 
 The simplest way to start xmonad is to modify your .xsession or .xinitrc and add the line:
 
-```
+``` sh
 exec xmonad
 ```
 

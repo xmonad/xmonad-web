@@ -14,58 +14,58 @@ If your distribution is running Gnome and X similar to Ubuntu then you will need
 - Xsession: `/usr/share/xsessions/gnome-xmonad.desktop`
 
   ``` ini
-    [Desktop Entry]
-    Name=GNOME + XMonad
-    Comment=This session logs you into GNOME + XMonad
-    Exec=/usr/bin/gnome-session --systemd --session=gnome-flashback-xmonad --disable-acceleration-check
-    TryExec=xmonad
-    Type=Application
-    DesktopNames=GNOME-Flashback;GNOME;
-    X-Ubuntu-Gettext-Domain=gnome-flashback
+  [Desktop Entry]
+  Name=GNOME + XMonad
+  Comment=This session logs you into GNOME + XMonad
+  Exec=/usr/bin/gnome-session --systemd --session=gnome-flashback-xmonad --disable-acceleration-check
+  TryExec=xmonad
+  Type=Application
+  DesktopNames=GNOME-Flashback;GNOME;
+  X-Ubuntu-Gettext-Domain=gnome-flashback
   ```
 
 - Gnome session: `/usr/share/gnome-session/sessions`
 
   ``` ini
-    [GNOME Session]
-    Name=GNOME + XMonad
-    RequiredComponents=xmonad;gnome-flashback;gnome-panel;org.gnome.SettingsDaemon.A11ySettings;org.gnome.SettingsDaemon.Color;org.gnome.SettingsDaemon.Datetime;org.gnome.SettingsDaemon.Housekeeping;org.gnome.SettingsDaemon.Keyboard;org.gnome.SettingsDaemon.MediaKeys;org.gnome.SettingsDaemon.Power;org.gnome.SettingsDaemon.PrintNotifications;org.gnome.SettingsDaemon.Rfkill;org.gnome.SettingsDaemon.ScreensaverProxy;org.gnome.SettingsDaemon.Sharing;org.gnome.SettingsDaemon.Smartcard;org.gnome.SettingsDaemon.Sound;org.gnome.SettingsDaemon.UsbProtection;org.gnome.SettingsDaemon.Wacom;org.gnome.SettingsDaemon.XSettings;
+  [GNOME Session]
+  Name=GNOME + XMonad
+  RequiredComponents=xmonad;gnome-flashback;gnome-panel;org.gnome.SettingsDaemon.A11ySettings;org.gnome.SettingsDaemon.Color;org.gnome.SettingsDaemon.Datetime;org.gnome.SettingsDaemon.Housekeeping;org.gnome.SettingsDaemon.Keyboard;org.gnome.SettingsDaemon.MediaKeys;org.gnome.SettingsDaemon.Power;org.gnome.SettingsDaemon.PrintNotifications;org.gnome.SettingsDaemon.Rfkill;org.gnome.SettingsDaemon.ScreensaverProxy;org.gnome.SettingsDaemon.Sharing;org.gnome.SettingsDaemon.Smartcard;org.gnome.SettingsDaemon.Sound;org.gnome.SettingsDaemon.UsbProtection;org.gnome.SettingsDaemon.Wacom;org.gnome.SettingsDaemon.XSettings;
   ```
 
 - systemd session configuration: `/usr/lib/systemd/user/gnome-session@gnome-xmonad.target.d`
 
   ``` ini
-    [Unit]
-    Wants=org.gnome.SettingsDaemon.A11ySettings.target
-    Wants=org.gnome.SettingsDaemon.Color.target
-    Wants=org.gnome.SettingsDaemon.Datetime.target
-    Wants=org.gnome.SettingsDaemon.Housekeeping.target
-    Wants=org.gnome.SettingsDaemon.Keyboard.target
-    Wants=org.gnome.SettingsDaemon.MediaKeys.target
-    Wants=org.gnome.SettingsDaemon.Power.target
-    Wants=org.gnome.SettingsDaemon.PrintNotifications.target
-    Wants=org.gnome.SettingsDaemon.Rfkill.target
-    Wants=org.gnome.SettingsDaemon.ScreensaverProxy.target
-    Wants=org.gnome.SettingsDaemon.Sharing.target
-    Wants=org.gnome.SettingsDaemon.Smartcard.target
-    Wants=org.gnome.SettingsDaemon.Sound.target
-    Wants=org.gnome.SettingsDaemon.UsbProtection.target
-    Wants=org.gnome.SettingsDaemon.Wacom.target
-    Wants=org.gnome.SettingsDaemon.XSettings.target
+  [Unit]
+  Wants=org.gnome.SettingsDaemon.A11ySettings.target
+  Wants=org.gnome.SettingsDaemon.Color.target
+  Wants=org.gnome.SettingsDaemon.Datetime.target
+  Wants=org.gnome.SettingsDaemon.Housekeeping.target
+  Wants=org.gnome.SettingsDaemon.Keyboard.target
+  Wants=org.gnome.SettingsDaemon.MediaKeys.target
+  Wants=org.gnome.SettingsDaemon.Power.target
+  Wants=org.gnome.SettingsDaemon.PrintNotifications.target
+  Wants=org.gnome.SettingsDaemon.Rfkill.target
+  Wants=org.gnome.SettingsDaemon.ScreensaverProxy.target
+  Wants=org.gnome.SettingsDaemon.Sharing.target
+  Wants=org.gnome.SettingsDaemon.Smartcard.target
+  Wants=org.gnome.SettingsDaemon.Sound.target
+  Wants=org.gnome.SettingsDaemon.UsbProtection.target
+  Wants=org.gnome.SettingsDaemon.Wacom.target
+  Wants=org.gnome.SettingsDaemon.XSettings.target
 
-    Requires=gnome-flashback.target
-    Requires=indicators-pre.target
+  Requires=gnome-flashback.target
+  Requires=indicators-pre.target
 
-    # here we list the indicators that we want to load
-    Wants=indicator-application.service
-    Wants=indicator-bluetooth.service
-    Wants=indicator-datetime.service
-    Wants=indicator-keyboard.service
-    Wants=indicator-messages.service
-    Wants=indicator-power.service
-    Wants=indicator-printers.service
-    Wants=indicator-session.service
-    Wants=indicator-sound.service
+  # here we list the indicators that we want to load
+  Wants=indicator-application.service
+  Wants=indicator-bluetooth.service
+  Wants=indicator-datetime.service
+  Wants=indicator-keyboard.service
+  Wants=indicator-messages.service
+  Wants=indicator-power.service
+  Wants=indicator-printers.service
+  Wants=indicator-session.service
+  Wants=indicator-sound.service
   ```
 
 ### Common Problems

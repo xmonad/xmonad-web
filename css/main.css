@@ -1,6 +1,7 @@
 ---
 ---
 @import "{{ site.baseurl }}{% link css/font-raleway.css %}";
+@import "{{ site.baseurl }}{% link css/syntax.css %}";
 
 /* color/style overrides */
 a { color: #900; text-decoration: none; }
@@ -10,8 +11,9 @@ a:hover { color: black; }
 .btn-primary { background-color: #900; border-color: #900; }
 .btn-primary:hover { background-color: #000; border-color: #000; }
 h1, h2 { font-family: Raleway, var(--bs-font-sans-serif); font-weight: 500; }
-code { padding: .2rem .4rem; background-color: #f8f9fa; border-radius: .25rem; }
+code { padding: .2rem .4rem; background-color: #f8f8f8; border-radius: .25rem; }
 pre code { padding: 0; background-color: transparent; border-radius: 0; }
+pre { padding: 0.5rem 0.5rem; background-color: #f8f8f8; border-radius: .5rem; }
 
 /* logo and name */
 #xmonadLogo {
