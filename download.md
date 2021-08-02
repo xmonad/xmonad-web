@@ -37,16 +37,6 @@ On debian, xmonad is split into _three_ packages, and it might not be obvious wh
 * `libghc-xmonad-dev` lets you write a configuration file using _core_ functionality.
 * `libghc-xmonad-contrib-dev` includes all of the _contrib_ modules.
 
-
-## From tarball
-
-If you prefer to build on your own, you can get the official releases from hackage:
-
-*   [core](https://hackage.haskell.org/package/xmonad)
-*   [contrib](https://hackage.haskell.org/package/xmonad-contrib)
-
-After you've downloaded, follow the [install instructions](install-instructions.md) and read the [documentation](documentation.md) on how to configure xmonad.
-
 ## From git
 
 Keep on the bleeding edge by tracking xmonad development:
@@ -56,14 +46,9 @@ git clone https://github.com/xmonad/xmonad
 git clone https://github.com/xmonad/xmonad-contrib
 ```
 
-You will need [git](https://git-scm.com/) to check out the code. From there, follow the [install instructions](install-instructions.md) just as with the tarball.
-
-Alternatively, you can install the latest git revision as follows:
-
-```
-cabal install https://github.com/xmonad/xmonad/archive/master.tar.gz
-cabal install https://github.com/xmonad/xmonad-contrib/archive/master.tar.gz
-```
+You will need [git](https://git-scm.com/) to check out the code.
+Follow the [install instructions](INSTALL.md) and
+[documentation](documentation.md) to build, set up and configure xmonad.
 
 ## Related tools
 

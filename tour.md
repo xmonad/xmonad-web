@@ -7,9 +7,9 @@
 
 This is a guided tour of the core features of the xmonad window manager, allowing you to gain an understanding of the motivation, and use of a tiling window manager, and learn how to achieve the kind of screen configuration you want, simply and easily.
 
-If you're already familiar with the basics and want to learn how to configure xmonad, head over to the [tutorial]!
+If you're already familiar with the basics and want to learn how to configure xmonad and customize it to your liking, head over to the [configuration tutorial](TUTORIAL.md).
 
-[tutorial]: https://github.com/xmonad/xmonad/blob/master/TUTORIAL.md
+We'll assume you've been able to [install xmonad](INSTALL.md) and [set it as your window manager](INSTALL.md#make-xmonad-your-window-manager).
 
 <div class="row" >
 <div class="col-6" markdown="1" >
@@ -18,7 +18,6 @@ If you're already familiar with the basics and want to learn how to configure xm
 <!-- regenerate via: md_toc -s6 -p github tour.md -->
 <!--TOC-->
 
-- [Starting xmonad](#starting-xmonad)
 - [Opening clients](#opening-clients)
 - [Layout modes](#layout-modes)
 - [Moving focus](#moving-focus)
@@ -36,25 +35,6 @@ If you're already familiar with the basics and want to learn how to configure xm
 [![our goal](images/screen-dons-tall-status-thumb.png)](images/screen-dons-tall-status.png)
 </div>
 </div>
-
-## Starting xmonad
-
-We'll assume you've been able to build xmonad from hackage (or from your package system). If not, seeing the [build instructions](install-instructions.md). You can then start xmonad directly from your .xsession or .xinitrc file, by executing it as so:
-
-``` sh
-# .xsession
-
-xrdb -merge .Xresources
-xpmroot ~/background.xpm &
-
-$HOME/bin/xmonad
-```
-
-Note the use of xpmroot to set a background image.
-
-
-* [How to build xmonad by hand](install-instructions.md)
-* [How to use a display manager with xmonad](https://wiki.haskell.org/Xmonad/Frequently_asked_questions#How_can_I_use_xmonad_with_a_display_manager.3F_.28xdm.2C_kdm.2C_gdm.29)
 
 ## Opening clients
 

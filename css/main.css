@@ -14,6 +14,8 @@ h1, h2 { font-family: Raleway, var(--bs-font-sans-serif); font-weight: 500; }
 code { padding: .2rem .4rem; background-color: #f8f8f8; border-radius: .25rem; }
 pre code { padding: 0; background-color: transparent; border-radius: 0; }
 pre { padding: 0.5rem 0.5rem; background-color: #f8f8f8; border-radius: .5rem; }
+.container > h1:first-child { padding-bottom: 0.4rem; border-bottom: 1px solid #ccc; }
+blockquote { background: #f8f8f8; border-left: 0.2rem solid #ccc; padding-left: 0.4rem; }
 
 /* logo and name */
 #xmonadLogo {
