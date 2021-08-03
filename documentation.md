@@ -18,8 +18,9 @@
 ## Getting started
 
 * [about](about.md) – an overview of xmonad features
+* [install xmonad](INSTALL.md) – how to install xmonad
 * [guided tour](tour.md) – a walkthrough of the basic functionality
-* [step-by-step](https://github.com/xmonad/xmonad/blob/master/TUTORIAL.md) – guide to configuring xmonad
+* [configuration tutorial](TUTORIAL.md) – guide to configuring xmonad
 * [cheatsheet](images/cheat/xmbindings.png) – an overview of the keybindings
 
 ## Reference
@@ -37,7 +38,7 @@
 
 ## In your environment
 
-[Installing xmonad](install-instructions.md) - [Gnome](gnome.md) - [KDE](https://wiki.haskell.org/Xmonad/Using_xmonad_in_KDE) - [XFCE](https://wiki.haskell.org/Xmonad/Using_xmonad_in_XFCE) - [Arch Linux](https://wiki.archlinux.org/index.php/XMonad) - [OS X](https://wiki.haskell.org/Xmonad/Using_xmonad_on_Apple_OSX) - [OLPC](https://wiki.haskell.org/Xmonad/Using_xmonad_on_OLPC_XO)
+[Installing xmonad](INSTALL.md) - [Gnome](gnome.md) - [KDE](https://wiki.haskell.org/Xmonad/Using_xmonad_in_KDE) - [XFCE](https://wiki.haskell.org/Xmonad/Using_xmonad_in_XFCE) - [Arch Linux](https://wiki.archlinux.org/index.php/XMonad) - [OS X](https://wiki.haskell.org/Xmonad/Using_xmonad_on_Apple_OSX) - [OLPC](https://wiki.haskell.org/Xmonad/Using_xmonad_on_OLPC_XO)
 
 </div>
 <div class="col-lg" markdown="1">
@@ -45,10 +46,10 @@
 # Quick start for the impatient
 
 1.  [Install](download.md) the xmonad binary and config library.
-2.  Wire xmonad up to your [login manager](https://wiki.haskell.org/Xmonad/Frequently_asked_questions#How_can_I_use_xmonad_with_a_display_manager.3F_.28xdm.2C_kdm.2C_gdm.29).
+2.  Wire xmonad up to your [login manager](INSTALL.md#make-xmonad-your-window-manager).
 3.  Logout and back in.  You're in xmonad.
 4.  alt-shift-enter to open an xterm.
-5.  Write a ~/.xmonad/xmonad.hs to [configure](https://github.com/xmonad/xmonad/blob/master/TUTORIAL.md) xmonad.
+5.  Write a ~/.xmonad/xmonad.hs to [configure](TUTORIAL.md) xmonad.
 6.  mod-q to reload your config file.
 7.  [Install](download.md) the xmonad-contrib config library.
 8.  Edit your xmonad.hs to include this new [fantasticness](https://wiki.haskell.org/Xmonad/Config_archive).

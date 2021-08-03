@@ -41,9 +41,8 @@ The tl;dr is the following:
 
 All the `.md` files in the root (except for `README.md`) will
 be converted into `html` files. These go at the root of the
-website. The `css` directory has custom styles, as well as
-`bootstrap.min.css` for [Bootstrap](https://getbootstrap.com/).
-Image should go in the `images` directory.
+website. The `css` directory has custom styles.
+Images should go in the `images` directory.
 
 The videos that are linked in `videos.html` are hardcoded in
 the `_data/videos.yml`

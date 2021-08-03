@@ -1,74 +1,35 @@
 ---
 ---
 @import "{{ site.baseurl }}{% link css/font-raleway.css %}";
+@import "{{ site.baseurl }}{% link css/syntax.css %}";
 
-.navbar.my-bg {
-    background-color: white;
-    color: black;
-}
-#navbarText > ul > li > a {
-    color: #900;
-}
-#navbarText > ul > li > a:hover {
-    color: black;
-}
-.quote {
-    color: gray;
-}
-.navbar {
-    padding-bottom: 20px;
-}
+/* color/style overrides */
+a { color: #900; text-decoration: none; }
+a:hover { color: black; }
+#navbarText > ul > li > a { color: #900; }
+#navbarText > ul > li > a:hover { color: #000; }
+.btn-primary { background-color: #900; border-color: #900; }
+.btn-primary:hover { background-color: #000; border-color: #000; }
+h1, h2 { font-family: Raleway, var(--bs-font-sans-serif); font-weight: 500; }
+code { padding: .2rem .4rem; background-color: #f8f8f8; border-radius: .25rem; }
+pre code { padding: 0; background-color: transparent; border-radius: 0; }
+pre { padding: 0.5rem 0.5rem; background-color: #f8f8f8; border-radius: .5rem; }
+.container > h1:first-child { padding-bottom: 0.4rem; border-bottom: 1px solid #ccc; }
+blockquote { background: #f8f8f8; border-left: 0.2rem solid #ccc; padding-left: 0.4rem; }
+
+/* logo and name */
 #xmonadLogo {
-    display: block;
+    display: inline-block;
     max-width: 35px;
     width: auto;
     height: auto;
 }
-.example-img {
-    width: 70%;
-}
-.logo {
-    float: left;
-}
-.name {
-    color: darkgrey;
-    font-size: 80px;
-}
-.name::first-letter {
-    color: black;
-}
-.btn-bd-purple {
-    background-color: #900;
-    color: white;
-}
-a {
-    color: #900;
-}
-a:hover {
-    color: black;
-}
-h1,h2 {
-    font-family: Raleway, Helvetica, Arial, sans-serif;
-    font-weight: 500;
-}
+.name { color: darkgrey; font-size: 80px; }
+.name::first-letter { color: black; }
 
-.list-col-4>ul {
-    column-count: 4;
-}
+/* lists columns */
+.list-col-3 > ul { column-count: 3; }
+.list-col-4 > ul { column-count: 4; }
 
-.list-col-3>ul {
-    column-count: 3;
-}
-
-.container img{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-/* For toggling the menu */
-#navbar-toggle-cbox:checked ~ .collapse {
-    display: block;
-}
-#navbar-toggle-cbox {
-  display:none
-}
+/* center images */
+.container img { display: block; margin-left: auto; margin-right: auto; }

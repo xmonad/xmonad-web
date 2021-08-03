@@ -2,55 +2,56 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{{ site.baseurl }}{% link css/bootstrap.min.css %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ site.baseurl }}{% link css/main.css %}">
 
         {% seo %}
         {% feed_meta %}
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="mfont-weight-normal navbar-brand" href="{{ site.baseurl }}{% link index.html %}">
-                <img src="{{ site.baseurl }}{% link images/xmonad-logo.png %}" class="logo" alt="xmonad logo" id="xmonadLogo">
-            </a>
-            <div class="mr-auto">
-                <h4>xmonad</h4>
-                <h5 class="quote">“That was easy. xmonad rocks!”</h5>
-            </div>
-            <input type="checkbox" id="navbar-toggle-cbox">
-            <label for="navbar-toggle-cbox" class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="navbar-toggler-icon"></span>
-            </label>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ site.baseurl }}{% link index.html %}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ site.baseurl }}{% link documentation.md %}">Documentation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ site.baseurl }}{% link download.md %}">Download</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ site.baseurl }}{% link community.md %}">Community</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ site.baseurl }}{% link posts.html %}">News/Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/xmonad/xmonad">
-                            <img src="{{ site.baseurl }}{% link images/GitHub-Mark-32px.png %}" class="github-logo" alt="github logo">
-                        </a>
-                    </li>
-                </ul>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+        <nav class="navbar navbar-expand-lg navbar-light mb-2">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ site.baseurl }}{% link index.html %}">
+                    <img src="{{ site.baseurl }}{% link images/xmonad-logo.png %}" alt="xmonad logo" id="xmonadLogo">
+                </a>
+                <div class="me-auto">
+                    <h4>xmonad</h4>
+                    <h5 class="text-secondary">“That was easy. xmonad rocks!”</h5>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ site.baseurl }}{% link index.html %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ site.baseurl }}{% link documentation.md %}">Documentation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ site.baseurl }}{% link download.md %}">Download</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ site.baseurl }}{% link community.md %}">Community</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ site.baseurl }}{% link posts.html %}">News/Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/xmonad/xmonad">
+                                <img src="{{ site.baseurl }}{% link images/GitHub-Mark-32px.png %}" alt="github logo">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
+
         {{ content }}
     </body>
 </html>

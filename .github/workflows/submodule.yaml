@@ -1,0 +1,30 @@
+name: Update submodules
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Run every day
+    - cron: '0 3 * * *'
+
+jobs:
+  submodule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone project
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Update submodules
+        run: |
+          set -ex
+          git submodule update --remote
+
+      - name: Commit/push if changed
+        run: |
+          set -ex
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git diff --quiet --exit-code && exit
+          git commit -a -m 'Update submodules'
+          git push
