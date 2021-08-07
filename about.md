@@ -19,14 +19,14 @@ Xmonad is a _tiling window manager_ for X. Windows are arranged automatically to
 *   Per-screens custom status bars
 *   Compositing support
 *   Powerful, stable customisation and on-the-fly reconfiguration
-*   Large [extension library](https://hackage.haskell.org/package/xmonad-contrib)
-*   Excellent, extensive [documentation](https://hackage.haskell.org/package/xmonad)
+*   Large [extension library](https://xmonad.github.io/xmonad-docs/xmonad-contrib/)
+*   Excellent, extensive [documentation](https://xmonad.github.io/xmonad-docs/xmonad/)
 *   Large, active development team, support and community
 *   Watch some [videos of xmonad](videos.html) and follow us on [twitter](https://twitter.com/xmonad)
 
 #### Tiling the screen
 
-Xmonad provides three tiling algorithms by default: _tall_, _wide_ and _fullscreen_. In tall or wide mode, all windows are visible and tiled to fill the plane without gaps. In fullscreen mode only the focused window is visible, filling the screen. Alternative tiling algorithms (and much more) are provided as [extensions](https://hackage.haskell.org/package/xmonad-contrib). Sets of windows are grouped together on virtual _workspaces_ and each workspace retains its own layout. Multiple physical monitors are supported via Xinerama, allowing simultaneous display of several workspaces.
+Xmonad provides three tiling algorithms by default: _tall_, _wide_ and _fullscreen_. In tall or wide mode, all windows are visible and tiled to fill the plane without gaps. In fullscreen mode only the focused window is visible, filling the screen. Alternative tiling algorithms (and much more) are provided as [extensions](https://xmonad.github.io/xmonad-docs/xmonad-contrib/). Sets of windows are grouped together on virtual _workspaces_ and each workspace retains its own layout. Multiple physical monitors are supported via Xinerama, allowing simultaneous display of several workspaces.
 
 #### Simple and Flexible
 
