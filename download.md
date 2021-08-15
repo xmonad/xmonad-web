@@ -62,6 +62,7 @@ Here are some tools we've found work well with xmonad:
   * [xmobar](https://github.com/jaor/xmobar)
   * [taffybar](https://github.com/taffybar/taffybar)
   * [polybar](https://github.com/polybar/polybar)
+  * [cnx](https://github.com/mjkillough/cnx)
 * systrays:
   * [trayer](https://github.com/sargon/trayer-srg)
   * [stalonetray](https://kolbusa.github.io/stalonetray/)
