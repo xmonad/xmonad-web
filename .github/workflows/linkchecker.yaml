@@ -25,6 +25,8 @@ jobs:
   linkchecker:
     needs: url
     runs-on: ubuntu-latest
+    env:
+      LINKCHECKER_FLAGS: ''
     steps:
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -38,7 +40,7 @@ jobs:
         continue-on-error: true
         name: Run linkchecker
         run: |
-          linkchecker --check-extern --ignore-url='sony\.com' ${{ needs.url.outputs.url }}
+          linkchecker --check-extern ${{ env.LINKCHECKER_FLAGS }} ${{ needs.url.outputs.url }}
 
       - name: Sleep
         if: steps.attempt1.outcome == 'failure'
@@ -48,7 +50,7 @@ jobs:
         continue-on-error: true
         name: Run linkchecker
         run: |
-          linkchecker --check-extern --ignore-url='sony\.com' ${{ needs.url.outputs.url }}
+          linkchecker --check-extern ${{ env.LINKCHECKER_FLAGS }} ${{ needs.url.outputs.url }}
 
       - name: Sleep
         if: steps.attempt2.outcome == 'failure'
@@ -58,7 +60,7 @@ jobs:
         continue-on-error: true
         name: Run linkchecker
         run: |
-          linkchecker --check-extern --ignore-url='sony\.com' ${{ needs.url.outputs.url }}
+          linkchecker --check-extern ${{ env.LINKCHECKER_FLAGS }} ${{ needs.url.outputs.url }}
 
       - name: Fail
         if: steps.attempt1.outcome == 'failure' && steps.attempt2.outcome == 'failure' && steps.attempt3.outcome == 'failure'
