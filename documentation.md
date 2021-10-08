@@ -45,15 +45,12 @@
 
 # Quick start for the impatient
 
-1.  [Install](download.md) the xmonad binary and config library.
+1.  [Install](download.md) the `xmonad` binary/library and the `xmonad-contrib` library.
 2.  Wire xmonad up to your [login manager](INSTALL.md#make-xmonad-your-window-manager).
 3.  Logout and back in.  You're in xmonad.
-4.  alt-shift-enter to open an xterm.
-5.  Write a ~/.xmonad/xmonad.hs to [configure](TUTORIAL.md) xmonad.
-6.  mod-q to reload your config file.
-7.  [Install](download.md) the xmonad-contrib config library.
-8.  Edit your xmonad.hs to include this new [fantasticness](https://wiki.haskell.org/Xmonad/Config_archive).
-9.  mod-q to reload your config file.
+4.  `M-S-<Enter>` to open an xterm.
+5.  Write a `~/.config/xmonad/xmonad.hs` to [configure](https://github.com/xmonad/xmonad/blob/master/TUTORIAL.md) xmonad.
+6.  `M-q` to reload your config file.
 
 </div>
 </div>
