@@ -15,3 +15,6 @@ serve: .bundle/.done
 .PHONY: clean
 clean:
 	$(RM) -r Gemfile.lock .bundle _site
+
+_data/sponsors-named.json: _sponsors.sh
+	./_sponsors.sh named-sponsors xmonad >$@

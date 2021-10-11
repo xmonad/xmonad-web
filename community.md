@@ -33,7 +33,7 @@
 
 ### Credits
 
-the xmonad developer team:
+The xmonad developer team:
 
 <div class="list-col-3" markdown="1">
 
@@ -47,7 +47,7 @@ the xmonad developer team:
 
 </div>
 
-hall of fame (no longer active in the project):
+Hall of fame (no longer active in the project):
 
 <div class="list-col-3" markdown="1">
 
@@ -69,10 +69,25 @@ hall of fame (no longer active in the project):
 
 </div>
 
-thanks:
+Thanks:
 
 * [xmonad contributors](https://github.com/xmonad/xmonad/graphs/contributors)
 * [xmonad-contrib contributors](https://github.com/xmonad/xmonad-contrib/graphs/contributors)
+
+### Supporters
+
+Maintenance and development of xmonad is being financially supported by:
+
+<ul>
+{% for sponsor in site.data.sponsors-named %}
+<li><a href="{{ sponsor.websiteUrl | default: sponsor.url }}">{{ sponsor.name | default: sponsor.login | escape }}</a></li>
+{% endfor %}
+<li>and many <a href="https://github.com/sponsors/xmonad#sponsors">others</a></li>
+</ul>
+
+We're grateful for this support, and we humbly ask you to consider [becoming a
+supporter as well](https://github.com/sponsors/xmonad) if you aren't already.
+Thank you!
 
 </div>
 </div>
