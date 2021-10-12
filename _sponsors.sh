@@ -79,11 +79,20 @@ function jq-sort-by {
 	jq -s "sort_by(.${1:?key}) | .[]"
 }
 
+function jq-intersect-by {
+	jq --argjson filter "${2:?filter}" "select([.${1:?key}] | inside([\$filter[].${1:?key}]))"
+}
+
 function named-sponsors {
+	public_sponsors=$(
+		GITHUB_TOKEN="${NONADMIN_GITHUB_TOKEN}" o gh-org-sponsors "${1:?org}" | \
+		jq -s ''
+	)
 	o gh-org-sponsors-tiers "${1:?org}" | jq-tierids-since XMonad.Layout.Named | tac | \
 		while read -r tier; do
 			o gh-org-sponsors-at-tier "${1:?org}" "$tier" | jq-sort-by login
 		done | \
+		jq-intersect-by login "$public_sponsors" | \
 		jq -s ''
 }
 
