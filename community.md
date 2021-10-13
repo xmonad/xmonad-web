@@ -80,7 +80,7 @@ Maintenance and development of xmonad is being financially supported by:
 
 <ul>
 {% for sponsor in site.data.sponsors-named %}
-<li><a href="{{ sponsor.websiteUrl | default: sponsor.url }}">{{ sponsor.name | default: sponsor.login | escape }}</a></li>
+<li><a href="{{ sponsor.url }}">{{ sponsor.name | default: sponsor.login | escape }}</a></li>
 {% endfor %}
 <li>and many <a href="https://github.com/sponsors/xmonad#sponsors">others</a></li>
 </ul>
