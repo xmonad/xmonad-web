@@ -2,11 +2,11 @@ export BUNDLE_PATH ?= $(CURDIR)/.bundle/gems
 
 .PHONY: build
 build: .bundle/.done
-	bundle exec jekyll build
+	bundle exec jekyll build --drafts
 
 .PHONY: serve
 serve: .bundle/.done
-	bundle exec jekyll serve --livereload
+	bundle exec jekyll serve --drafts --livereload
 
 .bundle/.done: Gemfile
 	bundle install
