@@ -10,7 +10,7 @@ a:hover { color: black; }
 #navbarText > ul > li > a:hover { color: #000; }
 .btn-primary { background-color: #900; border-color: #900; }
 .btn-primary:hover { background-color: #000; border-color: #000; }
-h1, h2 { font-family: Raleway, var(--bs-font-sans-serif); font-weight: 500; }
+h1 { font-family: Raleway, var(--bs-font-sans-serif); font-weight: 500; }
 code { padding: .2rem .4rem; background-color: #f8f8f8; border-radius: .25rem; }
 pre code { padding: 0; background-color: transparent; border-radius: 0; }
 pre { padding: 0.5rem 0.5rem; background-color: #f8f8f8; border-radius: .5rem; }
