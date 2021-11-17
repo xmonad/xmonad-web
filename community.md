@@ -41,8 +41,8 @@ The xmonad developer team:
 * [Brent Yorgey](https://byorgey.wordpress.com/)
 * [Daniel Wagner](http://www.dmwit.com/)
 * [Sibi Prabakaran](https://psibi.in/)
-* [slotThe](https://github.com/slotThe)
 * [Tomáš Janoušek](https://work.lisk.in/)
+* [Tony Zorman](https://github.com/slotThe)
 * [Yecine Megdiche](https://github.com/TheMC47)
 
 </div>
