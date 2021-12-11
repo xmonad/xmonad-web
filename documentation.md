@@ -31,7 +31,7 @@
 
 ## Extensions
 
-* [extending](https://xmonad.github.io/xmonad-docs/xmonad-contrib/XMonad-Doc-Extending.html) – a roundup of many (but not all) of the modules in the _contrib_ package
+* [extending](https://xmonad.github.io/xmonad-docs/xmonad-contrib/XMonad-Doc-Extending.html) – a more advanced configuration tutorial
 * [config archive](https://wiki.haskell.org/Xmonad/Config_archive) – users' contributed config files, showing off many of the extensions
 * [xmonad-contrib api docs](https://xmonad.github.io/xmonad-docs/xmonad-contrib/) – reference documentation for all of xmonad's contrib modules
 * [development tutorial](https://wiki.haskell.org/Xmonad/xmonad_development_tutorial) – learn to write your own extension
