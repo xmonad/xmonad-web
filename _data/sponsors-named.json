@@ -12,12 +12,6 @@
     "websiteUrl": null
   },
   {
-    "login": "aniravi24",
-    "name": "Ani Ravi",
-    "url": "https://github.com/aniravi24",
-    "websiteUrl": "https://aniravi.com"
-  },
-  {
     "login": "bartenbach",
     "name": "blake",
     "url": "https://github.com/bartenbach",
@@ -64,5 +58,11 @@
     "name": "Scott Milliken",
     "url": "https://github.com/smilliken",
     "websiteUrl": "scottmilliken.com"
+  },
+  {
+    "login": "zoglesby",
+    "name": "Zach Oglesby",
+    "url": "https://github.com/zoglesby",
+    "websiteUrl": "https://zach.oglesby.co/"
   }
 ]
