@@ -49,7 +49,7 @@
 2.  Wire xmonad up to your [login manager](INSTALL.md#make-xmonad-your-window-manager).
 3.  Logout and back in.  You're in xmonad.
 4.  `M-S-<Enter>` to open an xterm.
-5.  Write a `~/.config/xmonad/xmonad.hs` to [configure](https://github.com/xmonad/xmonad/blob/master/TUTORIAL.md) xmonad.
+5.  Write a `~/.config/xmonad/xmonad.hs` to [configure](TUTORIAL.md) xmonad.
 6.  `M-q` to reload your config file.
 
 </div>
