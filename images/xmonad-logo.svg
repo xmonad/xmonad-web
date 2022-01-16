@@ -1,5 +1,4 @@
 <!-- Depends on "Prodigy Sans" open typeface: https://fontlibrary.org/en/font/prodigy-sans -->
-
 <svg
    width="18.981604mm"
    height="18.830956mm"
@@ -7,7 +6,7 @@
    version="1.1"
    id="svg21122"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
-   sodipodi:docname="logo-wrapped.svg"
+   sodipodi:docname="xmonad-logo.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -29,15 +28,15 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="3.8954758"
-     inkscape:cx="51.598318"
-     inkscape:cy="36.067481"
+     inkscape:zoom="1.9477379"
+     inkscape:cx="184.31638"
+     inkscape:cy="62.380055"
      inkscape:window-width="1920"
      inkscape:window-height="1065"
      inkscape:window-x="0"
      inkscape:window-y="15"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer3" />
+     inkscape:current-layer="g21080" />
   <defs
      id="defs21119" />
   <g
@@ -45,18 +44,6 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(74.538121,-132.15815)">
-    <g
-       inkscape:groupmode="layer"
-       id="layer3"
-       inkscape:label="Layer 2">
-      <rect
-         style="opacity:1;fill:#ffffff;stroke-width:0.250035"
-         id="rect1495"
-         width="24.152315"
-         height="22.859549"
-         x="-76.906403"
-         y="130.13536" />
-    </g>
     <g
        id="g21089"
        transform="translate(137.80297,446.82061)">

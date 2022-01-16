@@ -1,13 +1,12 @@
 <!-- Depends on "Prodigy Sans" open typeface: https://fontlibrary.org/en/font/prodigy-sans -->
-
 <svg
-   width="18.981604mm"
-   height="18.830956mm"
-   viewBox="0 0 18.981603 18.830956"
+   width="137.54971mm"
+   height="26.890667mm"
+   viewBox="0 0 137.54971 26.890667"
    version="1.1"
    id="svg21122"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
-   sodipodi:docname="logo-wrapped.svg"
+   sodipodi:docname="xmonad-logo-full.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -29,34 +28,22 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="3.8954758"
-     inkscape:cx="51.598318"
-     inkscape:cy="36.067481"
+     inkscape:zoom="1.9477379"
+     inkscape:cx="184.31638"
+     inkscape:cy="62.380055"
      inkscape:window-width="1920"
      inkscape:window-height="1065"
      inkscape:window-x="0"
      inkscape:window-y="15"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer3" />
+     inkscape:current-layer="g21080" />
   <defs
      id="defs21119" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(74.538121,-132.15815)">
-    <g
-       inkscape:groupmode="layer"
-       id="layer3"
-       inkscape:label="Layer 2">
-      <rect
-         style="opacity:1;fill:#ffffff;stroke-width:0.250035"
-         id="rect1495"
-         width="24.152315"
-         height="22.859549"
-         x="-76.906403"
-         y="130.13536" />
-    </g>
+     transform="translate(74.538121,-124.48869)">
     <g
        id="g21089"
        transform="translate(137.80297,446.82061)">
@@ -73,6 +60,17 @@
              id="path948"
              sodipodi:nodetypes="cccc" />
         </g>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:37.662px;line-height:1.25;font-family:sans-serif;fill:#3d3846;fill-opacity:1;stroke:none;stroke-width:0.94155"
+           x="-72.15509"
+           y="-295.81787"
+           id="text954"><tspan
+             sodipodi:role="line"
+             id="tspan952"
+             style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'Prodigy Sans';-inkscape-font-specification:'Prodigy Sans Medium';text-align:end;text-anchor:end;fill:#3d3846;stroke-width:0.94155"
+             x="-72.15509"
+             y="-295.81787">monad</tspan></text>
         <g
            aria-label="x"
            id="g958"
