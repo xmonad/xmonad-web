@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18.982mm" height="18.982mm" version="1.1" viewBox="0 0 18.982 18.982" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <g transform="translate(74.538 -132.08)">
+  <g transform="translate(137.8,446.82)">
+   <g stroke-width=".26458">
+    <g transform="matrix(3.5586,0,0,3.5586,-255.42,-545)" fill="#3d3846" aria-label="x">
+     <path d="m15.478 65.584 0.59705-0.85778h1.2806l-1.2373 1.6986" fill="#3d3846"/>
+    </g>
+    <g transform="matrix(3.5586,0,0,3.5586,-255.42,-545)" fill="#fd4d5e" aria-label="x">
+     <path d="m17.44 70.017h-1.3652l-1.3017-1.905-1.3335 1.905h-1.3335l2.0108-2.6987-1.8838-2.5929h1.3864" fill="#fd4d5e"/>
+    </g>
+   </g>
+  </g>
+ </g>
+ <!-- © Hans Heintze: https://github.com/literallyunplayable -->
+ <metadata>
+  <rdf:RDF>
+   <cc:License rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+    <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+    <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+    <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+    <cc:requires rdf:resource="http://creativecommons.org/ns#Notice"/>
+    <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution"/>
+    <cc:requires rdf:resource="http://creativecommons.org/ns#ShareAlike"/>
+   </cc:License>
+  </rdf:RDF>
+ </metadata>
+</svg>
