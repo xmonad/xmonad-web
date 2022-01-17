@@ -18,20 +18,14 @@ pre { padding: 0.5rem 0.5rem; background-color: #f8f8f8; border-radius: .5rem; }
 .container > h1:first-child { padding-bottom: 0.4rem; border-bottom: 1px solid #ccc; }
 blockquote { background: #f8f8f8; border-left: 0.2rem solid #ccc; padding-left: 0.4rem; }
 
-/* wordmark and name */
-#xmonadWordmark {
-    display: inline-block;
-    text-align:left;
-}
-.name { color: darkgrey; font-size: 80px; }
-.name::first-letter { color: black; }
-
 /* lists columns */
 .list-col-3 > ul { column-count: 3; }
 .list-col-4 > ul { column-count: 4; }
 
-/* center images */
-.container img { display: block; margin-left: auto; margin-right: auto; }
+/* center and max-size images */
+.container img { display: block; margin-left: auto; margin-right: auto; max-width: 100%; }
+/* but don't center the logo on homepage */
+.container h1 img { display: unset; margin-left: unset; margin-right: unset; }
 
 /* github sponsors */
 svg.github-sponsors { fill: #ea4aaa !important; height: 1em; }
