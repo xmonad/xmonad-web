@@ -6,3 +6,9 @@
     font-weight: 400;
     src: local("Raleway"), local("Raleway-Regular"), url({{ site.baseurl }}{% link fonts/Raleway.ttf %}) format("truetype");
 }
+
+@font-face {
+    font-family: "ProdigySans";
+    font-weight: normal;
+    src: url({{ site.baseurl }}{% link fonts/ProdigySans-Regular.ttf %}) format("truetype");
+}
