@@ -1,5 +1,6 @@
 ---
 excerpt_separator: "<!-- end excerpt -->"
+image: images/logo-wordmark.png
 ---
 
 # A new logo for XMonad
