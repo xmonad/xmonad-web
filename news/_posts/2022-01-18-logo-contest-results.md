@@ -1,7 +1,13 @@
+---
+excerpt_separator: "<!-- end excerpt -->"
+---
+
 # A new logo for XMonad
 
 In case you've missed it: [voting] for the [XMonad logo contest] has
-finished!  We'd like to congratulate Hans Heintze for their winning
+finished!
+<!-- end excerpt -->
+We'd like to congratulate Hans Heintze for their winning
 submission `minimalist`:
 
 ![xmonad-logo]({{ site.baseurl }}{% link images/logo.svg %})
