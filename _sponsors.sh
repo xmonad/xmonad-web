@@ -35,7 +35,7 @@ function gh-org-sponsorships {
 		query Sponsors($endCursor: String, $org: String!) {
 			organization(login: $org) {
 				... on Sponsorable {
-					sponsorshipsAsMaintainer(first: 100, includePrivate: true, after: $endCursor) {
+					sponsorshipsAsMaintainer(first: 100, includePrivate: false, after: $endCursor) {
 						nodes {
 							sponsorEntity {
 								... on User         { login, name, url, websiteUrl }
@@ -44,7 +44,6 @@ function gh-org-sponsorships {
 							tier {
 								closestLesserValueTier { id }
 							}
-							privacyLevel
 						}
 						pageInfo { hasNextPage, endCursor }
 					}
@@ -56,10 +55,6 @@ function gh-org-sponsorships {
 
 function jq-tierids-since {
 	jq --arg since "${1:?since}" -s -r 'until(.[0].description | contains($since); del(.[0])) | .[].id'
-}
-
-function jq-filter-privacylevel {
-	jq --arg level "${1:?level}" 'select(.privacyLevel == $level)'
 }
 
 function jq-filter-tier {
@@ -74,7 +69,6 @@ function named-sponsors {
 	public_sponsorships=$(
 		GITHUB_TOKEN="${ADMIN_GITHUB_TOKEN:?}" \
 		o gh-org-sponsorships "${1:?org}" \
-		| jq-filter-privacylevel PUBLIC \
 		| jq-sort-by sponsorEntity.login \
 		| jq -s ''
 	)
