@@ -1,15 +1,19 @@
+# Prefer Ruby 2.7, github/pages-gem doesn't support 3.0 yet.
+# (see https://github.com/xmonad/xmonad-web/issues/37 for details)
+BUNDLE := $(firstword $(shell command -v bundle2.7 bundle-2.7) bundle)
+
 export BUNDLE_PATH ?= $(CURDIR)/.bundle/gems
 
 .PHONY: build
 build: .bundle/.done
-	bundle exec jekyll build --drafts
+	$(BUNDLE) exec jekyll build --drafts
 
 .PHONY: serve
 serve: .bundle/.done
-	bundle exec jekyll serve --drafts --livereload
+	$(BUNDLE) exec jekyll serve --drafts --livereload
 
 .bundle/.done: Gemfile
-	bundle install
+	$(BUNDLE) install
 	touch $@
 
 .PHONY: clean
