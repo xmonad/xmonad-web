@@ -22,7 +22,7 @@ xmonad is included in many distributions' package repositories. See if yours is 
 * [Arch](https://www.archlinux.org/packages/community/x86_64/xmonad/)
 * [Fedora](https://src.fedoraproject.org/rpms/xmonad)
 * [Gobo](https://github.com/gobolinux/Recipes/tree/master/XMonad)
-* [NixOS](https://search.nixos.org/packages?channel=20.09&from=0&size=30&sort=relevance&query=xmonad)
+* [NixOS](https://search.nixos.org/packages?sort=relevance&query=haskellPackages.xmonad)
 * [Source Mage](http://codex.sourcemage.org/stable/windowmanagers/xmonad/)
 * [Slackware](https://slackbuilds.org/result/?search=xmonad&sv=)
 </div>
