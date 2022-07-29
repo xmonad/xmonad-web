@@ -59,7 +59,7 @@ Here are some tools we've found work well with xmonad:
   * [rofi](https://github.com/davatorium/rofi)
 * status bars:
   * [dzen](https://robm.github.io/dzen/)
-  * [xmobar](https://github.com/jaor/xmobar)
+  * [xmobar](https://codeberg.org/xmobar/xmobar)
   * [taffybar](https://github.com/taffybar/taffybar)
   * [polybar](https://github.com/polybar/polybar)
   * [cnx](https://github.com/mjkillough/cnx)
