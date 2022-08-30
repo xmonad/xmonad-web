@@ -62,7 +62,7 @@ We can try out the other layouts now, with **mod-space**, which cycles through t
 
 [![a new layout](images/tour/mirror.png)](images/tour/large/mirror.png)
 
-The next mode up is the 'wide' mode, a 90-degree rotation of the initial tiling. This is useful for smaller screens. If we hit **mod-space** again, we end up in fullscreen mode, where the currently focused window is maximisd, and the only visible window:
+The next mode up is the 'wide' mode, a 90-degree rotation of the initial tiling. This is useful for smaller screens. If we hit **mod-space** again, we end up in fullscreen mode, where the currently focused window is maximised, and the only visible window:
 
 [![full-screen](images/tour/full.png)](images/tour/large/full.png)
 
