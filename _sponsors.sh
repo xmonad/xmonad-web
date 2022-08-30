@@ -42,6 +42,7 @@ function gh-org-sponsorships {
 								... on Organization { login, name, url, websiteUrl }
 							}
 							tier {
+								id
 								closestLesserValueTier { id }
 							}
 						}
@@ -58,7 +59,7 @@ function jq-tierids-since {
 }
 
 function jq-filter-tier {
-	jq --arg tier "${1:?tier}" 'select(.tier.closestLesserValueTier.id == $tier)'
+	jq --arg tier "${1:?tier}" 'select(.tier.id == $tier or .tier.closestLesserValueTier.id == $tier)'
 }
 
 function jq-sort-by {
