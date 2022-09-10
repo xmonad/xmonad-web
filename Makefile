@@ -1,6 +1,4 @@
-# Prefer Ruby 2.7, github/pages-gem doesn't support 3.0 yet.
-# (see https://github.com/xmonad/xmonad-web/issues/37 for details)
-BUNDLE := $(firstword $(shell command -v bundle2.7 bundle-2.7) bundle)
+BUNDLE ?= bundle
 
 export BUNDLE_PATH ?= $(CURDIR)/.bundle/gems
 
