@@ -29,7 +29,7 @@ jobs:
       LINKCHECKER_FLAGS: ''
     steps:
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
       - name: Install linkchecker
@@ -74,7 +74,7 @@ jobs:
       - id: attempt1
         continue-on-error: true
         name: Run linkcheck
-        uses: filiph/linkcheck@v2.0.15+1
+        uses: filiph/linkcheck@2.0.23
         with:
           arguments: ${{ needs.url.outputs.url }}
 
@@ -85,7 +85,7 @@ jobs:
         if: steps.attempt1.outcome == 'failure'
         continue-on-error: true
         name: Run linkcheck
-        uses: filiph/linkcheck@v2.0.15+1
+        uses: filiph/linkcheck@2.0.23
         with:
           arguments: ${{ needs.url.outputs.url }}
 
@@ -96,7 +96,7 @@ jobs:
         if: steps.attempt2.outcome == 'failure'
         continue-on-error: true
         name: Run linkcheck
-        uses: filiph/linkcheck@v2.0.15+1
+        uses: filiph/linkcheck@2.0.23
         with:
           arguments: ${{ needs.url.outputs.url }}
 
