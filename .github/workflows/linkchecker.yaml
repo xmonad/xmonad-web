@@ -19,7 +19,7 @@ jobs:
         run: |
           set -ex
           url=$(gh api --jq .html_url repos/${{ github.repository }}/pages)
-          echo "::set-output name=url::$url"
+          echo "url=$url" >> $GITHUB_OUTPUT
 
   # internal and external links
   linkchecker:
