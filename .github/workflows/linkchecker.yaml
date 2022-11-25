@@ -103,3 +103,12 @@ jobs:
       - name: Fail
         if: steps.attempt1.outcome == 'failure' && steps.attempt2.outcome == 'failure' && steps.attempt3.outcome == 'failure'
         run: false
+
+  workflow-keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Re-enable workflow
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api -X PUT repos/${{ github.repository }}/actions/workflows/linkchecker.yaml/enable
