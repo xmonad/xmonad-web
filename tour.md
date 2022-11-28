@@ -154,7 +154,7 @@ Let's open xclock here, using dmenu:
 
 [![xclock](images/tour/xclock.png)](images/tour/large/xclock.png)
 
-We can now move firefox from workspace 1 this new workspace 4, by first switching back to workspace 1, **mod-1**, then using **mod-shift-4** on firefox's window, to toss it over to #4\. This removes firefox from workspace 1, passing focus there to the next window in the list, and view workspace 4, after <mod-4>, looks like:
+We can now move firefox from workspace 1 to this new workspace 4, by first switching back to workspace 1, **mod-1**, then using **mod-shift-4** on firefox's window, to toss it over to #4\. This removes firefox from workspace 1, passing focus there to the next window in the list, and view workspace 4, after <mod-4>, looks like:
 
 [![transferring windows from one workspace to another](images/tour/ws4-1.png)](images/tour/large/ws4-1.png)
 
