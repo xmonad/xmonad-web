@@ -230,7 +230,7 @@ arossatoConfig = do
 ### XMonad.Config.Dmwit
 
 <details markdown=1>
-  <summary>xmnad.hs</summary>
+  <summary>xmonad.hs</summary>
 
 {% raw %}
 
