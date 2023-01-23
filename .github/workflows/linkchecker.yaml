@@ -74,7 +74,7 @@ jobs:
       - id: attempt1
         continue-on-error: true
         name: Run linkcheck
-        uses: filiph/linkcheck@2.0.23
+        uses: filiph/linkcheck@3.0.0
         with:
           arguments: ${{ needs.url.outputs.url }}
 
@@ -85,7 +85,7 @@ jobs:
         if: steps.attempt1.outcome == 'failure'
         continue-on-error: true
         name: Run linkcheck
-        uses: filiph/linkcheck@2.0.23
+        uses: filiph/linkcheck@3.0.0
         with:
           arguments: ${{ needs.url.outputs.url }}
 
@@ -96,7 +96,7 @@ jobs:
         if: steps.attempt2.outcome == 'failure'
         continue-on-error: true
         name: Run linkcheck
-        uses: filiph/linkcheck@2.0.23
+        uses: filiph/linkcheck@3.0.0
         with:
           arguments: ${{ needs.url.outputs.url }}
 
