@@ -70,5 +70,5 @@ Here are some tools we've found work well with xmonad:
   [gtk-sni-tray](https://github.com/taffybar/gtk-sni-tray)
 * terminals:
   [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html),
-  [alacritty](https://github.com/alacritty/alacritty),
+  [alacritty](https://github.com/alacritty/alacritty)
 </div>
