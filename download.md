@@ -54,19 +54,21 @@ Follow the [install instructions](INSTALL.md) and
 
 Here are some tools we've found work well with xmonad:
 
+<div class="list-col-2" markdown="1">
 * program launchers:
-  * [dmenu](https://tools.suckless.org/dmenu/)
-  * [rofi](https://github.com/davatorium/rofi)
+  [dmenu](https://tools.suckless.org/dmenu/),
+  [rofi](https://github.com/davatorium/rofi)
 * status bars:
-  * [dzen](https://robm.github.io/dzen/)
-  * [xmobar](https://codeberg.org/xmobar/xmobar)
-  * [taffybar](https://github.com/taffybar/taffybar)
-  * [polybar](https://github.com/polybar/polybar)
-  * [cnx](https://github.com/mjkillough/cnx)
+  [dzen](https://robm.github.io/dzen/),
+  [xmobar](https://codeberg.org/xmobar/xmobar),
+  [taffybar](https://github.com/taffybar/taffybar),
+  [polybar](https://github.com/polybar/polybar),
+  [cnx](https://github.com/mjkillough/cnx)
 * systrays:
-  * [trayer](https://github.com/sargon/trayer-srg)
-  * [stalonetray](https://kolbusa.github.io/stalonetray/)
-  * [gtk-sni-tray](https://github.com/taffybar/gtk-sni-tray)
+  [trayer](https://github.com/sargon/trayer-srg),
+  [stalonetray](https://kolbusa.github.io/stalonetray/),
+  [gtk-sni-tray](https://github.com/taffybar/gtk-sni-tray)
 * terminals:
-  * [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html)
-  * [alacritty](https://github.com/alacritty/alacritty)
+  [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html),
+  [alacritty](https://github.com/alacritty/alacritty),
+</div>

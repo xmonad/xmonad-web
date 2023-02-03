@@ -78,6 +78,7 @@ Thanks:
 
 Maintenance and development of xmonad is being financially supported by:
 
+<div class="list-col-3" markdown="1">
 <ul>
 {% for sponsor in site.data.sponsors-named %}
 <li><a href="{{ sponsor.url }}">{{ sponsor.name | default: sponsor.login | escape }}</a></li>
@@ -88,6 +89,7 @@ Maintenance and development of xmonad is being financially supported by:
 We're grateful for this support, and we humbly ask you to consider [becoming a
 supporter as well](https://github.com/sponsors/xmonad) if you aren't already.
 Thank you!
+</div>
 
 </div>
 </div>

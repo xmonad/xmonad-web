@@ -19,6 +19,7 @@ pre { padding: 0.5rem 0.5rem; background-color: #f8f8f8; border-radius: .5rem; }
 blockquote { background: #f8f8f8; border-left: 0.2rem solid #ccc; padding-left: 0.4rem; }
 
 /* lists columns */
+.list-col-2 > ul { column-count: 2; }
 .list-col-3 > ul { column-count: 3; }
 .list-col-4 > ul { column-count: 4; }
 
