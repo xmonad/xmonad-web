@@ -14,7 +14,7 @@ xmonad is included in many distributions' package repositories. See if yours is 
 
 <div class="list-col-4" markdown="1">
 * [OpenBSD](https://cvsweb.openbsd.org/ports/x11/xmonad/)
-* [NetBSD](https://pkgsrc.se/wm/xmonad)
+* [NetBSD](https://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/wm/xmonad/index.html)
 * [FreeBSD](https://www.freshports.org/x11-wm/hs-xmonad/)
 * [Gentoo](https://packages.gentoo.org/packages/x11-wm/xmonad)
 * [Debian](https://packages.debian.org/xmonad)
