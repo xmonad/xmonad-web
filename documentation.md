@@ -8,9 +8,9 @@
 
 ## The essentials
 
-* [the FAQ](https://wiki.haskell.org/Xmonad/Frequently_asked_questions)
-* [the wiki](https://wiki.haskell.org/Xmonad)
-* the documentation:
+* [install xmonad](INSTALL.md) – how to install xmonad
+* [configuration tutorial](TUTORIAL.md) – guide to configuring xmonad
+* Hackage documentation:
   * [xmonad](https://hackage.haskell.org/package/xmonad) (last release)
   * [xmonad-contrib](https://hackage.haskell.org/package/xmonad-contrib) (last release)
   * [xmonad, xmonad-contrib, X11](https://xmonad.github.io/xmonad-docs/) (nightly snapshot)
@@ -28,6 +28,8 @@
 * [manpage](manpage.html) – a reference of the default keybindings
 * [configuring](https://xmonad.github.io/xmonad-docs/xmonad-contrib/XMonad-Doc-Configuring.html) – how to write a config file
 * [xmonad api docs](https://xmonad.github.io/xmonad-docs/xmonad/) – reference documentation for xmonad's core API
+* [the (old) FAQ](https://wiki.haskell.org/Xmonad/Frequently_asked_questions)
+* [the (old) wiki](https://wiki.haskell.org/Xmonad)
 
 ## Extensions
 
