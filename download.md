@@ -19,7 +19,7 @@ xmonad is included in many distributions' package repositories. See if yours is 
 * [Gentoo](https://packages.gentoo.org/packages/x11-wm/xmonad)
 * [Debian](https://packages.debian.org/xmonad)
 * [Ubuntu](https://packages.ubuntu.com/search?keywords=xmonad)
-* [Arch](https://www.archlinux.org/packages/community/x86_64/xmonad/)
+* [Arch](https://www.archlinux.org/packages/extra/x86_64/xmonad/)
 * [Fedora](https://src.fedoraproject.org/rpms/xmonad)
 * [Gobo](https://github.com/gobolinux/Recipes/tree/master/XMonad)
 * [NixOS](https://search.nixos.org/packages?sort=relevance&query=haskellPackages.xmonad)
