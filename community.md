@@ -54,7 +54,7 @@ Hall of fame (no longer active in the project):
 * [Spencer Janssen](https://github.com/spencerjanssen)
 * [Don Stewart](https://donsbot.wordpress.com/)
 * [Adam Vogt](https://www.eng.uwaterloo.ca/~aavogt/)
-* [David Roundy](https://sites.science.oregonstate.edu/~roundyd/people.html)
+* [David Roundy](https://osuper.science.oregonstate.edu/people/david-roundy)
 * [Daniel Schoepe](https://github.com/dschoepe)
 * [Eric Mertens](https://github.com/glguy)
 * [Nicolas Pouillard](https://nicolaspouillard.fr/)
