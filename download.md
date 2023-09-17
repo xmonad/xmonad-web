@@ -13,7 +13,7 @@ xmonad comes in two parts.
 xmonad is included in many distributions' package repositories. See if yours is one:
 
 <div class="list-col-4" markdown="1">
-* [OpenBSD](https://cvsweb.openbsd.org/ports/x11/xmonad/)
+* [OpenBSD](https://github.com/openbsd/ports/tree/master/x11/xmonad)
 * [NetBSD](https://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/wm/xmonad/index.html)
 * [FreeBSD](https://www.freshports.org/x11-wm/hs-xmonad/)
 * [Gentoo](https://packages.gentoo.org/packages/x11-wm/xmonad)
