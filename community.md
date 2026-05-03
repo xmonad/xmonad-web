@@ -26,7 +26,6 @@
 * [garden our wiki](https://wiki.haskell.org/Xmonad)
 * [garden our wikipedia article](https://en.wikipedia.org/wiki/Xmonad)
 * [write an extension](https://wiki.haskell.org/Xmonad/xmonad_development_tutorial)
-* [buy a t-shirt](https://www.spreadshirt.com/shop/clothing/t-shirts/xmonad/)
 
 </div>
 <div class="col-lg" markdown="1">
@@ -42,7 +41,7 @@ The xmonad developer team:
 * [Daniel Wagner](http://www.dmwit.com/)
 * [Sibi Prabakaran](https://psibi.in/)
 * [Tomáš Janoušek](https://work.lisk.in/)
-* [Tony Zorman](https://github.com/slotThe)
+* [Tony Zorman](https://tony-zorman.com/)
 * [Yecine Megdiche](https://github.com/TheMC47)
 
 </div>
